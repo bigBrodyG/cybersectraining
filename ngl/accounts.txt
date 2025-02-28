@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 name/ciao
-=======
-name/spotteditis
->>>>>>> 1ef1bf97b3f3df7474ef8069406cc7b12b8d0775
