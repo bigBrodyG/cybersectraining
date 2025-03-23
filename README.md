@@ -1,6 +1,6 @@
 ![Static Badge](https://img.shields.io/badge/I%20am-CTF%20player-blue?style=for-the-badge&logo=hackthebox)
 <p align="right">
-![Static Badge](https://img.shields.io/badge/CTF%20I%20played-Olicyber%20%20~%20Cyberchallenge%20%20~%20Pascal%20%20~%20TRX%20%20~%20Codevinci-lightskyblue?style=for-the-badge&logo=awesomelists&labelColor=navy)
+<img src="https://img.shields.io/badge/CTF%20I%20played-Olicyber%20%20~%20Cyberchallenge%20%20~%20Pascal%20%20~%20TRX%20%20~%20Codevinci-lightskyblue?style=for-the-badge&logo=awesomelists&labelColor=navy"
 </p>
 <p align="center">
   <img src="https://olicyber.it/assets/loghi/logo-olicyber.svg" alt="Olicyber Logo" onclick="https://training.olicyber.it/challenges" width="250">
