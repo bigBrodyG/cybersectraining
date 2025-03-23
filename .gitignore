@@ -1,0 +1,5 @@
+geckodriver.log
+.vscode
+.gdb_history
+sw*
+.ngl/*
