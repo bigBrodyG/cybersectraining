@@ -6,9 +6,8 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/bigBrodyG/School_journey?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/bigBrodyG/School_journey?style=social)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/bigBrodyG/School_journey)
-![Made by](https://img.shields.io/badge/Made%20by-bigBrodyG-blue)
-![Powered by](https://img.shields.io/badge/Powered%20by-Linux%20%7C%20Python%20%7C%20Bash-brightgreen)
-![Built with](https://img.shields.io/badge/Built%20with-CTF%20Challenges-orange)
+![Made by](https://img.shields.io/badge/Made%20by-bigBrodyG-green)
+![Powered by](https://img.shields.io/badge/Powered%20by-Arch%20Linux%20%7C%20Python%20%7C%20CTF%20-Addiction-blue)
 
 📌 Questo repository contiene i writeups dei vari **CTF** a cui ho partecipato. Troverai soluzioni dettagliate, codice sorgente e spiegazioni per migliorare le tue competenze nel mondo della sicurezza informatica. 🛡️
 
