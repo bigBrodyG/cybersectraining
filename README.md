@@ -5,7 +5,7 @@
 # Olicyber WriteUps ✒️
 ![GitHub Repo stars](https://img.shields.io/github/stars/bigBrodyG/School_journey?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/bigBrodyG/School_journey?style=social)
-![GitHub commit activity](https://img.shields.io/github/commit-activity-red/w/bigBrodyG/School_journey)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/bigBrodyG/School_journey%20-red)
 ![Made by](https://img.shields.io/badge/Made%20by-bigBrodyG-green)
 ![Powered by](https://img.shields.io/badge/Powered%20by-Arch%20Linux%20%7C%20Python%20%7C%20CTF%20Addiction-blue)
 
