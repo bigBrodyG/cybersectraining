@@ -2,4 +2,6 @@ geckodriver.log
 .vscode
 .gdb_history
 sw*
-.ngl/*
+.*/
+sql_tools
+👾 tools
