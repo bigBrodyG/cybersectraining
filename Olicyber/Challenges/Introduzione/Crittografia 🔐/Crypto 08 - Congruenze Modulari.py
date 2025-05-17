@@ -1,7 +1,7 @@
 from pwn import *
 
 conn = remote("crypto-08.challs.olicyber.it", 30001)
-conn.recvuntil(b"\n")
+conn.recvuntil(b"\n\n")
 f = conn.recvuntil(b"=").decode().replace(" =", "").split(" ")
 t = []
 for i in f:
