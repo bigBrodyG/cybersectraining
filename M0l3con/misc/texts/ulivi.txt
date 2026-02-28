@@ -1,0 +1,667 @@
+Configuration {
+    kind: "configuration",
+    wordlist: "/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt",
+    config: "/home/giordi/.config/feroxbuster/ferox-config.toml",
+    proxy: "",
+    replay_proxy: "",
+    server_certs: [],
+    client_cert: "",
+    client_key: "",
+    target_url: "https://www.liceoulivi.it/",
+    status_codes: [
+        200,
+        204,
+        301,
+        302,
+        403,
+    ],
+    replay_codes: [
+        200,
+        204,
+        301,
+        302,
+        403,
+    ],
+    filter_status: [],
+    client: Client {
+        accepts: Accepts,
+        proxies: [
+            Matcher,
+        ],
+        redirect_policy: "Policy(Custom)",
+        referer: true,
+        default_headers: {
+            "accept": "*/*",
+            "user-agent": "feroxbuster/2.13.0",
+        },
+        reqwest::config::RequestTimeout: 7s,
+    },
+    replay_client: None,
+    threads: 50,
+    timeout: 7,
+    verbosity: 0,
+    silent: false,
+    quiet: false,
+    output_level: Default,
+    auto_bail: false,
+    auto_tune: false,
+    requester_policy: Default,
+    json: false,
+    output: "ulivi.txt",
+    debug_log: "",
+    user_agent: "feroxbuster/2.13.0",
+    random_agent: false,
+    redirects: true,
+    insecure: false,
+    extensions: [],
+    methods: [
+        "GET",
+    ],
+    data: [],
+    headers: {},
+    queries: [],
+    no_recursion: false,
+    extract_links: true,
+    add_slash: false,
+    stdin: false,
+    cached_stdin: [],
+    depth: 4,
+    scan_limit: 0,
+    parallel: 0,
+    rate_limit: 0,
+    filter_size: [],
+    filter_line_count: [],
+    filter_word_count: [],
+    filter_regex: [],
+    dont_filter: false,
+    resumed: false,
+    resume_from: "",
+    save_state: true,
+    time_limit: "",
+    filter_similar: [],
+    url_denylist: [],
+    regex_denylist: [],
+    scope: [
+        Url {
+            scheme: "https",
+            cannot_be_a_base: false,
+            username: "",
+            password: None,
+            host: Some(
+                Domain(
+                    "www.liceoulivi.it",
+                ),
+            ),
+            port: None,
+            path: "/",
+            query: None,
+            fragment: None,
+        },
+    ],
+    collect_extensions: false,
+    dont_collect: [
+        "tif",
+        "tiff",
+        "ico",
+        "cur",
+        "bmp",
+        "webp",
+        "svg",
+        "png",
+        "jpg",
+        "jpeg",
+        "jfif",
+        "gif",
+        "avif",
+        "apng",
+        "pjpeg",
+        "pjp",
+        "mov",
+        "wav",
+        "mpg",
+        "mpeg",
+        "mp3",
+        "mp4",
+        "m4a",
+        "m4p",
+        "m4v",
+        "ogg",
+        "webm",
+        "ogv",
+        "oga",
+        "flac",
+        "aac",
+        "3gp",
+        "css",
+        "zip",
+        "xls",
+        "xml",
+        "gz",
+        "tgz",
+    ],
+    collect_backups: false,
+    backup_extensions: [
+        "~",
+        ".bak",
+        ".bak2",
+        ".old",
+        ".1",
+    ],
+    collect_words: false,
+    force_recursion: false,
+    update_app: false,
+    scan_dir_listings: false,
+    request_file: "",
+    protocol: "https",
+    limit_bars: 0,
+    unique: false,
+    response_size_limit: 4194304,
+}
+301      GET        7l       11w      169c https://www.liceoulivi.it/home/img/cie-graphics-master/PNG/entraconcie.png => https://cdn-image.spaggiari.eu/home/img/cie-graphics-master/PNG/entraconcie.png
+301      GET        7l       11w      169c https://www.liceoulivi.it/home/img/spid_btn/spid-ico-circle-bb.png => https://cdn-image.spaggiari.eu/home/img/spid_btn/spid-ico-circle-bb.png
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/favicon.png => https://cdn-image.spaggiari.eu/pvw2/img/favicon.png
+200      GET        1l       25w     1886c https://www.liceoulivi.it/home/img/cie-graphics-master/SVG/Logo_CIE_ID.svg
+200      GET        4l       72w     3184c https://www.liceoulivi.it/commons/lib/jsx/jQuery/plugins/realperson/jquery.plugin.min.js
+200      GET      252l      532w     6970c https://www.liceoulivi.it/pvw2/lib/js/functions.js
+200      GET      185l      285w     3734c https://www.liceoulivi.it/pvw2/css/xfonts.css
+200      GET     4498l     8082w    89007c https://www.liceoulivi.it/pvw2/css/common.css
+200      GET     8003l    13902w   141018c https://www.liceoulivi.it/pvw2/css/font-awesome.css
+200      GET        1l     5315w    46099c https://www.liceoulivi.it/pvw2/img/sprite.svg
+200      GET        7l     9673w   470159c https://www.liceoulivi.it/pvw2/css/bootstrap-italia.min.css
+200      GET     2015l     4337w    51774c https://www.liceoulivi.it/cookie-policy
+200      GET     1977l     3972w    48789c https://www.liceoulivi.it/panoramica/Didattica
+200      GET     2282l     4589w    57063c https://www.liceoulivi.it/luoghi
+200      GET     1917l     4285w    52997c https://www.liceoulivi.it/privacy
+200      GET     2136l     4319w    53891c https://www.liceoulivi.it/pagine/prove-di-agosto-2021
+200      GET     2188l     4604w    57956c https://www.liceoulivi.it/pagine/erasmus-plus-2021-2027
+200      GET     2013l     4034w    49357c https://www.liceoulivi.it/panoramica/Scuola
+200      GET     1896l     3952w    48320c https://www.liceoulivi.it/disclaimer
+200      GET     2360l     4883w    59843c https://www.liceoulivi.it/carte-della-scuola
+200      GET     1968l     4980w    55736c https://www.liceoulivi.it/whistleblowing
+200      GET     1964l     3931w    48865c https://www.liceoulivi.it/prenotazioni
+200      GET     2177l     4425w    54875c https://www.liceoulivi.it/schede-didattiche
+200      GET     2130l     4484w    55292c https://www.liceoulivi.it/pagine/la-storia-del-liceo-ulivi
+200      GET     1923l     3865w    47681c https://www.liceoulivi.it/panoramica/Novit%C3%A0
+200      GET     2103l     4239w    53146c https://www.liceoulivi.it/pagine/i-numeri-della-scuola
+200      GET        0l        0w        0c https://www.liceoulivi.it/home/app/default/login.php
+200      GET     1329l     2645w    32768c https://www.liceoulivi.it/pagine/offerta-formativa
+200      GET        0l        0w        0c https://www.liceoulivi.it/cerca
+200      GET     1971l     3946w    49284c https://www.liceoulivi.it/feed
+200      GET       17l     2212w    24599c https://www.liceoulivi.it/pvw2/img/logo-eu-white.svg
+200      GET     1931l     4173w    49705c https://www.liceoulivi.it/note-legali
+200      GET     1969l     3976w    49753c https://www.liceoulivi.it/servizi-personale
+200      GET       26l       56w      527c https://www.liceoulivi.it/commons/lib/jsx/jQuery/plugins/realperson/jquery.realperson.css
+200      GET     1995l     4034w    50609c https://www.liceoulivi.it/servizi-famiglie
+200      GET        1l       78w      703c https://www.liceoulivi.it/home/img/spid_btn/spid-ico-circle-bb.svg
+200      GET     2646l     5188w    64737c https://www.liceoulivi.it/pagine/i-progetti-delle-classi
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/logo.png => https://cdn-image.spaggiari.eu/pvw2/img/logo.png
+200      GET      334l      652w     9803c https://www.liceoulivi.it/auth/lib/js/jquery-AuthApi2.js
+200      GET     1941l     3902w    48058c https://www.liceoulivi.it/panoramica/Servizi
+200      GET     2088l     4271w    53102c https://www.liceoulivi.it/pagine/presentazione
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/logo-ministero.png => https://cdn-image.spaggiari.eu/pvw2/img/logo-ministero.png
+200      GET     3447l     6076w    79392c https://www.liceoulivi.it/archivio-news
+200      GET     2194l     4446w    55125c https://www.liceoulivi.it/percorsi-studio
+200      GET     2143l     4286w    53514c https://www.liceoulivi.it/persone
+200      GET      315l      442w    37061c https://www.liceoulivi.it/pvw2/img/logo-repubblica-white.svg
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/widgets/trasparenza.png => https://cdn-image.spaggiari.eu/pvw2/img/widgets/trasparenza.png
+200      GET     2282l     4724w    57940c https://www.liceoulivi.it/organizzazione
+200      GET      297l      581w    10441c https://www.liceoulivi.it/pvw2/lib/js/schoolplanner.js
+200      GET        1l       10w     2235c https://www.liceoulivi.it/pvw2/css/vendor/splide-core.min.css
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/widgets/albo_online.png => https://cdn-image.spaggiari.eu/pvw2/img/widgets/albo_online.png
+200      GET        1l      268w    13800c https://www.liceoulivi.it/pvw2/lib/js/aos.js
+200      GET       89l      141w     1491c https://www.liceoulivi.it/pvw2/css/fullcalendar.css
+200      GET      342l      462w     4582c https://www.liceoulivi.it/pvw2/css/schoolplanner.css
+200      GET      784l     2583w    31235c https://www.liceoulivi.it/pvw2/lib/js/calendarorganizer.js
+200      GET     2090l     4272w    53182c https://www.liceoulivi.it/pagine/al-via-gli-open-day-
+200      GET     2114l     4712w    59190c https://www.liceoulivi.it/pagine/calendario-scolastico-2025-2026
+200      GET     2094l     4735w    57190c https://www.liceoulivi.it/pagine/19-anni
+200      GET     2158l     4384w    55064c https://www.liceoulivi.it/pagine/cambridge-english-preparation-centre
+200      GET      277l      781w     8668c https://www.liceoulivi.it/pvw2/lib/js/jquery.scrollbox.js
+200      GET     2177l     4446w    56195c https://www.liceoulivi.it/pagine/progetto-poc-1016a-fdrpoc-em-2024-96-percorsi-di-orientamento-
+200      GET     2098l     4713w    56656c https://www.liceoulivi.it/pagine/un-pdf-per-ricordare-
+200      GET     2130l     4561w    56114c https://www.liceoulivi.it/pagine/una-novit-per-las-2026-2026
+200      GET     2093l     4813w    56803c https://www.liceoulivi.it/pagine/contro-la-violenza-alle-donne
+200      GET     2081l     4148w    51932c https://www.liceoulivi.it/pagine/virtual-tour
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/spacer2.png => https://cdn-image.spaggiari.eu/pvw2/img/spacer2.png
+200      GET     2269l     7390w    81986c https://www.liceoulivi.it/pagine/lora-di-religione-a-scuola
+200      GET     2095l     4409w    54813c https://www.liceoulivi.it/pagine/ulivi-on-air
+200      GET     2091l     4191w    52513c https://www.liceoulivi.it/pagine/progetto-corda
+200      GET     2116l     4676w    56498c https://www.liceoulivi.it/pagine/progetto-steps
+200      GET     2186l     4753w    58984c https://www.liceoulivi.it/pagine/libri-di-testo-2025-2026
+200      GET     2228l     4697w    59619c https://www.liceoulivi.it/pagine/lettere-al-futuro
+200      GET     2163l     4474w    56031c https://www.liceoulivi.it/pagine/pnrr-
+200      GET     2092l     4340w    54035c https://www.liceoulivi.it/pagine/il-liceo-ulivi-abilitato-ei-center-academy
+200      GET     3228l     7527w    94141c https://www.liceoulivi.it/pagine/bacheca-sindacale
+200      GET        1l      273w    28765c https://www.liceoulivi.it/pvw2/css/aos.css
+200      GET     2096l     4381w    54429c https://www.liceoulivi.it/pagine/premio-innovatori-responsabili---gruppo-change
+200      GET     2135l     4509w    56900c https://www.liceoulivi.it/pagine/sportello-di-ascolto-psicologa
+200      GET        8l      541w    27577c https://www.liceoulivi.it/pvw2/lib/js/vendor/splide.min.js
+200      GET     2098l     4527w    55389c https://www.liceoulivi.it/pagine/curvatura-intelligenza-artificiale
+200      GET      222l      507w     4935c https://www.liceoulivi.it/pvw2/css/spid.css
+200      GET     2158l     4619w    60250c https://www.liceoulivi.it/pagine/10-novembre-1944---10-novembre-2024
+200      GET        0l        0w        0c https://www.liceoulivi.it/amministrazione-trasparente
+200      GET        0l        0w        0c https://www.liceoulivi.it/albo-online
+200      GET      210l     1299w     8754c https://www.liceoulivi.it/pvw2/lib/js/realperson_custom.js
+200      GET     2652l     5501w    77020c https://www.liceoulivi.it/
+200      GET      333l      535w     8355c https://www.liceoulivi.it/pvw2/lib/js/common.js
+200      GET        7l      993w   440255c https://www.liceoulivi.it/pvw2/lib/js/bootstrap-italia.bundle.min.js
+200      GET     2390l     4846w    60675c https://www.liceoulivi.it/comunicati
+200      GET     1898l     3908w    48271c https://www.liceoulivi.it/urp
+Configuration {
+    kind: "configuration",
+    wordlist: "/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt",
+    config: "/home/giordi/.config/feroxbuster/ferox-config.toml",
+    proxy: "",
+    replay_proxy: "",
+    server_certs: [],
+    client_cert: "",
+    client_key: "",
+    target_url: "https://www.liceoulivi.it/",
+    status_codes: [
+        200,
+        204,
+        301,
+        302,
+        403,
+    ],
+    replay_codes: [
+        200,
+        204,
+        301,
+        302,
+        403,
+    ],
+    filter_status: [],
+    client: Client {
+        accepts: Accepts,
+        proxies: [
+            Matcher,
+        ],
+        redirect_policy: "Policy(Custom)",
+        referer: true,
+        default_headers: {
+            "accept": "*/*",
+            "user-agent": "feroxbuster/2.13.0",
+        },
+        reqwest::config::RequestTimeout: 7s,
+    },
+    replay_client: None,
+    threads: 200,
+    timeout: 7,
+    verbosity: 0,
+    silent: false,
+    quiet: false,
+    output_level: Default,
+    auto_bail: false,
+    auto_tune: true,
+    requester_policy: AutoTune,
+    json: false,
+    output: "ulivi.txt",
+    debug_log: "",
+    user_agent: "feroxbuster/2.13.0",
+    random_agent: false,
+    redirects: true,
+    insecure: false,
+    extensions: [],
+    methods: [
+        "GET",
+    ],
+    data: [],
+    headers: {},
+    queries: [],
+    no_recursion: false,
+    extract_links: true,
+    add_slash: false,
+    stdin: false,
+    cached_stdin: [],
+    depth: 4,
+    scan_limit: 0,
+    parallel: 0,
+    rate_limit: 0,
+    filter_size: [],
+    filter_line_count: [],
+    filter_word_count: [],
+    filter_regex: [],
+    dont_filter: false,
+    resumed: false,
+    resume_from: "",
+    save_state: true,
+    time_limit: "",
+    filter_similar: [],
+    url_denylist: [],
+    regex_denylist: [],
+    scope: [
+        Url {
+            scheme: "https",
+            cannot_be_a_base: false,
+            username: "",
+            password: None,
+            host: Some(
+                Domain(
+                    "www.liceoulivi.it",
+                ),
+            ),
+            port: None,
+            path: "/",
+            query: None,
+            fragment: None,
+        },
+    ],
+    collect_extensions: false,
+    dont_collect: [
+        "tif",
+        "tiff",
+        "ico",
+        "cur",
+        "bmp",
+        "webp",
+        "svg",
+        "png",
+        "jpg",
+        "jpeg",
+        "jfif",
+        "gif",
+        "avif",
+        "apng",
+        "pjpeg",
+        "pjp",
+        "mov",
+        "wav",
+        "mpg",
+        "mpeg",
+        "mp3",
+        "mp4",
+        "m4a",
+        "m4p",
+        "m4v",
+        "ogg",
+        "webm",
+        "ogv",
+        "oga",
+        "flac",
+        "aac",
+        "3gp",
+        "css",
+        "zip",
+        "xls",
+        "xml",
+        "gz",
+        "tgz",
+    ],
+    collect_backups: false,
+    backup_extensions: [
+        "~",
+        ".bak",
+        ".bak2",
+        ".old",
+        ".1",
+    ],
+    collect_words: false,
+    force_recursion: false,
+    update_app: false,
+    scan_dir_listings: false,
+    request_file: "",
+    protocol: "https",
+    limit_bars: 0,
+    unique: false,
+    response_size_limit: 4194304,
+}
+301      GET        0l        0w      169c https://www.liceoulivi.it/pvw2/img/logo-ministero.png => https://cdn-image.spaggiari.eu/pvw2/img/logo-ministero.png
+200      GET        0l        0w     8754c https://www.liceoulivi.it/pvw2/lib/js/realperson_custom.js
+200      GET        0l        0w     1886c https://www.liceoulivi.it/home/img/cie-graphics-master/SVG/Logo_CIE_ID.svg
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/offerta-formativa
+200      GET        0l        0w        0c https://www.liceoulivi.it/servizi-famiglie
+200      GET        0l        0w        0c https://www.liceoulivi.it/panoramica/Didattica
+200      GET        0l        0w     6970c https://www.liceoulivi.it/pvw2/lib/js/functions.js
+200      GET        0l        0w    89007c https://www.liceoulivi.it/pvw2/css/common.css
+200      GET        0l        0w     3734c https://www.liceoulivi.it/pvw2/css/xfonts.css
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/erasmus-plus-2021-2027
+200      GET        0l        0w        0c https://www.liceoulivi.it/panoramica/Scuola
+200      GET        0l        0w        0c https://www.liceoulivi.it/organizzazione
+200      GET        0l        0w     4935c https://www.liceoulivi.it/pvw2/css/spid.css
+200      GET        0l        0w        0c https://www.liceoulivi.it/panoramica/Servizi
+200      GET        0l        0w    24599c https://www.liceoulivi.it/pvw2/img/logo-eu-white.svg
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/i-progetti-delle-classi
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/i-numeri-della-scuola
+200      GET        0l        0w     9803c https://www.liceoulivi.it/auth/lib/js/jquery-AuthApi2.js
+200      GET        0l        0w        0c https://www.liceoulivi.it/disclaimer
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/prove-di-agosto-2021
+301      GET        0l        0w      169c https://www.liceoulivi.it/home/img/cie-graphics-master/PNG/entraconcie.png => https://cdn-image.spaggiari.eu/home/img/cie-graphics-master/PNG/entraconcie.png
+200      GET        0l        0w      527c https://www.liceoulivi.it/commons/lib/jsx/jQuery/plugins/realperson/jquery.realperson.css
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/la-storia-del-liceo-ulivi
+200      GET        0l        0w        0c https://www.liceoulivi.it/privacy
+200      GET        0l        0w        0c https://www.liceoulivi.it/prenotazioni
+200      GET        0l        0w     8355c https://www.liceoulivi.it/pvw2/lib/js/common.js
+200      GET     1971l     3946w    49284c https://www.liceoulivi.it/feed
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/spacer2.png => https://cdn-image.spaggiari.eu/pvw2/img/spacer2.png
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/widgets/trasparenza.png => https://cdn-image.spaggiari.eu/pvw2/img/widgets/trasparenza.png
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/widgets/albo_online.png => https://cdn-image.spaggiari.eu/pvw2/img/widgets/albo_online.png
+200      GET      342l      462w     4582c https://www.liceoulivi.it/pvw2/css/schoolplanner.css
+200      GET      784l     2583w    31235c https://www.liceoulivi.it/pvw2/lib/js/calendarorganizer.js
+200      GET        1l      273w    28765c https://www.liceoulivi.it/pvw2/css/aos.css
+200      GET      297l      581w    10441c https://www.liceoulivi.it/pvw2/lib/js/schoolplanner.js
+200      GET       89l      141w     1491c https://www.liceoulivi.it/pvw2/css/fullcalendar.css
+200      GET      277l      781w     8668c https://www.liceoulivi.it/pvw2/lib/js/jquery.scrollbox.js
+200      GET     2158l     4384w    55064c https://www.liceoulivi.it/pagine/cambridge-english-preparation-centre
+200      GET     2228l     4697w    59619c https://www.liceoulivi.it/pagine/lettere-al-futuro
+200      GET     2163l     4474w    56031c https://www.liceoulivi.it/pagine/pnrr-
+200      GET     2093l     4813w    56803c https://www.liceoulivi.it/pagine/contro-la-violenza-alle-donne
+200      GET     2095l     4409w    54813c https://www.liceoulivi.it/pagine/ulivi-on-air
+200      GET     2091l     4191w    52513c https://www.liceoulivi.it/pagine/progetto-corda
+200      GET     2135l     4509w    56900c https://www.liceoulivi.it/pagine/sportello-di-ascolto-psicologa
+200      GET     2098l     4713w    56656c https://www.liceoulivi.it/pagine/un-pdf-per-ricordare-
+200      GET        1l      268w    13800c https://www.liceoulivi.it/pvw2/lib/js/aos.js
+200      GET        1l       10w     2235c https://www.liceoulivi.it/pvw2/css/vendor/splide-core.min.css
+200      GET        8l      541w    27577c https://www.liceoulivi.it/pvw2/lib/js/vendor/splide.min.js
+200      GET     3228l     7527w    94141c https://www.liceoulivi.it/pagine/bacheca-sindacale
+200      GET     2092l     4340w    54035c https://www.liceoulivi.it/pagine/il-liceo-ulivi-abilitato-ei-center-academy
+200      GET     2094l     4735w    57190c https://www.liceoulivi.it/pagine/19-anni
+200      GET     2130l     4561w    56114c https://www.liceoulivi.it/pagine/una-novit-per-las-2026-2026
+200      GET     2116l     4676w    56498c https://www.liceoulivi.it/pagine/progetto-steps
+200      GET     2081l     4148w    51932c https://www.liceoulivi.it/pagine/virtual-tour
+200      GET     2098l     4527w    55389c https://www.liceoulivi.it/pagine/curvatura-intelligenza-artificiale
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/10-novembre-1944---10-novembre-2024
+200      GET     1549l     3273w    40960c https://www.liceoulivi.it/pagine/calendario-scolastico-2025-2026
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/libri-di-testo-2025-2026
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/progetto-poc-1016a-fdrpoc-em-2024-96-percorsi-di-orientamento-
+200      GET        0l        0w        0c https://www.liceoulivi.it/albo-online
+200      GET        0l        0w        0c https://www.liceoulivi.it/amministrazione-trasparente
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/lora-di-religione-a-scuola
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/al-via-gli-open-day-
+200      GET        0l        0w        0c https://www.liceoulivi.it/pagine/premio-innovatori-responsabili---gruppo-change
+200      GET     2652l     5501w    77020c https://www.liceoulivi.it/
+200      GET        0l        0w        0c https://www.liceoulivi.it/tv
+200      GET        0l        0w        0c https://www.liceoulivi.it/0
+200      GET        0l        0w        0c https://www.liceoulivi.it/cerca
+200      GET        0l        0w        0c https://www.liceoulivi.it/eventi
+403      GET        0l        0w        0c https://www.liceoulivi.it/biblioteca
+200      GET     1609l     5968w    54437c https://www.liceoulivi.it/pvw2/lib/js/ajax-bootstrap-select.js
+200      GET        0l        0w     3728c https://www.liceoulivi.it/pvw2/img/icone/pnrr/apps/openschool/openday.svg
+200      GET        0l        0w     2109c https://www.liceoulivi.it/pvw2/img/icone/pnrr/apps/openschool/schoolplanner.svg
+200      GET        0l        0w        0c https://www.liceoulivi.it/prenotazioni/openday
+200      GET        0l        0w        0c https://www.liceoulivi.it/prenotazioni/eventi
+Configuration {
+    kind: "configuration",
+    wordlist: "/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt",
+    config: "/home/giordi/.config/feroxbuster/ferox-config.toml",
+    proxy: "",
+    replay_proxy: "",
+    server_certs: [],
+    client_cert: "",
+    client_key: "",
+    target_url: "https://www.liceoulivi.it/",
+    status_codes: [
+        200,
+        204,
+        301,
+        302,
+        403,
+    ],
+    replay_codes: [
+        200,
+        204,
+        301,
+        302,
+        403,
+    ],
+    filter_status: [],
+    client: Client {
+        accepts: Accepts,
+        proxies: [
+            Matcher,
+        ],
+        redirect_policy: "Policy(Custom)",
+        referer: true,
+        default_headers: {
+            "accept": "*/*",
+            "user-agent": "feroxbuster/2.13.0",
+        },
+        reqwest::config::RequestTimeout: 7s,
+    },
+    replay_client: None,
+    threads: 200,
+    timeout: 7,
+    verbosity: 0,
+    silent: false,
+    quiet: false,
+    output_level: Default,
+    auto_bail: false,
+    auto_tune: true,
+    requester_policy: AutoTune,
+    json: false,
+    output: "ulivi.txt",
+    debug_log: "",
+    user_agent: "feroxbuster/2.13.0",
+    random_agent: false,
+    redirects: true,
+    insecure: false,
+    extensions: [],
+    methods: [
+        "GET",
+    ],
+    data: [],
+    headers: {},
+    queries: [],
+    no_recursion: false,
+    extract_links: true,
+    add_slash: false,
+    stdin: false,
+    cached_stdin: [],
+    depth: 4,
+    scan_limit: 0,
+    parallel: 0,
+    rate_limit: 0,
+    filter_size: [],
+    filter_line_count: [],
+    filter_word_count: [],
+    filter_regex: [],
+    dont_filter: false,
+    resumed: false,
+    resume_from: "",
+    save_state: true,
+    time_limit: "",
+    filter_similar: [],
+    url_denylist: [],
+    regex_denylist: [],
+    scope: [
+        Url {
+            scheme: "https",
+            cannot_be_a_base: false,
+            username: "",
+            password: None,
+            host: Some(
+                Domain(
+                    "www.liceoulivi.it",
+                ),
+            ),
+            port: None,
+            path: "/",
+            query: None,
+            fragment: None,
+        },
+    ],
+    collect_extensions: false,
+    dont_collect: [
+        "tif",
+        "tiff",
+        "ico",
+        "cur",
+        "bmp",
+        "webp",
+        "svg",
+        "png",
+        "jpg",
+        "jpeg",
+        "jfif",
+        "gif",
+        "avif",
+        "apng",
+        "pjpeg",
+        "pjp",
+        "mov",
+        "wav",
+        "mpg",
+        "mpeg",
+        "mp3",
+        "mp4",
+        "m4a",
+        "m4p",
+        "m4v",
+        "ogg",
+        "webm",
+        "ogv",
+        "oga",
+        "flac",
+        "aac",
+        "3gp",
+        "css",
+        "zip",
+        "xls",
+        "xml",
+        "gz",
+        "tgz",
+    ],
+    collect_backups: false,
+    backup_extensions: [
+        "~",
+        ".bak",
+        ".bak2",
+        ".old",
+        ".1",
+    ],
+    collect_words: false,
+    force_recursion: false,
+    update_app: false,
+    scan_dir_listings: false,
+    request_file: "",
+    protocol: "https",
+    limit_bars: 0,
+    unique: false,
+    response_size_limit: 4194304,
+}
+200      GET        0l        0w        0c https://www.liceoulivi.it/feed
+200      GET        0l        0w        0c https://www.liceoulivi.it/
+301      GET        7l       11w      169c https://www.liceoulivi.it/pvw2/img/logo.png => https://cdn-image.spaggiari.eu/pvw2/img/logo.png
+200      GET     2942l     5359w   141018c https://www.liceoulivi.it/pvw2/css/font-awesome.css
+301      GET        0l        0w      169c https://www.liceoulivi.it/home/img/spid_btn/spid-ico-circle-bb.png => https://cdn-image.spaggiari.eu/home/img/spid_btn/spid-ico-circle-bb.png
+200      GET        0l        0w   470159c https://www.liceoulivi.it/pvw2/css/bootstrap-italia.min.css
+301      GET        0l        0w      169c https://www.liceoulivi.it/pvw2/img/logo-ministero.png => https://cdn-image.spaggiari.eu/pvw2/img/logo-ministero.png
+200      GET        0l        0w     3184c https://www.liceoulivi.it/commons/lib/jsx/jQuery/plugins/realperson/jquery.plugin.min.js
+301      GET        0l        0w      169c https://www.liceoulivi.it/pvw2/img/favicon.png => https://cdn-image.spaggiari.eu/pvw2/img/favicon.png
+200      GET        0l        0w    37061c https://www.liceoulivi.it/pvw2/img/logo-repubblica-white.svg
+200      GET        0l        0w     6970c https://www.liceoulivi.it/pvw2/lib/js/functions.js
+200      GET        0l        0w      703c https://www.liceoulivi.it/home/img/spid_btn/spid-ico-circle-bb.svg
+301      GET        0l        0w      169c https://www.liceoulivi.it/home/img/cie-graphics-master/PNG/entraconcie.png => https://cdn-image.spaggiari.eu/home/img/cie-graphics-master/PNG/entraconcie.png
+200      GET        0l        0w    46099c https://www.liceoulivi.it/pvw2/img/sprite.svg
+200      GET        0l        0w     9803c https://www.liceoulivi.it/auth/lib/js/jquery-AuthApi2.js
+200      GET        0l        0w      527c https://www.liceoulivi.it/commons/lib/jsx/jQuery/plugins/realperson/jquery.realperson.css
+200      GET        0l        0w     8754c https://www.liceoulivi.it/pvw2/lib/js/realperson_custom.js
+200      GET        0l        0w     1886c https://www.liceoulivi.it/home/img/cie-graphics-master/SVG/Logo_CIE_ID.svg
+200      GET     1917l     4285w    52997c https://www.liceoulivi.it/privacy
+200      GET        0l        0w        0c https://www.liceoulivi.it/tv
+200      GET     1896l     3952w    48320c https://www.liceoulivi.it/disclaimer
+200      GET        0l        0w        0c https://www.liceoulivi.it/0
+200      GET        0l        0w        0c https://www.liceoulivi.it/cerca
+200      GET        0l        0w        0c https://www.liceoulivi.it/eventi
+403      GET        0l        0w        0c https://www.liceoulivi.it/biblioteca
+200      GET     1609l     5968w    54437c https://www.liceoulivi.it/pvw2/lib/js/ajax-bootstrap-select.js

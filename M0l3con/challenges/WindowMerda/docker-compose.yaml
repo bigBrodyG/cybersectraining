@@ -1,0 +1,39 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows10
+    environment:
+      VERSION: "10"
+      RAM_SIZE: "8G"
+      USERNAME: "WinCrack"
+      PASSWORD: "linux"
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    volumes:
+      - ./windows:/storage
+      - ./data:/data
+    restart: always
+    stop_grace_period: 2m
+    networks:
+      - tunnel-network
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared-tunnel
+    restart: always
+    command: tunnel --no-autoupdate run --token eyJhIjoiMjIzMTAyOTkyMzNkOGI4OGE1ZGVkYzk2ZTA3NDAzZjMiLCJ0IjoiYWU3ZDZhM2UtM2I5ZS00NmYxLWI0MzItYTVkMzYzZmYyZjFhIiwicyI6Ill6TmpaVGRrTWpVdFpqTmtZaTAwTXpaakxUazBOVGN0WXpjeE9XUmtPVEkwWWpVMyJ9
+    networks:
+      - tunnel-network
+    depends_on:
+      - windows
+
+networks:
+  tunnel-network:
+    driver: bridge

@@ -1,0 +1,5 @@
+# Ida pro exclusions
+.id*
+.nam
+.til
+.gdb*

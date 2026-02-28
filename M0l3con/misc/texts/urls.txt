@@ -1,0 +1,276 @@
+Configuration {
+    kind: "configuration",
+    wordlist: "/usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt",
+    config: "/home/giordi/.config/feroxbuster/ferox-config.toml",
+    proxy: "",
+    replay_proxy: "",
+    server_certs: [],
+    client_cert: "",
+    client_key: "",
+    target_url: "https://cdn-image.spaggiari.eu/",
+    status_codes: [
+        200,
+        204,
+        301,
+        302,
+        403,
+    ],
+    replay_codes: [
+        200,
+        204,
+        301,
+        302,
+        403,
+    ],
+    filter_status: [],
+    client: Client {
+        accepts: Accepts,
+        proxies: [
+            Matcher,
+        ],
+        redirect_policy: "Policy(Custom)",
+        referer: true,
+        default_headers: {
+            "accept": "*/*",
+            "user-agent": "feroxbuster/2.13.0",
+        },
+        reqwest::config::RequestTimeout: 7s,
+    },
+    replay_client: None,
+    threads: 50,
+    timeout: 7,
+    verbosity: 0,
+    silent: false,
+    quiet: false,
+    output_level: Default,
+    auto_bail: false,
+    auto_tune: false,
+    requester_policy: Default,
+    json: false,
+    output: "urls.txt",
+    debug_log: "",
+    user_agent: "feroxbuster/2.13.0",
+    random_agent: false,
+    redirects: true,
+    insecure: false,
+    extensions: [],
+    methods: [
+        "GET",
+    ],
+    data: [],
+    headers: {},
+    queries: [],
+    no_recursion: false,
+    extract_links: true,
+    add_slash: false,
+    stdin: false,
+    cached_stdin: [],
+    depth: 4,
+    scan_limit: 0,
+    parallel: 0,
+    rate_limit: 0,
+    filter_size: [],
+    filter_line_count: [],
+    filter_word_count: [],
+    filter_regex: [],
+    dont_filter: false,
+    resumed: false,
+    resume_from: "",
+    save_state: true,
+    time_limit: "",
+    filter_similar: [],
+    url_denylist: [],
+    regex_denylist: [],
+    scope: [
+        Url {
+            scheme: "https",
+            cannot_be_a_base: false,
+            username: "",
+            password: None,
+            host: Some(
+                Domain(
+                    "cdn-image.spaggiari.eu",
+                ),
+            ),
+            port: None,
+            path: "/",
+            query: None,
+            fragment: None,
+        },
+    ],
+    collect_extensions: false,
+    dont_collect: [
+        "tif",
+        "tiff",
+        "ico",
+        "cur",
+        "bmp",
+        "webp",
+        "svg",
+        "png",
+        "jpg",
+        "jpeg",
+        "jfif",
+        "gif",
+        "avif",
+        "apng",
+        "pjpeg",
+        "pjp",
+        "mov",
+        "wav",
+        "mpg",
+        "mpeg",
+        "mp3",
+        "mp4",
+        "m4a",
+        "m4p",
+        "m4v",
+        "ogg",
+        "webm",
+        "ogv",
+        "oga",
+        "flac",
+        "aac",
+        "3gp",
+        "css",
+        "zip",
+        "xls",
+        "xml",
+        "gz",
+        "tgz",
+    ],
+    collect_backups: false,
+    backup_extensions: [
+        "~",
+        ".bak",
+        ".bak2",
+        ".old",
+        ".1",
+    ],
+    collect_words: false,
+    force_recursion: false,
+    update_app: false,
+    scan_dir_listings: false,
+    request_file: "",
+    protocol: "https",
+    limit_bars: 0,
+    unique: false,
+    response_size_limit: 4194304,
+}
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/img => http://pvb.spaggiari.eu/img/
+301      GET        7l       20w      237c https://cdn-image.spaggiari.eu/shop => http://pvb.spaggiari.eu/shop/
+301      GET        7l       20w      238c https://cdn-image.spaggiari.eu/tools => http://pvb.spaggiari.eu/tools/
+301      GET        7l       11w      169c https://cdn-image.spaggiari.eu/home/app/default/login.php?custcode= => https://web.spaggiari.eu/home/app/default/login.php?custcode=
+301      GET        7l       20w      237c https://cdn-image.spaggiari.eu/home => http://pvb.spaggiari.eu/home/
+301      GET        7l       20w      239c https://cdn-image.spaggiari.eu/system => http://pvb.spaggiari.eu/system/
+301      GET        7l       20w      239c https://cdn-image.spaggiari.eu/public => http://pvb.spaggiari.eu/public/
+301      GET        7l       20w      237c https://cdn-image.spaggiari.eu/auth => http://pvb.spaggiari.eu/auth/
+301      GET        7l       20w      238c https://cdn-image.spaggiari.eu/fonts => http://pvb.spaggiari.eu/fonts/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/www => http://pvb.spaggiari.eu/www/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/res => http://pvb.spaggiari.eu/res/
+301      GET        7l       20w      240c https://cdn-image.spaggiari.eu/configs => http://pvb.spaggiari.eu/configs/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/acc => http://pvb.spaggiari.eu/acc/
+301      GET        7l       20w      237c https://cdn-image.spaggiari.eu/rest => http://pvb.spaggiari.eu/rest/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/set => http://pvb.spaggiari.eu/set/
+301      GET        7l       20w      239c https://cdn-image.spaggiari.eu/admins => http://pvb.spaggiari.eu/admins/
+301      GET        7l       20w      237c https://cdn-image.spaggiari.eu/bots => http://pvb.spaggiari.eu/bots/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/sso => http://pvb.spaggiari.eu/sso/
+301      GET        7l       20w      240c https://cdn-image.spaggiari.eu/commons => http://pvb.spaggiari.eu/commons/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/cmp => http://pvb.spaggiari.eu/cmp/
+301      GET        7l       11w      169c https://cdn-image.spaggiari.eu/tim => http://pvb.spaggiari.eu/tim/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/col => http://pvb.spaggiari.eu/col/
+301      GET        7l       20w      235c https://cdn-image.spaggiari.eu/LP => http://pvb.spaggiari.eu/LP/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/pol => http://pvb.spaggiari.eu/pol/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/oas => http://pvb.spaggiari.eu/oas/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/sps => http://pvb.spaggiari.eu/sps/
+301      GET        7l       11w      169c https://cdn-image.spaggiari.eu/frs => http://pvb.spaggiari.eu/frs/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/scp => http://pvb.spaggiari.eu/scp/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/sol => http://pvb.spaggiari.eu/sol/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/stp => http://pvb.spaggiari.eu/stp/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/ccf => http://pvb.spaggiari.eu/ccf/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/atv => http://pvb.spaggiari.eu/atv/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/bbt => http://pvb.spaggiari.eu/bbt/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/ebs => http://pvb.spaggiari.eu/ebs/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/lol => http://pvb.spaggiari.eu/lol/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/mld => http://pvb.spaggiari.eu/mld/
+301      GET        7l       11w      169c https://cdn-image.spaggiari.eu/opd => http://pvb.spaggiari.eu/opd/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/bbl => http://pvb.spaggiari.eu/bbl/
+301      GET        7l       20w      236c https://cdn-image.spaggiari.eu/pdp => http://pvb.spaggiari.eu/pdp/
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1220
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1209
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1236
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1227
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1223
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1232
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1235
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1255
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1240
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1248
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1239
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1253
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/12515
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1269
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1249
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1260
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1268
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1274
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1262
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1296
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1265
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1266
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1256
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1275
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1264
+403      GET        0l        0w        0c https://cdn-image.spaggiari.eu/1279
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1219
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1733
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1559
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1511
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1732
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1558
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1533
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1699
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1495
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1583
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1716
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1509
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1552
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1612
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1560
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1561
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1512
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1571
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1492
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1494
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1490
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1491
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1540
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1675
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1467
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1469
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1496
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1551
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1549
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1515
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1514
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1573
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1758
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1730
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1656
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1592
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1577
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1565
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1529
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1616
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1714
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1667
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1568
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1562
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1634
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1625
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1555
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1486
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1502
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1605
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1556
+403      GET       90l      349w     4548c https://cdn-image.spaggiari.eu/1478

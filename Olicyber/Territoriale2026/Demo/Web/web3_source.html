@@ -1,0 +1,144 @@
+<pre><code style="color: #000000"><span style="color: #0000BB">&lt;?php
+
+</span><span style="color: #007700">if (isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'source'</span><span style="color: #007700">])) {
+    die(</span><span style="color: #0000BB">highlight_file</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">));
+}
+
+</span><span style="color: #0000BB">session_start</span><span style="color: #007700">();
+
+if (!isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'csrf'</span><span style="color: #007700">]))
+    </span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'csrf'</span><span style="color: #007700">] = </span><span style="color: #0000BB">base64_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">openssl_random_pseudo_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">12</span><span style="color: #007700">));
+
+if (isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'card_id'</span><span style="color: #007700">]) &amp;&amp; isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'csrf'</span><span style="color: #007700">])) {
+    if (</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'csrf'</span><span style="color: #007700">] !== </span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'csrf'</span><span style="color: #007700">]) {
+        die(</span><span style="color: #DD0000">'Wrong CSRF!'</span><span style="color: #007700">);
+    }
+    require_once(</span><span style="color: #DD0000">'config.php'</span><span style="color: #007700">);
+
+    </span><span style="color: #0000BB">$card_id </span><span style="color: #007700">= </span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'card_id'</span><span style="color: #007700">];
+    </span><span style="color: #0000BB">$query1 </span><span style="color: #007700">= </span><span style="color: #DD0000">"SELECT user_id FROM cards WHERE card_id = '</span><span style="color: #0000BB">$card_id</span><span style="color: #DD0000">'"</span><span style="color: #007700">;
+
+    </span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query1</span><span style="color: #007700">);
+
+    if (</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$user</span><span style="color: #007700">) == </span><span style="color: #0000BB">0</span><span style="color: #007700">) {
+        die(</span><span style="color: #DD0000">'Invalid card!'</span><span style="color: #007700">);
+    }
+
+    </span><span style="color: #0000BB">$user </span><span style="color: #007700">= </span><span style="color: #0000BB">$user</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">][</span><span style="color: #DD0000">'user_id'</span><span style="color: #007700">];
+
+    </span><span style="color: #0000BB">$query </span><span style="color: #007700">= </span><span style="color: #DD0000">"SELECT * FROM users WHERE id = '</span><span style="color: #0000BB">$user</span><span style="color: #DD0000">'"</span><span style="color: #007700">;
+    </span><span style="color: #0000BB">$res </span><span style="color: #007700">= </span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">)[</span><span style="color: #0000BB">0</span><span style="color: #007700">];
+
+    if (</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">)) {
+
+        </span><span style="color: #0000BB">$username_esc   </span><span style="color: #007700">= </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">], </span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">, </span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$signup_esc     </span><span style="color: #007700">= </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">[</span><span style="color: #DD0000">'sub'</span><span style="color: #007700">], </span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">, </span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">);
+        </span><span style="color: #0000BB">$expiry_esc     </span><span style="color: #007700">= </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">[</span><span style="color: #DD0000">'exp'</span><span style="color: #007700">], </span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">, </span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">);
+
+        </span><span style="color: #FF8000">// Frammento HTML che il JS inserirà nel div#user-info
+</span><span style="color: #0000BB">?&gt;
+</span>        &lt;div class="card-result"&gt;
+            &lt;p&gt;&lt;strong&gt;Username:&lt;/strong&gt; <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$username_esc</span><span style="color: #007700">; </span><span style="color: #0000BB">?&gt;</span>&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Data iscrizione:&lt;/strong&gt; <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$signup_esc</span><span style="color: #007700">; </span><span style="color: #0000BB">?&gt;</span>&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Scadenza:&lt;/strong&gt; <span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">$expiry_esc</span><span style="color: #007700">; </span><span style="color: #0000BB">?&gt;</span>&lt;/p&gt;
+        &lt;/div&gt;
+    <span style="color: #0000BB">&lt;?php
+    </span><span style="color: #007700">} else {
+        </span><span style="color: #0000BB">http_response_code</span><span style="color: #007700">(</span><span style="color: #0000BB">404</span><span style="color: #007700">);
+    </span><span style="color: #0000BB">?&gt;
+</span>        &lt;div class="card-result error"&gt;
+            &lt;p&gt;Badge non trovato o non valido.&lt;/p&gt;
+        &lt;/div&gt;
+<span style="color: #0000BB">&lt;?php
+    </span><span style="color: #007700">}
+    exit;
+}
+
+</span><span style="color: #0000BB">?&gt;
+</span>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="it"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;QR Scanner&lt;/title&gt;
+    &lt;script src="https://unpkg.com/html5-qrcode" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;style&gt;
+        #reader {
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        #user-info {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .card-result.error {
+            color: red;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Verifica Card&lt;/h1&gt;
+
+    &lt;div id="reader"&gt;&lt;/div&gt;
+    &lt;div id="user-info"&gt;
+        &lt;p&gt;Inquadra il QR code per vedere i dettagli dell'utente. O clicca &lt;a href='?source'&gt;qui&lt;/a&gt; per capire come funziono.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;input type="hidden" id="csrf_token" name="csrf_token"
+        value="<span style="color: #0000BB">&lt;?php </span><span style="color: #007700">echo </span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'csrf'</span><span style="color: #007700">] ?? </span><span style="color: #DD0000">''</span><span style="color: #007700">, </span><span style="color: #0000BB">ENT_QUOTES</span><span style="color: #007700">, </span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">); </span><span style="color: #0000BB">?&gt;</span>"&gt;
+
+    &lt;script&gt;
+        const userInfoDiv = document.getElementById('user-info');
+
+        function getCsrfToken() {
+            const el = document.getElementById('csrf_token');
+            return el ? el.value : '';
+        }
+
+        function onScanSuccess(decodedText, decodedResult) {
+            console.log("QR letto:", decodedText);
+
+            const formData = new URLSearchParams();
+            formData.append('card_id', decodedText);
+            formData.append('csrf', getCsrfToken());
+
+            fetch(window.location.href, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: formData.toString()
+                })
+                .then(res =&gt; {
+                    if (!res.ok) throw new Error('Errore nella richiesta');
+                    return res.text();
+                })
+                .then(html =&gt; {
+                    userInfoDiv.innerHTML = html;
+                })
+                .catch(err =&gt; {
+                    console.error('Errore:', err);
+                    userInfoDiv.innerHTML = '&lt;p style="color:red"&gt;Errore durante la verifica della card.&lt;/p&gt;';
+                });
+
+            html5QrcodeScanner.clear();
+        }
+        const html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader", {
+                fps: 10,
+                qrbox: 250
+            }
+        );
+        html5QrcodeScanner.render(onScanSuccess);
+    &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
