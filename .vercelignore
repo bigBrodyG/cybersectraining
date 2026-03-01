@@ -5,5 +5,3 @@ M0l3con/datasets/
 *.pyc
 .venv
 node_modules
-.git
-.github
