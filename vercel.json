@@ -1,5 +1,5 @@
 {
-  "buildCommand": "git submodule update --init --recursive && cd site && hugo --minify",
+  "buildCommand": "git submodule update --init -- site/themes/PaperMod && cd site && hugo --minify",
   "outputDirectory": "site/public",
   "env": {
     "HUGO_VERSION": "0.157.0"
