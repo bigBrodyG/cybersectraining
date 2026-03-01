@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Shellcode on giordii</title>
+    <link>http://localhost:1313/tags/shellcode/</link>
+    <description>Recent content in Shellcode on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/shellcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell Four ORW — Open-Read-Write Shellcode with Seccomp</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/</guid>
+      <description>Write open-read-write shellcode to exfiltrate /flag.txt when execve is blocked by a seccomp filter.</description>
+    </item>
+    <item>
+      <title>Shell One — Minimal Shellcode to Set EAX</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/software-security/shellone/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/software-security/shellone/</guid>
+      <description>Write minimal x86 shellcode that sets EAX to 0x13371338 to satisfy the binary&amp;rsquo;s check and unlock execution flow.</description>
+    </item>
+    <item>
+      <title>Generatore Poco Casuale — Shellcode Injection via Leaked Stack Address</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</guid>
+      <description>The binary leaks a runtime stack address disguised as a &amp;lsquo;random number&amp;rsquo;. Add 6 to land inside the shellcode region, then spray that address 800 times to cover the return target and get a shell.</description>
+    </item>
+    <item>
+      <title>readdle — Two-Stage Shellcode via Stub Read Gadget</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/readdle/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/readdle/</guid>
+      <description>Inject a 4-byte stub shellcode that calls read to pull a full shell payload into the same buffer, then jump to it — bypassing the initial 4-byte size constraint on the first write.</description>
+    </item>
+    <item>
+      <title>Secret Vault — Heap Address Leak &#43; Shellcode via Stack Overflow</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/secret-vault/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/secret-vault/</guid>
+      <description>Trigger a heap allocation that the binary prints, compute the shellcode landing address at heap+96, then overflow the stack with that return address followed by shellcode to get a shell.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Zip on giordii</title>
+    <link>http://localhost:1313/tags/zip/</link>
+    <description>Recent content in Zip on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/zip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unzip Matryoshka — 3000 Nested Zip Files</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</guid>
+      <description>Automate extraction of 3000 nested zip files to retrieve the flag from the innermost archive.</description>
+    </item>
+  </channel>
+</rss>

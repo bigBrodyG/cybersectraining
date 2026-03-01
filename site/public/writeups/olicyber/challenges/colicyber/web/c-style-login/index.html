@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>C-Style Login — PHP Type Juggling Array Bypass | giordii</title>
+<meta name="keywords" content="web, php, type-juggling, python">
+<meta name="description" content="PHP&rsquo;s loose comparison treats an array as truthy against any string. Sending password[] as an array in the POST body bypasses the string comparison and grants access.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="C-Style Login — PHP Type Juggling Array Bypass">
+  <meta property="og:description" content="PHP’s loose comparison treats an array as truthy against any string. Sending password[] as an array in the POST body bypasses the string comparison and grants access.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Php">
+    <meta property="article:tag" content="Type-Juggling">
+    <meta property="article:tag" content="Python">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C-Style Login — PHP Type Juggling Array Bypass">
+<meta name="twitter:description" content="PHP&rsquo;s loose comparison treats an array as truthy against any string. Sending password[] as an array in the POST body bypasses the string comparison and grants access.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Olicyber",
+      "item": "http://localhost:1313/writeups/olicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Practice Platform",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "COlicyber",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Web",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/web/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  6 ,
+      "name": "C-Style Login — PHP Type Juggling Array Bypass",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "C-Style Login — PHP Type Juggling Array Bypass",
+  "name": "C-Style Login — PHP Type Juggling Array Bypass",
+  "description": "PHP\u0026rsquo;s loose comparison treats an array as truthy against any string. Sending password[] as an array in the POST body bypasses the string comparison and grants access.",
+  "keywords": [
+    "web", "php", "type-juggling", "python"
+  ],
+  "articleBody": "The Challenge A PHP login page. The backend compares the submitted password with a stored hash or string using a loose == comparison.\nApproach In PHP, if one side of == is an array and the other is a string, the comparison returns true — the array is coerced in a way that makes the check pass. Sending password[] instead of password in the POST body causes PHP to parse the value as an array, and the comparison returns true regardless of value.\nSolution 1 2 3 4 5 6 7 import requests site = \"http://clogin.challs.olicyber.it/\" r = requests.post(site, data={\"password[]\":\"sas\"}) for i in r.text.split(\"\\n\"): if \"flag\" in i: print(i.replace(\" \",\"\").replace(\"\",\"\"), end=\"\") break password[] in the POST body is the HTTP idiom for PHP array parameters. PHP’s == between an array and a string evaluates to true, bypassing the password check. The flag appears in a tag in the response.\nWhat I Learned PHP’s loose type comparison rules (== vs ===) are a common vulnerability class. Sending param[] in a form makes PHP receive an array at $_POST['param']. Any code using == $expected_string instead of === $expected_string or password_verify is vulnerable to this one-character POST body modification.\n",
+  "wordCount" : "197",
+  "inLanguage": "en",
+  "datePublished": "2024-01-01T00:00:00Z",
+  "dateModified": "2024-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/">Web</a></div>
+    <h1 class="post-title entry-hint-parent">
+      C-Style Login — PHP Type Juggling Array Bypass
+    </h1>
+    <div class="post-meta"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>A PHP login page. The backend compares the submitted password with a stored hash or string using a loose <code>==</code> comparison.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>In PHP, if one side of <code>==</code> is an array and the other is a string, the comparison returns <code>true</code> — the array is coerced in a way that makes the check pass. Sending <code>password[]</code> instead of <code>password</code> in the POST body causes PHP to parse the value as an array, and the comparison returns true regardless of value.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="n">site</span> <span class="o">=</span> <span class="s2">&#34;http://clogin.challs.olicyber.it/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;password[]&#34;</span><span class="p">:</span><span class="s2">&#34;sas&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s2">&#34;flag&#34;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;&lt;/div&gt;&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>password[]</code> in the POST body is the HTTP idiom for PHP array parameters. PHP&rsquo;s <code>==</code> between an array and a string evaluates to <code>true</code>, bypassing the password check. The flag appears in a <code>&lt;div&gt;</code> tag in the response.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p>PHP&rsquo;s loose type comparison rules (<code>==</code> vs <code>===</code>) are a common vulnerability class. Sending <code>param[]</code> in a form makes PHP receive an array at <code>$_POST['param']</code>. Any code using <code>== $expected_string</code> instead of <code>=== $expected_string</code> or <code>password_verify</code> is vulnerable to this one-character POST body modification.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/web/">Web</a></li>
+      <li><a href="http://localhost:1313/tags/php/">Php</a></li>
+      <li><a href="http://localhost:1313/tags/type-juggling/">Type-Juggling</a></li>
+      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Byte Flag — Flag Hidden in Raw PNG Bytes</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Chaos — TCP Payload Reconstruction from PCAP</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers | giordii</title>
+<meta name="keywords" content="net, forensics, xor, pcap, crypto">
+<meta name="description" content="Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers">
+  <meta property="og:description" content="Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Net">
+    <meta property="article:tag" content="Forensics">
+    <meta property="article:tag" content="Xor">
+    <meta property="article:tag" content="Pcap">
+    <meta property="article:tag" content="Crypto">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers">
+<meta name="twitter:description" content="Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Olicyber",
+      "item": "http://localhost:1313/writeups/olicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Practice Platform",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "COlicyber",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Net",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  6 ,
+      "name": "SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers",
+  "name": "SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers",
+  "description": "Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.",
+  "keywords": [
+    "net", "forensics", "xor", "pcap", "crypto"
+  ],
+  "articleBody": "The Challenge A PCAP file contains an encrypted transmission. The captures also leaks two fixed-format header values (k and l) whose relationship reveals the encryption key. The flag is a long hex blob (f) somewhere in the traffic, also XOR-encrypted with the same key.\nApproach XOR encryption with a repeating key has a known-plaintext attack: if you know any two values that were XOR’d together (a XOR b = c), then knowing a gives you b = a XOR c. Here k and l are two known-format fields from the packet capture. XORing them gives the repeating key r = k XOR l. The flag f then decrypts as f XOR (r * len(f)//len(r)) — tiling the 8-byte key across the full ciphertext length.\nf.split(b'\\n\\n')[1] extracts the flag from the decrypted payload — the actual data lives after a double newline separator.\nSolution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 #!/usr/bin/env python3 def xor(a, b): assert type(a) == bytes assert type(a) == type(b) return bytes([x^y for x,y in zip(a,b)]) ''' FILE DI PCAP ''' k = bytes.fromhex(\"704e34bbff99f3fe\") l = bytes.fromhex(\"6c00fad8ae0d6015\") f = bytes.fromhex(\"502fee1138e7e3846f3aaf4334b3b38a7a28ab113cf5e7826a2fe24330f3f685682bee5329a0a1c73c27a24322e1fccb6c27af0d3eb4e08e712cbc0271e4f6997a2bba173eb8b3877d6eaf1625fbe1826634a7023cfbb38a3c3ebc0c32f1f78e6e2be0695bf2ff8a7b35a6530ef8a7b46e7ffb1361a1a4df3011a3570ee5e6df7011fd3c3da0cc8f2c23fa0d35a0ac9616440a\") r = xor(l, k) flag = xor(f, r * (len(f)//len(r))) print(flag.split(b'\\n\\n')[1].decode()) r = xor(l, k) recovers the 8-byte repeating key. r * (len(f)//len(r)) tiles it to match the length of f (integer multiplication on bytes repeats the sequence). The final XOR decrypts entirely in one line. The split(b'\\n\\n')[1] strips the packet header and leaves the flag.\nWhat I Learned XOR with a repeating key is trivially broken with two known-plaintext samples of the same length as the key. Real stream cipher security requires at least ensuring the keystream never repeats. Any protocol that puts fixed-format headers in the ciphertext has handed the attacker a crib from which the full key can be derived.\n",
+  "wordCount" : "304",
+  "inLanguage": "en",
+  "datePublished": "2024-01-01T00:00:00Z",
+  "dateModified": "2024-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/">Net</a></div>
+    <h1 class="post-title entry-hint-parent">
+      SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers
+    </h1>
+    <div class="post-meta"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>A PCAP file contains an encrypted transmission. The captures also leaks two fixed-format header values (<code>k</code> and <code>l</code>) whose relationship reveals the encryption key. The flag is a long hex blob (<code>f</code>) somewhere in the traffic, also XOR-encrypted with the same key.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>XOR encryption with a repeating key has a known-plaintext attack: if you know any two values that were XOR&rsquo;d together (<code>a XOR b = c</code>), then knowing <code>a</code> gives you <code>b = a XOR c</code>. Here <code>k</code> and <code>l</code> are two known-format fields from the packet capture. XORing them gives the repeating key <code>r = k XOR l</code>. The flag <code>f</code> then decrypts as <code>f XOR (r * len(f)//len(r))</code> — tiling the 8-byte key across the full ciphertext length.</p>
+<p><code>f.split(b'\n\n')[1]</code> extracts the flag from the decrypted payload — the actual data lives after a double newline separator.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">xor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bytes</span>
+</span></span><span class="line"><span class="cl">    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">x</span><span class="o">^</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39; FILE DI PCAP &#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">k</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s2">&#34;704e34bbff99f3fe&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">l</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s2">&#34;6c00fad8ae0d6015&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s2">&#34;502fee1138e7e3846f3aaf4334b3b38a7a28ab113cf5e7826a2fe24330f3f685682bee5329a0a1c73c27a24322e1fccb6c27af0d3eb4e08e712cbc0271e4f6997a2bba173eb8b3877d6eaf1625fbe1826634a7023cfbb38a3c3ebc0c32f1f78e6e2be0695bf2ff8a7b35a6530ef8a7b46e7ffb1361a1a4df3011a3570ee5e6df7011fd3c3da0cc8f2c23fa0d35a0ac9616440a&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">xor</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">flag</span> <span class="o">=</span> <span class="n">xor</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">//</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">flag</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>r = xor(l, k)</code> recovers the 8-byte repeating key. <code>r * (len(f)//len(r))</code> tiles it to match the length of <code>f</code> (integer multiplication on bytes repeats the sequence). The final XOR decrypts entirely in one line. The <code>split(b'\n\n')[1]</code> strips the packet header and leaves the flag.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p>XOR with a repeating key is trivially broken with two known-plaintext samples of the same length as the key. Real stream cipher security requires at least ensuring the keystream never repeats. Any protocol that puts fixed-format headers in the ciphertext has handed the attacker a crib from which the full key can be derived.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/net/">Net</a></li>
+      <li><a href="http://localhost:1313/tags/forensics/">Forensics</a></li>
+      <li><a href="http://localhost:1313/tags/xor/">Xor</a></li>
+      <li><a href="http://localhost:1313/tags/pcap/">Pcap</a></li>
+      <li><a href="http://localhost:1313/tags/crypto/">Crypto</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Sniff N Byte — Decode Hardcoded Hex Flag</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Suoni Misteriosi — Morse Audio Decoder</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

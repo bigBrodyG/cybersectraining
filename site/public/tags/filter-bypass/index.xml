@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Filter-Bypass on giordii</title>
+    <link>http://localhost:1313/tags/filter-bypass/</link>
+    <description>Recent content in Filter-Bypass on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/filter-bypass/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bash Filter Bypass via Unicode Lookalikes</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2025/bash-filter-bypass/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2025/bash-filter-bypass/</guid>
+      <description>Bypass a character-level bash filter by substituting ASCII letters with Unicode homoglyphs that the shell normalizes.</description>
+    </item>
+    <item>
+      <title>No Time — UNION SQL Injection with Keyword Filter Bypass via OFFSET Injection</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-time/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-time/</guid>
+      <description>A WAF strips forbidden SQL keywords. Inject OFFSET inside reserved words (SELECT → SELOFFSETECT) so after the WAF removes OFFSET the original keyword is reconstructed, landing a UNION SELECT to dump the flag.</description>
+    </item>
+    <item>
+      <title>TIMP — OS Command Injection with IFS and Null Byte Filter Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/timp/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/timp/</guid>
+      <description>A POST endpoint executes a shell command with user-supplied input but filters spaces, the word &amp;rsquo;echo&amp;rsquo;, and other shell metacharacters. Bypass with ${NULL} (strips to nothing) and ${IFS} (the internal field separator, expands to a space in bash).</description>
+    </item>
+  </channel>
+</rss>

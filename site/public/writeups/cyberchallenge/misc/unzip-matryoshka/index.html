@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Unzip Matryoshka — 3000 Nested Zip Files | giordii</title>
+<meta name="keywords" content="misc, automation, zip, python, scripting">
+<meta name="description" content="Automate extraction of 3000 nested zip files to retrieve the flag from the innermost archive.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="Unzip Matryoshka — 3000 Nested Zip Files">
+  <meta property="og:description" content="Automate extraction of 3000 nested zip files to retrieve the flag from the innermost archive.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Misc">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="Zip">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Scripting">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/shellone/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/split/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unzip Matryoshka — 3000 Nested Zip Files">
+<meta name="twitter:description" content="Automate extraction of 3000 nested zip files to retrieve the flag from the innermost archive.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CyberChallenge.IT",
+      "item": "http://localhost:1313/writeups/cyberchallenge/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Unzip Matryoshka — 3000 Nested Zip Files",
+      "item": "http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Unzip Matryoshka — 3000 Nested Zip Files",
+  "name": "Unzip Matryoshka — 3000 Nested Zip Files",
+  "description": "Automate extraction of 3000 nested zip files to retrieve the flag from the innermost archive.",
+  "keywords": [
+    "misc", "automation", "zip", "python", "scripting"
+  ],
+  "articleBody": "The Challenge You’re given flag3000.zip. Inside is flag2999.zip. Inside that is flag2998.zip. This nesting continues all the way down to flag0.zip, which finally contains flag.txt with the flag. Manually unzipping 3000 times is not an option.\nApproach The pattern is entirely regular: flagN.zip contains flag(N-1).zip. Starting from 3000 and working down to 1, extract each archive to the same output directory. At each step, the next archive to process is flag{i-1}.zip in the output directory. After the innermost extraction, flag.txt contains the flag.\nPython’s zipfile module handles this cleanly in a loop. No external tools needed, no error handling complexity — just iterate from 2999 down to 1 (since flag3000.zip is the starter and flag1.zip is the last one that contains flag0.zip or flag.txt), extract each zip to the working directory, and read the final file.\nSolution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 import os import zipfile # Path to the directory containing the zip files zip_folder = '/home/user/Downloads/flag3000.zip' # Path to the destination folder where the extracted files will be saved destination_folder = '/home/user/Downloads/zipdir/' file_path = '/home/user/Downloads/flag3000.zip' for i in range (2999, 0, -1): file_path = '/home/user/Downloads/zipdir/flag' + str(i) + '.zip' with zipfile.ZipFile(file_path, 'r') as zip_ref: zip_ref.extractall(destination_folder) for i in range (0, 3000): os.remove(\"/home/user/Downloads/zipdir/flag\" + str(i) + \".zip\") The script starts by pointing file_path at the outermost archive and then loops down from 2999 to 1, extracting each zip into destination_folder. At each step flag{i}.zip extracts flag{i-1}.zip into the same directory, so the path variable just counts down. The second loop removes leftover zips after extraction to keep the folder clean.\nThe paths are hardcoded to /home/user/Downloads/ — this was written quickly during the competition to just run once and get the flag out.\nWhat I Learned Nested archives are a standard CTF misc trope. The key is recognizing the pattern immediately and writing the loop before you even try to manually unzip anything. The zipfile module’s extractall to a single directory approach is cleaner than creating per-level subdirectories.\n",
+  "wordCount" : "341",
+  "inLanguage": "en",
+  "datePublished": "2025-01-01T00:00:00Z",
+  "dateModified": "2025-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/cyberchallenge/">CyberChallenge.IT</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Unzip Matryoshka — 3000 Nested Zip Files
+    </h1>
+    <div class="post-meta"><span title='2025-01-01 00:00:00 +0000 UTC'>January 1, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>You&rsquo;re given <code>flag3000.zip</code>. Inside is <code>flag2999.zip</code>. Inside that is <code>flag2998.zip</code>. This nesting continues all the way down to <code>flag0.zip</code>, which finally contains <code>flag.txt</code> with the flag. Manually unzipping 3000 times is not an option.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>The pattern is entirely regular: <code>flagN.zip</code> contains <code>flag(N-1).zip</code>. Starting from 3000 and working down to 1, extract each archive to the same output directory. At each step, the next archive to process is <code>flag{i-1}.zip</code> in the output directory. After the innermost extraction, <code>flag.txt</code> contains the flag.</p>
+<p>Python&rsquo;s <code>zipfile</code> module handles this cleanly in a loop. No external tools needed, no error handling complexity — just iterate from 2999 down to 1 (since <code>flag3000.zip</code> is the starter and <code>flag1.zip</code> is the last one that contains <code>flag0.zip</code> or <code>flag.txt</code>), extract each zip to the working directory, and read the final file.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">zipfile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Path to the directory containing the zip files</span>
+</span></span><span class="line"><span class="cl"><span class="n">zip_folder</span> <span class="o">=</span> <span class="s1">&#39;/home/user/Downloads/flag3000.zip&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Path to the destination folder where the extracted files will be saved</span>
+</span></span><span class="line"><span class="cl"><span class="n">destination_folder</span> <span class="o">=</span> <span class="s1">&#39;/home/user/Downloads/zipdir/&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;/home/user/Downloads/flag3000.zip&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">2999</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;/home/user/Downloads/zipdir/flag&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.zip&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">destination_folder</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&#34;/home/user/Downloads/zipdir/flag&#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;.zip&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The script starts by pointing <code>file_path</code> at the outermost archive and then loops down from 2999 to 1, extracting each zip into <code>destination_folder</code>. At each step <code>flag{i}.zip</code> extracts <code>flag{i-1}.zip</code> into the same directory, so the path variable just counts down. The second loop removes leftover zips after extraction to keep the folder clean.</p>
+<p>The paths are hardcoded to <code>/home/user/Downloads/</code> — this was written quickly during the competition to just run once and get the flag out.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p>Nested archives are a standard CTF misc trope. The key is recognizing the pattern immediately and writing the loop before you even try to manually unzip anything. The <code>zipfile</code> module&rsquo;s <code>extractall</code> to a single directory approach is cleaner than creating per-level subdirectories.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/misc/">Misc</a></li>
+      <li><a href="http://localhost:1313/tags/automation/">Automation</a></li>
+      <li><a href="http://localhost:1313/tags/zip/">Zip</a></li>
+      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+      <li><a href="http://localhost:1313/tags/scripting/">Scripting</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/cyberchallenge/software-security/split/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Split — ret2win with ROP pop rdi Gadget</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
+    <span class="title">Next »</span>
+    <br>
+    <span>2048 — Arithmetic Server Bot</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

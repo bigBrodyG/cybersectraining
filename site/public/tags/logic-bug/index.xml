@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Logic-Bug on giordii</title>
+    <link>http://localhost:1313/tags/logic-bug/</link>
+    <description>Recent content in Logic-Bug on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/logic-bug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bank Logic Bypass — Scientific Notation Bypasses Integer Validation</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/</guid>
+      <description>Submit a withdrawal amount in scientific notation to exploit loose type parsing and credit 1 billion to your balance.</description>
+    </item>
+  </channel>
+</rss>

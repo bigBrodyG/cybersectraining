@@ -1,0 +1,205 @@
+/* -------------------------------------------------------
+   Typography
+   ------------------------------------------------------- */
+:root {
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+body,
+.post-content,
+.post-header,
+.post-title {
+  font-family: var(--font-body);
+}
+
+code,
+pre,
+kbd,
+.post-meta,
+.breadcrumbs,
+.toc,
+.tag,
+.term {
+  font-family: var(--font-mono);
+}
+
+/* -------------------------------------------------------
+   Gruvbox Dark palette
+   Reference: https://github.com/morhetz/gruvbox
+   ------------------------------------------------------- */
+:root,
+[data-theme="dark"] {
+  /* backgrounds */
+  --theme:            #282828;   /* page background (bg)       */
+  --entry:            #32302f;   /* card background (bg-soft)  */
+  --code-bg:          #1d2021;   /* code-block bg (bg-hard)    */
+
+  /* text */
+  --primary:          #ebdbb2;   /* headings (fg)              */
+  --content:          #d5c4a1;   /* body text (fg1)            */
+  --secondary:        #a89984;   /* muted / dates / meta (fg3) */
+
+  /* borders */
+  --border:           #504945;   /* bg2                        */
+
+  /* accent — aqua */
+  --link-color:       #8ec07c;
+  --link-hover:       #b8bb26;
+}
+
+/* Apply backgrounds */
+body {
+  background-color: var(--theme);
+}
+
+.post-entry,
+.toc,
+.highlight {
+  background-color: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+/* -------------------------------------------------------
+   Links
+   ------------------------------------------------------- */
+a,
+.post-content a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover,
+.post-content a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Nav links */
+.nav a,
+#menu a {
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.nav a:hover,
+#menu a:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------
+   Code blocks
+   ------------------------------------------------------- */
+pre code,
+.chroma {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  background-color: var(--code-bg) !important;
+  border-radius: 4px;
+}
+
+/* Inline code */
+p code,
+li code,
+td code {
+  background-color: #3c3836;
+  color: #8ec07c;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+/* -------------------------------------------------------
+   Post meta (date, reading time, tags)
+   ------------------------------------------------------- */
+.post-meta,
+.post-footer,
+.breadcrumbs {
+  color: var(--secondary);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+/* Tags / taxonomy labels */
+.post-tags a,
+.term {
+  background-color: #3c3836;
+  color: var(--link-color);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.15em 0.55em;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+  transition: border-color 0.15s;
+}
+
+.post-tags a:hover,
+.term:hover {
+  border-color: var(--link-color);
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------
+   Header / site title
+   ------------------------------------------------------- */
+.logo a,
+#top-link {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+}
+
+/* -------------------------------------------------------
+   Home info block
+   ------------------------------------------------------- */
+.home-info,
+.profile {
+  padding-left: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.home-info .entry-hint-parent {
+  color: var(--content);
+}
+
+/* -------------------------------------------------------
+   Table of contents
+   ------------------------------------------------------- */
+.toc details summary {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--secondary);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.toc a {
+  color: var(--content);
+}
+
+.toc a:hover {
+  color: var(--link-color);
+}
+
+/* -------------------------------------------------------
+   Scrollbar (optional, subtle)
+   ------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #504945;
+  border-radius: 3px;
+}

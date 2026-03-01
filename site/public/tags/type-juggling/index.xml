@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Type-Juggling on giordii</title>
+    <link>http://localhost:1313/tags/type-juggling/</link>
+    <description>Recent content in Type-Juggling on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/type-juggling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C-Style Login — PHP Type Juggling Array Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/</guid>
+      <description>PHP&amp;rsquo;s loose comparison treats an array as truthy against any string. Sending password[] as an array in the POST body bypasses the string comparison and grants access.</description>
+    </item>
+    <item>
+      <title>Confuse Me — PHP Magic Hash 0e MD5 Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/confuse-me/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/confuse-me/</guid>
+      <description>PHP&amp;rsquo;s loose == treats any string starting with &amp;lsquo;0e&amp;rsquo; followed by digits as the float 0. Pass a known magic hash input whose MD5 begins with 0e to bypass a hash comparison.</description>
+    </item>
+    <item>
+      <title>Make a Wish — PHP GET Array Type Coercion Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/make-a-wish/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/make-a-wish/</guid>
+      <description>Pass the GET parameter as an array (?richiesta[]=sas) to make PHP receive an array instead of a string, bypassing the string equality check and revealing the flag.</description>
+    </item>
+  </channel>
+</rss>

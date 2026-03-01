@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Command-Injection on giordii</title>
+    <link>http://localhost:1313/tags/command-injection/</link>
+    <description>Recent content in Command-Injection on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/command-injection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TIMP — OS Command Injection with IFS and Null Byte Filter Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/timp/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/timp/</guid>
+      <description>A POST endpoint executes a shell command with user-supplied input but filters spaces, the word &amp;rsquo;echo&amp;rsquo;, and other shell metacharacters. Bypass with ${NULL} (strips to nothing) and ${IFS} (the internal field separator, expands to a space in bash).</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Corrupted Flag — Fix GIF Magic Bytes then Extract Frames | giordii</title>
+<meta name="keywords" content="misc, forensics, file-format">
+<meta name="description" content="The GIF has wrong magic bytes at the start. Replace the first 13 bytes with the correct GIF89a header, open the repaired file with Pillow, and iterate through frames saved as WebP to find the flag.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="Corrupted Flag — Fix GIF Magic Bytes then Extract Frames">
+  <meta property="og:description" content="The GIF has wrong magic bytes at the start. Replace the first 13 bytes with the correct GIF89a header, open the repaired file with Pillow, and iterate through frames saved as WebP to find the flag.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Misc">
+    <meta property="article:tag" content="Forensics">
+    <meta property="article:tag" content="File-Format">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Corrupted Flag — Fix GIF Magic Bytes then Extract Frames">
+<meta name="twitter:description" content="The GIF has wrong magic bytes at the start. Replace the first 13 bytes with the correct GIF89a header, open the repaired file with Pillow, and iterate through frames saved as WebP to find the flag.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Olicyber",
+      "item": "http://localhost:1313/writeups/olicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Practice Platform",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "COlicyber",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Misc",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  6 ,
+      "name": "Corrupted Flag — Fix GIF Magic Bytes then Extract Frames",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Corrupted Flag — Fix GIF Magic Bytes then Extract Frames",
+  "name": "Corrupted Flag — Fix GIF Magic Bytes then Extract Frames",
+  "description": "The GIF has wrong magic bytes at the start. Replace the first 13 bytes with the correct GIF89a header, open the repaired file with Pillow, and iterate through frames saved as WebP to find the flag.",
+  "keywords": [
+    "misc", "forensics", "file-format"
+  ],
+  "articleBody": "The Challenge A file called corrupted_file is provided. Opening it normally fails — any tool that sniffs the magic bytes rejects it. The task is to figure out what is wrong and fix it.\nApproach file corrupted_file or a hex editor shows the first bytes are not 47 49 46 38 39 61 (GIF89a). The first 13 bytes (6-byte signature + 2-byte width + 2-byte height + 3-byte packed/background/aspect bytes) are corrupted. The rest of the file is valid GIF data.\nWriting the correct magic b\"GIF89a\" followed by the original bytes from offset 13 onwards creates a valid GIF. Then Pillow’s ImageSequence.Iterator iterates over every frame and saves them. One of the frames contains the flag as visible text or in the image content.\nSolution 1 2 3 4 5 6 7 8 9 10 11 12 from PIL import ImageSequence, Image corrupted = open(\"corrupted_file\", \"rb\").read() notcorr = open(\"flag.gif\", \"wb\") print(corrupted[:13]) # magic number sbagliati notcorr.write(b\"GIF89a\" + corrupted[13:]) notcorr.close() notcorr = Image.open(\"flag.gif\") i = 0 for frame in ImageSequence.Iterator(notcorr): i += 1 frame.save(\"frame-\"+str(i)+\".webp\",format = \"WebP\", lossless = True) # la flag la si trova fra i frame salvati corrupted[:13] prints the broken header to stderr (the inline comment says “magic number sbagliati” — wrong magic bytes). b\"GIF89a\" + corrupted[13:] pastes the correct signature while keeping all the original frame data intact. The loop saves every frame as lossless WebP — scrolling through them reveals the flag in one of the frames.\nWhat I Learned Corrupted file challenges almost always corrupt the magic bytes (aka file signature) at the start — the actual data is intact. Checking the first few bytes against the expected signature for the file format, then patching the header, is the standard recovery technique. strings run on the corrupted file often gives a shortcut clue too.\n",
+  "wordCount" : "299",
+  "inLanguage": "en",
+  "datePublished": "2024-01-01T00:00:00Z",
+  "dateModified": "2024-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/">Misc</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Corrupted Flag — Fix GIF Magic Bytes then Extract Frames
+    </h1>
+    <div class="post-meta"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>A file called <code>corrupted_file</code> is provided. Opening it normally fails — any tool that sniffs the magic bytes rejects it. The task is to figure out what is wrong and fix it.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p><code>file corrupted_file</code> or a hex editor shows the first bytes are not <code>47 49 46 38 39 61</code> (GIF89a). The first 13 bytes (6-byte signature + 2-byte width + 2-byte height + 3-byte packed/background/aspect bytes) are corrupted. The rest of the file is valid GIF data.</p>
+<p>Writing the correct magic <code>b&quot;GIF89a&quot;</code> followed by the original bytes from offset 13 onwards creates a valid GIF. Then Pillow&rsquo;s <code>ImageSequence.Iterator</code> iterates over every frame and saves them. One of the frames contains the flag as visible text or in the image content.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageSequence</span><span class="p">,</span> <span class="n">Image</span>
+</span></span><span class="line"><span class="cl"><span class="n">corrupted</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;corrupted_file&#34;</span><span class="p">,</span> <span class="s2">&#34;rb&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">notcorr</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;flag.gif&#34;</span><span class="p">,</span> <span class="s2">&#34;wb&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">corrupted</span><span class="p">[:</span><span class="mi">13</span><span class="p">])</span> <span class="c1"># magic number sbagliati</span>
+</span></span><span class="line"><span class="cl"><span class="n">notcorr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34;GIF89a&#34;</span> <span class="o">+</span> <span class="n">corrupted</span><span class="p">[</span><span class="mi">13</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl"><span class="n">notcorr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">notcorr</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;flag.gif&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">ImageSequence</span><span class="o">.</span><span class="n">Iterator</span><span class="p">(</span><span class="n">notcorr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">frame</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&#34;frame-&#34;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;.webp&#34;</span><span class="p">,</span><span class="nb">format</span> <span class="o">=</span> <span class="s2">&#34;WebP&#34;</span><span class="p">,</span> <span class="n">lossless</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># la flag la si trova fra i frame salvati</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>corrupted[:13]</code> prints the broken header to stderr (the inline comment says &ldquo;magic number sbagliati&rdquo; — wrong magic bytes). <code>b&quot;GIF89a&quot; + corrupted[13:]</code> pastes the correct signature while keeping all the original frame data intact. The loop saves every frame as lossless WebP — scrolling through them reveals the flag in one of the frames.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p>Corrupted file challenges almost always corrupt the magic bytes (aka file signature) at the start — the actual data is intact. Checking the first few bytes against the expected signature for the file format, then patching the header, is the standard recovery technique. <code>strings</code> run on the corrupted file often gives a shortcut clue too.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/misc/">Misc</a></li>
+      <li><a href="http://localhost:1313/tags/forensics/">Forensics</a></li>
+      <li><a href="http://localhost:1313/tags/file-format/">File-Format</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/cookiemonster/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Cookie Monster — Base64 JSON Cookie Role Elevation</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/crackmat/">
+    <span class="title">Next »</span>
+    <br>
+    <span>CrackMat — Z3 Per-Character Quadratic Equations</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>WordWang — Protocol Format Wrapping | giordii</title>
+<meta name="keywords" content="net, misc, protocol, pwntools">
+<meta name="description" content="The server returns a word from a custom protocol. Wrap the response in the expected format — prepend &lsquo;?&rsquo;, uppercase, append &lsquo;!&rsquo; — send it back, and the server returns the flag.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="WordWang — Protocol Format Wrapping">
+  <meta property="og:description" content="The server returns a word from a custom protocol. Wrap the response in the expected format — prepend ‘?’, uppercase, append ‘!’ — send it back, and the server returns the flag.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Net">
+    <meta property="article:tag" content="Misc">
+    <meta property="article:tag" content="Protocol">
+    <meta property="article:tag" content="Pwntools">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WordWang — Protocol Format Wrapping">
+<meta name="twitter:description" content="The server returns a word from a custom protocol. Wrap the response in the expected format — prepend &lsquo;?&rsquo;, uppercase, append &lsquo;!&rsquo; — send it back, and the server returns the flag.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Olicyber",
+      "item": "http://localhost:1313/writeups/olicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Practice Platform",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "COlicyber",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Net",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  6 ,
+      "name": "WordWang — Protocol Format Wrapping",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "WordWang — Protocol Format Wrapping",
+  "name": "WordWang — Protocol Format Wrapping",
+  "description": "The server returns a word from a custom protocol. Wrap the response in the expected format — prepend \u0026lsquo;?\u0026rsquo;, uppercase, append \u0026lsquo;!\u0026rsquo; — send it back, and the server returns the flag.",
+  "keywords": [
+    "net", "misc", "protocol", "pwntools"
+  ],
+  "articleBody": "The Challenge The server expects a specific format for the echoed response. The raw server output is a word. The protocol demands it be wrapped: a leading ?, the content uppercased, and a trailing !. Sending the word back through the right formatter earns the flag.\nApproach Receive the server’s prompt, strip the newline, uppercase the content, prepend ? and append !. The server validates the format and returns the flag on the next line — trimmed to skip the first 34 characters (a fixed-length preamble before the actual flag value).\nSolution 1 2 3 4 5 6 7 8 #!/usr/bin/env python3 from pwn import * r = remote(\"wordwang.challs.olicyber.it\", 10601) r.recvline() x = b'?' + r.recvline().replace(b'\\n', b'').upper() + b'!'; print(x) r.sendline(x) print(\"\\n\\n\"+ r.recvline()[34:].decode() + \"\\n\\n\") r.recvline() discards the server’s greeting. The second recvline() receives the word. Stripping \\n, uppercasing, prepending ? and appending ! builds the protocol-correct response in one expression. r.recvline()[34:] skips the fixed preamble text and prints the flag.\nWhat I Learned Custom-protocol challenges often require nothing more than reading the spec carefully and implementing the formatting rule. Pwntools remote with recvline / sendline is the fastest way to prototype a protocol client — the only real work is understanding what format the server expects back.\n",
+  "wordCount" : "208",
+  "inLanguage": "en",
+  "datePublished": "2024-01-01T00:00:00Z",
+  "dateModified": "2024-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/">Net</a></div>
+    <h1 class="post-title entry-hint-parent">
+      WordWang — Protocol Format Wrapping
+    </h1>
+    <div class="post-meta"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>The server expects a specific format for the echoed response. The raw server output is a word. The protocol demands it be wrapped: a leading <code>?</code>, the content uppercased, and a trailing <code>!</code>. Sending the word back through the right formatter earns the flag.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>Receive the server&rsquo;s prompt, strip the newline, uppercase the content, prepend <code>?</code> and append <code>!</code>. The server validates the format and returns the flag on the next line — trimmed to skip the first 34 characters (a fixed-length preamble before the actual flag value).</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s2">&#34;wordwang.challs.olicyber.it&#34;</span><span class="p">,</span> <span class="mi">10601</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;!&#39;</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">r</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">recvline</span><span class="p">()[</span><span class="mi">34</span><span class="p">:]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>r.recvline()</code> discards the server&rsquo;s greeting. The second <code>recvline()</code> receives the word. Stripping <code>\n</code>, uppercasing, prepending <code>?</code> and appending <code>!</code> builds the protocol-correct response in one expression. <code>r.recvline()[34:]</code> skips the fixed preamble text and prints the flag.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p>Custom-protocol challenges often require nothing more than reading the spec carefully and implementing the formatting rule. Pwntools <code>remote</code> with <code>recvline</code> / <code>sendline</code> is the fastest way to prototype a protocol client — the only real work is understanding what format the server expects back.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/net/">Net</a></li>
+      <li><a href="http://localhost:1313/tags/misc/">Misc</a></li>
+      <li><a href="http://localhost:1313/tags/protocol/">Protocol</a></li>
+      <li><a href="http://localhost:1313/tags/pwntools/">Pwntools</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/villa-pisani/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Villa Pisani — DNS Maze DFS via CNAME Records</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/">
+    <span class="title">Next »</span>
+    <br>
+    <span>You Complete Me — Binary Search Word Reconstruction</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

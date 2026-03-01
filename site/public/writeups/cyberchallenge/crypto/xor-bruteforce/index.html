@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>XOR Bruteforce | bBG — CTF Writeups</title>
+<meta name="keywords" content="crypto, xor, brute-force, single-byte-xor">
+<meta name="description" content="Brute-force a single-byte XOR cipher using chepy&rsquo;s built-in bruteforce method.">
+<meta name="author" content="bigBrodyG">
+<link rel="canonical" href="http://localhost:1313/writeups/cyberchallenge/crypto/xor-bruteforce/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc9c201e3433c5fed6e46d240817913b2d9b3cfc0ced0b7c80794624c7aff149.css" integrity="sha256-/JwgHjQzxf7W5G0kCBeROy2bPPwM7Qt8gHlGJMev8Uk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/cyberchallenge/crypto/xor-bruteforce/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/cyberchallenge/crypto/xor-bruteforce/">
+  <meta property="og:site_name" content="bBG — CTF Writeups">
+  <meta property="og:title" content="XOR Bruteforce">
+  <meta property="og:description" content="Brute-force a single-byte XOR cipher using chepy’s built-in bruteforce method.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Crypto">
+    <meta property="article:tag" content="Xor">
+    <meta property="article:tag" content="Brute-Force">
+    <meta property="article:tag" content="Single-Byte-Xor">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/crypto/5des/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/crypto/dan/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/crypto/eff/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XOR Bruteforce">
+<meta name="twitter:description" content="Brute-force a single-byte XOR cipher using chepy&rsquo;s built-in bruteforce method.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CyberChallenge.IT",
+      "item": "http://localhost:1313/writeups/cyberchallenge/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "XOR Bruteforce",
+      "item": "http://localhost:1313/writeups/cyberchallenge/crypto/xor-bruteforce/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "XOR Bruteforce",
+  "name": "XOR Bruteforce",
+  "description": "Brute-force a single-byte XOR cipher using chepy\u0026rsquo;s built-in bruteforce method.",
+  "keywords": [
+    "crypto", "xor", "brute-force", "single-byte-xor"
+  ],
+  "articleBody": "The Challenge A hex-encoded ciphertext encrypted with a single-byte XOR key. All 256 possible key bytes need to be tried; one of them produces readable plaintext containing the flag.\nApproach Single-byte XOR is the most basic cipher in the CTF toolkit. Every byte of the ciphertext is XOR’d with the same 1-byte key. Since there are only 256 possible keys, you don’t need frequency analysis or anything clever — you just try all 256 and look at which output is printable English.\nThe chepy library is a Python port of CyberChef with a chainable API. It has a dedicated xor_bruteforce() operation that iterates all 256 key bytes and returns the results, typically highlighting the one with the highest printable-ASCII ratio or letting you filter visually.\nThis is the kind of challenge where the “solution” is knowing what tool to reach for, not writing any algorithm.\nSolution 1 2 3 4 5 6 7 from chepy import Chepy with open(\"ciphertext.txt\") as f: hex_ct = f.read().strip() c = Chepy(hex_ct).from_hex().xor_bruteforce() print(c.o) from_hex() converts the hex string to raw bytes. xor_bruteforce() tries all 256 keys and returns a list of (key, plaintext) pairs. The output with a key around printable ASCII range — or simply the one that looks like English text — contains the flag.\nIf the output is noisy, filter for lines containing flag{:\n1 2 3 4 for key, plaintext in c.o: if b'flag{' in plaintext: print(f\"Key: {key}, Flag: {plaintext}\") break Running this against the ciphertext yields the flag directly.\nWhat I Learned chepy wraps tedious one-liners into a chainable interface. For single-byte XOR specifically, xor_bruteforce() is faster to type than writing the loop yourself — useful when you’re moving fast during a competition. Know your tools.\n",
+  "wordCount" : "286",
+  "inLanguage": "en",
+  "datePublished": "2025-01-01T00:00:00Z",
+  "dateModified": "2025-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "bigBrodyG"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/cyberchallenge/crypto/xor-bruteforce/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "bBG — CTF Writeups",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="bBG — CTF Writeups (Alt + H)">bBG — CTF Writeups</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/cyberchallenge/">CyberChallenge.IT</a></div>
+    <h1 class="post-title entry-hint-parent">
+      XOR Bruteforce
+    </h1>
+    <div class="post-meta"><span title='2025-01-01 00:00:00 +0000 UTC'>January 1, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>bigBrodyG</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>A hex-encoded ciphertext encrypted with a single-byte XOR key. All 256 possible key bytes need to be tried; one of them produces readable plaintext containing the flag.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>Single-byte XOR is the most basic cipher in the CTF toolkit. Every byte of the ciphertext is XOR&rsquo;d with the same 1-byte key. Since there are only 256 possible keys, you don&rsquo;t need frequency analysis or anything clever — you just try all 256 and look at which output is printable English.</p>
+<p>The <code>chepy</code> library is a Python port of CyberChef with a chainable API. It has a dedicated <code>xor_bruteforce()</code> operation that iterates all 256 key bytes and returns the results, typically highlighting the one with the highest printable-ASCII ratio or letting you filter visually.</p>
+<p>This is the kind of challenge where the &ldquo;solution&rdquo; is knowing what tool to reach for, not writing any algorithm.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">chepy</span> <span class="kn">import</span> <span class="n">Chepy</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;ciphertext.txt&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hex_ct</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">Chepy</span><span class="p">(</span><span class="n">hex_ct</span><span class="p">)</span><span class="o">.</span><span class="n">from_hex</span><span class="p">()</span><span class="o">.</span><span class="n">xor_bruteforce</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">o</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>from_hex()</code> converts the hex string to raw bytes. <code>xor_bruteforce()</code> tries all 256 keys and returns a list of <code>(key, plaintext)</code> pairs. The output with a key around printable ASCII range — or simply the one that looks like English text — contains the flag.</p>
+<p>If the output is noisy, filter for lines containing <code>flag{</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">plaintext</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">o</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;flag{&#39;</span> <span class="ow">in</span> <span class="n">plaintext</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">, Flag: </span><span class="si">{</span><span class="n">plaintext</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Running this against the ciphertext yields the flag directly.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p><code>chepy</code> wraps tedious one-liners into a chainable interface. For single-byte XOR specifically, <code>xor_bruteforce()</code> is faster to type than writing the loop yourself — useful when you&rsquo;re moving fast during a competition. Know your tools.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/crypto/">Crypto</a></li>
+      <li><a href="http://localhost:1313/tags/xor/">Xor</a></li>
+      <li><a href="http://localhost:1313/tags/brute-force/">Brute-Force</a></li>
+      <li><a href="http://localhost:1313/tags/single-byte-xor/">Single-Byte-Xor</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Unzip Matryoshka — 3000 Nested Zip Files</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">bBG — CTF Writeups</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

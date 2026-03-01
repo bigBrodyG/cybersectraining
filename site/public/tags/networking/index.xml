@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Networking on giordii</title>
+    <link>http://localhost:1313/tags/networking/</link>
+    <description>Recent content in Networking on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Villa Pisani — DNS Maze DFS via CNAME Records</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/villa-pisani/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/villa-pisani/</guid>
+      <description>Navigate a DNS-based labyrinth by following CNAME records in four compass directions (up/down/left/right) and reading TXT records until one contains the flag. Depth-first search with a visited set prevents loops.</description>
+    </item>
+  </channel>
+</rss>

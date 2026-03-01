@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Got-Overwrite on giordii</title>
+    <link>http://localhost:1313/tags/got-overwrite/</link>
+    <description>Recent content in Got-Overwrite on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/got-overwrite/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guess the Number 2 — ROP Chain GOT Overwrite via gets</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/</guid>
+      <description>Build a ROP chain that calls gets twice to plant arbitrary data in the GOT, redirect strcspn to a shellcode stub, then trigger the win print path.</description>
+    </item>
+  </channel>
+</rss>

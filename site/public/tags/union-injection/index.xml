@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Union-Injection on giordii</title>
+    <link>http://localhost:1313/tags/union-injection/</link>
+    <description>Recent content in Union-Injection on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/union-injection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQLi Cards — Union Injection into SQLite</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/sqli-cards/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/sqli-cards/</guid>
+      <description>Union-based SQL injection in a card lookup form to enumerate tables via sqlite_master and extract the flag.</description>
+    </item>
+    <item>
+      <title>Segnalazione Cinghiali — Union-Based SQLi in Node/Express</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</guid>
+      <description>Union-based SQL injection in the report ID parameter of a Node.js/TypeScript Express app to leak the flag from a hidden table.</description>
+    </item>
+  </channel>
+</rss>

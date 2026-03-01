@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Python on giordii</title>
+    <link>http://localhost:1313/tags/python/</link>
+    <description>Recent content in Python on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Math Solver</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/math-solver/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/math-solver/</guid>
+      <description>Automate solving 100 consecutive linear equations within a single HTTP session to unlock the flag.</description>
+    </item>
+    <item>
+      <title>Bank Logic Bypass — Scientific Notation Bypasses Integer Validation</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/</guid>
+      <description>Submit a withdrawal amount in scientific notation to exploit loose type parsing and credit 1 billion to your balance.</description>
+    </item>
+    <item>
+      <title>Basic Calculator — Variable Shadowing Bug</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/</guid>
+      <description>Identify and work around a Python variable shadowing bug where a function definition overwrites a string variable of the same name.</description>
+    </item>
+    <item>
+      <title>Blind SQLi Login — Boolean-Based Character Extraction</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/</guid>
+      <description>Boolean blind SQL injection on a login form to extract a password character by character using HEX comparison.</description>
+    </item>
+    <item>
+      <title>Unzip Matryoshka — 3000 Nested Zip Files</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</guid>
+      <description>Automate extraction of 3000 nested zip files to retrieve the flag from the innermost archive.</description>
+    </item>
+    <item>
+      <title>A Too Small Reminder — Session ID Enumeration</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/</guid>
+      <description>Register, log in, notice the session_id cookie is a small integer. Brute-force integers upward from 30 until the admin session is hit and the flag appears.</description>
+    </item>
+    <item>
+      <title>Basic SQLi — Classic OR 1=1 Login Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/</guid>
+      <description>Inject &amp;rsquo; OR &amp;lsquo;1&amp;rsquo;=&amp;lsquo;1 into both username and password fields to make the SQL query always true and grab the flag from the response.</description>
+    </item>
+    <item>
+      <title>C-Style Login — PHP Type Juggling Array Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/</guid>
+      <description>PHP&amp;rsquo;s loose comparison treats an array as truthy against any string. Sending password[] as an array in the POST body bypasses the string comparison and grants access.</description>
+    </item>
+    <item>
+      <title>Chaos — TCP Payload Reconstruction from PCAP</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</guid>
+      <description>Filter a PCAP for TCP packets, decode each packet&amp;rsquo;s payload from hex, and concatenate them in order — the resulting byte stream contains the flag.</description>
+    </item>
+    <item>
+      <title>Click Me — Cookie Integer Forge to Reach Counter Target</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/click-me/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/click-me/</guid>
+      <description>The app tracks clicks with an integer cookie. Skip the clicking by setting &amp;lsquo;cookies&amp;rsquo; to 10000000 directly and request the page — the server trusts the cookie value and returns the flag.</description>
+    </item>
+    <item>
+      <title>Confuse Me — PHP Magic Hash 0e MD5 Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/confuse-me/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/confuse-me/</guid>
+      <description>PHP&amp;rsquo;s loose == treats any string starting with &amp;lsquo;0e&amp;rsquo; followed by digits as the float 0. Pass a known magic hash input whose MD5 begins with 0e to bypass a hash comparison.</description>
+    </item>
+    <item>
+      <title>Cookie Monster — Base64 JSON Cookie Role Elevation</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/cookiemonster/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/cookiemonster/</guid>
+      <description>The session cookie is a URL-encoded base64 of a JSON string like &amp;lsquo;id-role-username&amp;rsquo;. Decode it, change the role to 0 and username to admin, re-encode, and access the admin page.</description>
+    </item>
+    <item>
+      <title>Dashed — Six-Layer Encoding Chain: Morse → Hex → Binary → Base64 → Caesar</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/dashed/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/dashed/</guid>
+      <description>Decode a Morse code file, strip hex prefixes, convert to binary, interpret as Base64, then apply a Caesar shift derived from the first character — five transforms chained together.</description>
+    </item>
+    <item>
+      <title>Flags Shop — Price Parameter Tampering</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/flags-shop/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/flags-shop/</guid>
+      <description>The buy endpoint accepts a &amp;lsquo;costo&amp;rsquo; (price) POST parameter from the client. Sending costo=0 purchases the expensive flag item for free.</description>
+    </item>
+    <item>
+      <title>Headache — Flag in HTTP Response Header</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/headache/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/headache/</guid>
+      <description>The flag is not in the response body — it is stored in a custom HTTP response header called &amp;lsquo;Flag&amp;rsquo;. Use a HEAD request and read r.headers[&amp;lsquo;Flag&amp;rsquo;].</description>
+    </item>
+    <item>
+      <title>I Got Magic — GIF Polyglot Webshell Upload &#43; RCE</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/i-got-magic/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/i-got-magic/</guid>
+      <description>Craft a file that is simultaneously a valid GIF (magic bytes GIF89a) and a PHP shell (&lt;?php echo system(&#39;cat /flag.txt&#39;); ?&gt;). Upload it via the image upload form, find the timestamped filename in the response, and request that URL to execute the shell.</description>
+    </item>
+    <item>
+      <title>Light or Dark — Path Traversal with Dot Obfuscation &#43; Null Byte</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/light-or-dark/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/light-or-dark/</guid>
+      <description>The theme parameter appends .css to the user-supplied path before serving it. Use &amp;hellip;/ triples (which reduce to ../) and a URL-encoded null byte to escape the CSS directory and read /flag.txt.</description>
+    </item>
+    <item>
+      <title>Make a Wish — PHP GET Array Type Coercion Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/make-a-wish/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/make-a-wish/</guid>
+      <description>Pass the GET parameter as an array (?richiesta[]=sas) to make PHP receive an array instead of a string, bypassing the string equality check and revealing the flag.</description>
+    </item>
+    <item>
+      <title>No Robots Here — Disallowed Path Discovery via robots.txt</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-robots-here/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-robots-here/</guid>
+      <description>robots.txt lists a Disallow path that the crawler is never supposed to visit. That path contains the flag.</description>
+    </item>
+    <item>
+      <title>No Time — UNION SQL Injection with Keyword Filter Bypass via OFFSET Injection</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-time/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-time/</guid>
+      <description>A WAF strips forbidden SQL keywords. Inject OFFSET inside reserved words (SELECT → SELOFFSETECT) so after the WAF removes OFFSET the original keyword is reconstructed, landing a UNION SELECT to dump the flag.</description>
+    </item>
+    <item>
+      <title>Password Changer 3000 — Insecure Token via Base64-Encoded Username</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/password-changer-3000/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/password-changer-3000/</guid>
+      <description>The password-reset token is simply the base64 encoding of the username. Encoding &amp;lsquo;admin&amp;rsquo; and passing it as the token query parameter triggers the admin password change flow and reveals the flag.</description>
+    </item>
+    <item>
+      <title>Rick Roller — Flag Behind a Redirect</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/rick-roller/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/rick-roller/</guid>
+      <description>The /get_flag.php endpoint immediately redirects the browser to a Rick Astley video. Disabling redirect following in requests reveals the 302 response body which contains the flag.</description>
+    </item>
+    <item>
+      <title>Sito Vuoto — Flag Hidden in Page Source</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sito-vuoto/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sito-vuoto/</guid>
+      <description>The homepage appears empty, but the flag is embedded in an HTML comment or inside one of the linked static files (CSS or JS). Fetch each resource and grep for the flag pattern.</description>
+    </item>
+    <item>
+      <title>Sn4ck Sh3nan1gans — UNION SQL Injection via Base64 JSON Cookie</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</guid>
+      <description>The server reads a base64-encoded JSON cookie containing an ID field and passes it unsanitised into a SQL query. Inject a UNION SELECT payload inside the JSON, re-encode as base64, and set the forged cookie to extract the flag in three phases.</description>
+    </item>
+    <item>
+      <title>That&#39;s a Lot of Fs — Flag in Ethernet Destination MAC via Custom EtherType</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</guid>
+      <description>Filter Ethernet frames with EtherType 0xffff — the custom protocol used by this challenge — collect the destination MAC address from each matching frame, interpret the first two hex bytes as ASCII, and concatenate to reveal the flag.</description>
+    </item>
+    <item>
+      <title>Time Is Key — Timing Side-Channel Flag Extraction</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/time-is-key/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/time-is-key/</guid>
+      <description>The server compares the submitted flag character-by-character and returns a response proportional to how many correct characters were prefixed. Measure elapsed time per candidate character and pick the one with the longest response time to recover the flag byte by byte.</description>
+    </item>
+    <item>
+      <title>TIMP — OS Command Injection with IFS and Null Byte Filter Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/timp/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/timp/</guid>
+      <description>A POST endpoint executes a shell command with user-supplied input but filters spaces, the word &amp;rsquo;echo&amp;rsquo;, and other shell metacharacters. Bypass with ${NULL} (strips to nothing) and ${IFS} (the internal field separator, expands to a space in bash).</description>
+    </item>
+    <item>
+      <title>Truly Random Signature — Predictable Session Token Analysis</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/truly-random-signature/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/truly-random-signature/</guid>
+      <description>The server issues session tokens that are predictable or reusable. Requesting the site twice, comparing the Set-Cookie headers, and identifying the pattern allows forging or reusing an admin-level token.</description>
+    </item>
+    <item>
+      <title>Villa Pisani — DNS Maze DFS via CNAME Records</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/villa-pisani/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/villa-pisani/</guid>
+      <description>Navigate a DNS-based labyrinth by following CNAME records in four compass directions (up/down/left/right) and reading TXT records until one contains the flag. Depth-first search with a visited set prevents loops.</description>
+    </item>
+    <item>
+      <title>You Complete Me — Binary Search Word Reconstruction</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/</guid>
+      <description>A sorted word list and a known sequence of binary-search response sizes pin down a unique word character by character. Reconstruct it by matching the precounted word counts at each prefix level.</description>
+    </item>
+    <item>
+      <title>Zipception — 3000 Nested ZIPs</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception/</guid>
+      <description>A flag is hidden inside 3000 recursively nested ZIP archives. Loop backwards from flag3000.zip to flag1.zip, extracting and deleting each archive in turn until the innermost file is revealed.</description>
+    </item>
+    <item>
+      <title>Zipception 2.0 — Nested ZIPs with Password Protection</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception-2/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception-2/</guid>
+      <description>100 nested password-protected ZIPs. Crack each archive&amp;rsquo;s password against the rockyou wordlist, extract, delete, and repeat — 100 times.</description>
+    </item>
+  </channel>
+</rss>

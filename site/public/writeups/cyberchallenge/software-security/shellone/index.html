@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Shell One — Minimal Shellcode to Set EAX | giordii</title>
+<meta name="keywords" content="pwn, shellcode, x86, assembly">
+<meta name="description" content="Write minimal x86 shellcode that sets EAX to 0x13371338 to satisfy the binary&rsquo;s check and unlock execution flow.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/cyberchallenge/software-security/shellone/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/cyberchallenge/software-security/shellone/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/cyberchallenge/software-security/shellone/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="Shell One — Minimal Shellcode to Set EAX">
+  <meta property="og:description" content="Write minimal x86 shellcode that sets EAX to 0x13371338 to satisfy the binary’s check and unlock execution flow.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Pwn">
+    <meta property="article:tag" content="Shellcode">
+    <meta property="article:tag" content="X86">
+    <meta property="article:tag" content="Assembly">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/split/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shell One — Minimal Shellcode to Set EAX">
+<meta name="twitter:description" content="Write minimal x86 shellcode that sets EAX to 0x13371338 to satisfy the binary&rsquo;s check and unlock execution flow.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CyberChallenge.IT",
+      "item": "http://localhost:1313/writeups/cyberchallenge/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Shell One — Minimal Shellcode to Set EAX",
+      "item": "http://localhost:1313/writeups/cyberchallenge/software-security/shellone/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Shell One — Minimal Shellcode to Set EAX",
+  "name": "Shell One — Minimal Shellcode to Set EAX",
+  "description": "Write minimal x86 shellcode that sets EAX to 0x13371338 to satisfy the binary\u0026rsquo;s check and unlock execution flow.",
+  "keywords": [
+    "pwn", "shellcode", "x86", "assembly"
+  ],
+  "articleBody": "The Challenge The binary accepts shellcode and executes it. The only requirement to get a shell (or the flag) is that after the shellcode runs, EAX must equal 0x13371338. The binary presumably checks this register value and proceeds to do something useful if it matches — print the flag, drop to a shell, etc.\nApproach This is a “write any shellcode” challenge with a single constraint: set a register to a specific value and return cleanly (or just not crash before the check). The shellcode doesn’t need to do anything complex — load immediate into EAX, then either let execution fall through or execute a ret to return control to the binary.\nIn x86, mov eax, imm32 is a 5-byte instruction. That’s the entire shellcode body. Adding a ret at the end is optional depending on how the binary jumps to shellcode (via call, jmp, or simply writing to a buffer and jumping) but it’s good practice.\nNo need for execve, no stack pivoting, no gadget chains — just the minimal instruction sequence.\nSolution 1 2 3 4 5 6 from pwn import * shellcode = b'\\xb8\\x38\\x13\\x37\\x13' # mov eax, 0x13371338 conn = remote(\"shellone.pwn.ccit25.chals.havce.it\", 1337) conn.send(shellcode) conn.interactive() The raw bytes \\xb8\\x38\\x13\\x37\\x13 are the machine encoding of mov eax, 0x13371338 for x86 — assembled by hand and hardcoded directly. This is faster than calling asm() when you know the bytes upfront: \\xb8 is the opcode for mov eax, imm32, followed by the four immediate bytes in little-endian order (\\x38\\x13\\x37\\x13 = 0x13371338). No ret is needed here because the binary doesn’t return from the shellcode buffer — it just checks EAX after execution.\nWhat I Learned Shellcode challenges don’t always ask for a full shell. Sometimes the exploit condition is trivially simple — a single mov instruction. Reading the binary to understand exactly what condition triggers the win path saves time compared to immediately reaching for execve shellcode templates.\n",
+  "wordCount" : "317",
+  "inLanguage": "en",
+  "datePublished": "2025-01-01T00:00:00Z",
+  "dateModified": "2025-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/cyberchallenge/software-security/shellone/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/cyberchallenge/">CyberChallenge.IT</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Shell One — Minimal Shellcode to Set EAX
+    </h1>
+    <div class="post-meta"><span title='2025-01-01 00:00:00 +0000 UTC'>January 1, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>The binary accepts shellcode and executes it. The only requirement to get a shell (or the flag) is that after the shellcode runs, <code>EAX</code> must equal <code>0x13371338</code>. The binary presumably checks this register value and proceeds to do something useful if it matches — print the flag, drop to a shell, etc.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>This is a &ldquo;write any shellcode&rdquo; challenge with a single constraint: set a register to a specific value and return cleanly (or just not crash before the check). The shellcode doesn&rsquo;t need to do anything complex — load immediate into EAX, then either let execution fall through or execute a <code>ret</code> to return control to the binary.</p>
+<p>In x86, <code>mov eax, imm32</code> is a 5-byte instruction. That&rsquo;s the entire shellcode body. Adding a <code>ret</code> at the end is optional depending on how the binary jumps to shellcode (via <code>call</code>, <code>jmp</code>, or simply writing to a buffer and jumping) but it&rsquo;s good practice.</p>
+<p>No need for <code>execve</code>, no stack pivoting, no gadget chains — just the minimal instruction sequence.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">shellcode</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xb8\x38\x13\x37\x13</span><span class="s1">&#39;</span>  <span class="c1"># mov eax, 0x13371338</span>
+</span></span><span class="line"><span class="cl"><span class="n">conn</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s2">&#34;shellone.pwn.ccit25.chals.havce.it&#34;</span><span class="p">,</span> <span class="mi">1337</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">shellcode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">conn</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The raw bytes <code>\xb8\x38\x13\x37\x13</code> are the machine encoding of <code>mov eax, 0x13371338</code> for x86 — assembled by hand and hardcoded directly. This is faster than calling <code>asm()</code> when you know the bytes upfront: <code>\xb8</code> is the opcode for <code>mov eax, imm32</code>, followed by the four immediate bytes in little-endian order (<code>\x38\x13\x37\x13</code> = <code>0x13371338</code>). No <code>ret</code> is needed here because the binary doesn&rsquo;t return from the shellcode buffer — it just checks EAX after execution.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p>Shellcode challenges don&rsquo;t always ask for a full shell. Sometimes the exploit condition is trivially simple — a single <code>mov</code> instruction. Reading the binary to understand exactly what condition triggers the win path saves time compared to immediately reaching for execve shellcode templates.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/pwn/">Pwn</a></li>
+      <li><a href="http://localhost:1313/tags/shellcode/">Shellcode</a></li>
+      <li><a href="http://localhost:1313/tags/x86/">X86</a></li>
+      <li><a href="http://localhost:1313/tags/assembly/">Assembly</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Shell Four ORW — Open-Read-Write Shellcode with Seccomp</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/cyberchallenge/software-security/split/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Split — ret2win with ROP pop rdi Gadget</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

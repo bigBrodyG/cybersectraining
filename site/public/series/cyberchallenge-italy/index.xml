@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CyberChallenge Italy on giordii</title>
+    <link>http://localhost:1313/series/cyberchallenge-italy/</link>
+    <description>Recent content in CyberChallenge Italy on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/series/cyberchallenge-italy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bank Logic Bypass — Scientific Notation Bypasses Integer Validation</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/</guid>
+      <description>Submit a withdrawal amount in scientific notation to exploit loose type parsing and credit 1 billion to your balance.</description>
+    </item>
+    <item>
+      <title>Basic Calculator — Variable Shadowing Bug</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/</guid>
+      <description>Identify and work around a Python variable shadowing bug where a function definition overwrites a string variable of the same name.</description>
+    </item>
+    <item>
+      <title>Blind SQLi Login — Boolean-Based Character Extraction</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/</guid>
+      <description>Boolean blind SQL injection on a login form to extract a password character by character using HEX comparison.</description>
+    </item>
+    <item>
+      <title>Extract HTML Comments</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/</guid>
+      <description>Use BeautifulSoup to extract HTML comment nodes from a page and reveal the hidden flag.</description>
+    </item>
+    <item>
+      <title>Shell Four ORW — Open-Read-Write Shellcode with Seccomp</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/</guid>
+      <description>Write open-read-write shellcode to exfiltrate /flag.txt when execve is blocked by a seccomp filter.</description>
+    </item>
+    <item>
+      <title>Shell One — Minimal Shellcode to Set EAX</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/software-security/shellone/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/software-security/shellone/</guid>
+      <description>Write minimal x86 shellcode that sets EAX to 0x13371338 to satisfy the binary&amp;rsquo;s check and unlock execution flow.</description>
+    </item>
+    <item>
+      <title>Split — ret2win with ROP pop rdi Gadget</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/software-security/split/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/software-security/split/</guid>
+      <description>Classic x86-64 ret2win: overflow the return address, use a pop rdi gadget to pass the /bin/cat flag.txt string as argument, jump to system.</description>
+    </item>
+    <item>
+      <title>Unzip Matryoshka — 3000 Nested Zip Files</title>
+      <link>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</guid>
+      <description>Automate extraction of 3000 nested zip files to retrieve the flag from the innermost archive.</description>
+    </item>
+  </channel>
+</rss>

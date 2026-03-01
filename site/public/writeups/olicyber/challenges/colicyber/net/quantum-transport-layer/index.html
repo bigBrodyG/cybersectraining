@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Quantum Transport Layer — TLS ALPN Flag via gnutls-cli | giordii</title>
+<meta name="keywords" content="net, tls, alpn, bash">
+<meta name="description" content="The TLS server returns the flag as the negotiated ALPN protocol name. Inject the server&rsquo;s hostname into /etc/hosts, connect with gnutls-cli specifying &ndash;alpn=flag, and read the flag from the TLS handshake output.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="Quantum Transport Layer — TLS ALPN Flag via gnutls-cli">
+  <meta property="og:description" content="The TLS server returns the flag as the negotiated ALPN protocol name. Inject the server’s hostname into /etc/hosts, connect with gnutls-cli specifying –alpn=flag, and read the flag from the TLS handshake output.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Net">
+    <meta property="article:tag" content="Tls">
+    <meta property="article:tag" content="Alpn">
+    <meta property="article:tag" content="Bash">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Quantum Transport Layer — TLS ALPN Flag via gnutls-cli">
+<meta name="twitter:description" content="The TLS server returns the flag as the negotiated ALPN protocol name. Inject the server&rsquo;s hostname into /etc/hosts, connect with gnutls-cli specifying &ndash;alpn=flag, and read the flag from the TLS handshake output.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Olicyber",
+      "item": "http://localhost:1313/writeups/olicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Practice Platform",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "COlicyber",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Net",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  6 ,
+      "name": "Quantum Transport Layer — TLS ALPN Flag via gnutls-cli",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Quantum Transport Layer — TLS ALPN Flag via gnutls-cli",
+  "name": "Quantum Transport Layer — TLS ALPN Flag via gnutls-cli",
+  "description": "The TLS server returns the flag as the negotiated ALPN protocol name. Inject the server\u0026rsquo;s hostname into /etc/hosts, connect with gnutls-cli specifying \u0026ndash;alpn=flag, and read the flag from the TLS handshake output.",
+  "keywords": [
+    "net", "tls", "alpn", "bash"
+  ],
+  "articleBody": "The Challenge A TLS server at port 10503 uses the ALPN extension (Application-Layer Protocol Negotiation) to expose the flag. ALPN lets a client propose a list of protocol names during the TLS handshake; the server responds with the one it supports. Here the “protocol” the server supports is the flag string itself.\nApproach The hostname fl4gg.quantum-transport-layer.test doesn’t resolve publicly — it points to a challenge IP. Add it to /etc/hosts temporarily, then connect with gnutls-cli using --alpn=flag to request the ALPN name \"flag\" in the ClientHello. The server echoes back its chosen ALPN value: the flag.\n--insecure skips certificate validation. The script cleans /etc/hosts after running.\nSolution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #!/bin/sh IP_ADDRESS=\"5.75.221.48\" HOSTNAME=\"fl4gg.quantum-transport-layer.test\" if ! grep -q \"$HOSTNAME\" /etc/hosts; then # Add the entry to /etc/hosts echo \"$IP_ADDRESS $HOSTNAME\" | sudo tee -a /etc/hosts \u003e /dev/null echo \"Added $HOSTNAME to /etc/hosts.\" fi echo \"$(gnutls-cli fl4gg.quantum-transport-layer.test:10503 --insecure --alpn=flag)\" if grep -q \"$HOSTNAME\" /etc/hosts; then # Remove the line containing the hostname sudo sed -i \"/$HOSTNAME/d\" /etc/hosts echo \"Removed $HOSTNAME from /etc/hosts.\" fi The grep -q guard prevents duplicate /etc/hosts entries on re-runs. The gnutls-cli invocation connects over TLS, proposes flag as the ALPN string, and prints the full handshake including the server’s chosen protocol — where the flag is.\nWhat I Learned ALPN was designed so HTTP/2 and HTTP/1.1 can share port 443: the client proposes h2 and http/1.1 and the server picks one. Nothing stops a server from using any arbitrary string as a “protocol name”, making it a convenient channel for hiding short secrets in the TLS handshake metadata rather than the application payload.\n",
+  "wordCount" : "280",
+  "inLanguage": "en",
+  "datePublished": "2024-01-01T00:00:00Z",
+  "dateModified": "2024-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/">Net</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Quantum Transport Layer — TLS ALPN Flag via gnutls-cli
+    </h1>
+    <div class="post-meta"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>A TLS server at port 10503 uses the ALPN extension (Application-Layer Protocol Negotiation) to expose the flag. ALPN lets a client propose a list of protocol names during the TLS handshake; the server responds with the one it supports. Here the &ldquo;protocol&rdquo; the server supports is the flag string itself.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>The hostname <code>fl4gg.quantum-transport-layer.test</code> doesn&rsquo;t resolve publicly — it points to a challenge IP. Add it to <code>/etc/hosts</code> temporarily, then connect with <code>gnutls-cli</code> using <code>--alpn=flag</code> to request the ALPN name <code>&quot;flag&quot;</code> in the ClientHello. The server echoes back its chosen ALPN value: the flag.</p>
+<p><code>--insecure</code> skips certificate validation. The script cleans <code>/etc/hosts</code> after running.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh 
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">IP_ADDRESS</span><span class="o">=</span><span class="s2">&#34;5.75.221.48&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">HOSTNAME</span><span class="o">=</span><span class="s2">&#34;fl4gg.quantum-transport-layer.test&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> ! grep -q <span class="s2">&#34;</span><span class="nv">$HOSTNAME</span><span class="s2">&#34;</span> /etc/hosts<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Add the entry to /etc/hosts</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$IP_ADDRESS</span><span class="s2"> </span><span class="nv">$HOSTNAME</span><span class="s2">&#34;</span> <span class="p">|</span> sudo tee -a /etc/hosts &gt; /dev/null
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Added </span><span class="nv">$HOSTNAME</span><span class="s2"> to /etc/hosts.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="k">$(</span>gnutls-cli fl4gg.quantum-transport-layer.test:10503 --insecure --alpn<span class="o">=</span>flag<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> grep -q <span class="s2">&#34;</span><span class="nv">$HOSTNAME</span><span class="s2">&#34;</span> /etc/hosts<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Remove the line containing the hostname</span>
+</span></span><span class="line"><span class="cl">  sudo sed -i <span class="s2">&#34;/</span><span class="nv">$HOSTNAME</span><span class="s2">/d&#34;</span> /etc/hosts
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Removed </span><span class="nv">$HOSTNAME</span><span class="s2"> from /etc/hosts.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>grep -q</code> guard prevents duplicate <code>/etc/hosts</code> entries on re-runs. The <code>gnutls-cli</code> invocation connects over TLS, proposes <code>flag</code> as the ALPN string, and prints the full handshake including the server&rsquo;s chosen protocol — where the flag is.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p>ALPN was designed so HTTP/2 and HTTP/1.1 can share port 443: the client proposes <code>h2</code> and <code>http/1.1</code> and the server picks one. Nothing stops a server from using any arbitrary string as a &ldquo;protocol name&rdquo;, making it a convenient channel for hiding short secrets in the TLS handshake metadata rather than the application payload.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/net/">Net</a></li>
+      <li><a href="http://localhost:1313/tags/tls/">Tls</a></li>
+      <li><a href="http://localhost:1313/tags/alpn/">Alpn</a></li>
+      <li><a href="http://localhost:1313/tags/bash/">Bash</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/password-changer-3000/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Password Changer 3000 — Insecure Token via Base64-Encoded Username</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/readdle/">
+    <span class="title">Next »</span>
+    <br>
+    <span>readdle — Two-Stage Shellcode via Stub Read Gadget</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

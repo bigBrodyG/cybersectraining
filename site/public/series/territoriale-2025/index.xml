@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Territoriale 2025 on giordii</title>
+    <link>http://localhost:1313/series/territoriale-2025/</link>
+    <description>Recent content in Territoriale 2025 on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/series/territoriale-2025/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Baity5 — Binary Exploitation</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2025/baity5/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2025/baity5/</guid>
+      <description>Binary exploitation challenge from Territoriale 2025. Static analysis and attack strategy — no full exploit solved during competition.</description>
+    </item>
+    <item>
+      <title>Bash Filter Bypass via Unicode Lookalikes</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2025/bash-filter-bypass/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2025/bash-filter-bypass/</guid>
+      <description>Bypass a character-level bash filter by substituting ASCII letters with Unicode homoglyphs that the shell normalizes.</description>
+    </item>
+    <item>
+      <title>Segnalazione Cinghiali — Union-Based SQLi in Node/Express</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</guid>
+      <description>Union-based SQL injection in the report ID parameter of a Node.js/TypeScript Express app to leak the flag from a hidden table.</description>
+    </item>
+  </channel>
+</rss>

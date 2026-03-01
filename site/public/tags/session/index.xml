@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Session on giordii</title>
+    <link>http://localhost:1313/tags/session/</link>
+    <description>Recent content in Session on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/session/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Math Solver</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/math-solver/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/math-solver/</guid>
+      <description>Automate solving 100 consecutive linear equations within a single HTTP session to unlock the flag.</description>
+    </item>
+    <item>
+      <title>A Too Small Reminder — Session ID Enumeration</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/</guid>
+      <description>Register, log in, notice the session_id cookie is a small integer. Brute-force integers upward from 30 until the admin session is hit and the flag appears.</description>
+    </item>
+    <item>
+      <title>Truly Random Signature — Predictable Session Token Analysis</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/truly-random-signature/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/truly-random-signature/</guid>
+      <description>The server issues session tokens that are predictable or reusable. Requesting the site twice, comparing the Set-Cookie headers, and identifying the pattern allows forging or reusing an admin-level token.</description>
+    </item>
+  </channel>
+</rss>

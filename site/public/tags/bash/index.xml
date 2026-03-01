@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bash on giordii</title>
+    <link>http://localhost:1313/tags/bash/</link>
+    <description>Recent content in Bash on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bash Filter Bypass via Unicode Lookalikes</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2025/bash-filter-bypass/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2025/bash-filter-bypass/</guid>
+      <description>Bypass a character-level bash filter by substituting ASCII letters with Unicode homoglyphs that the shell normalizes.</description>
+    </item>
+    <item>
+      <title>Quantum Transport Layer — TLS ALPN Flag via gnutls-cli</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/</guid>
+      <description>The TLS server returns the flag as the negotiated ALPN protocol name. Inject the server&amp;rsquo;s hostname into /etc/hosts, connect with gnutls-cli specifying &amp;ndash;alpn=flag, and read the flag from the TLS handshake output.</description>
+    </item>
+  </channel>
+</rss>

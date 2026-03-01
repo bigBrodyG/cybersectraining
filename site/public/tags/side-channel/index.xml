@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Side-Channel on giordii</title>
+    <link>http://localhost:1313/tags/side-channel/</link>
+    <description>Recent content in Side-Channel on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/side-channel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Time Is Key — Timing Side-Channel Flag Extraction</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/time-is-key/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/time-is-key/</guid>
+      <description>The server compares the submitted flag character-by-character and returns a response proportional to how many correct characters were prefixed. Measure elapsed time per candidate character and pick the one with the longest response time to recover the flag byte by byte.</description>
+    </item>
+  </channel>
+</rss>

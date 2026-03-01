@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Net | giordii</title>
+<meta name="keywords" content="">
+<meta name="description" content="Network challenges from COlicyber — PCAP analysis, DNS, TLS, protocol-level exploitation.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="Net">
+  <meta property="og:description" content="Network challenges from COlicyber — PCAP analysis, DNS, TLS, protocol-level exploitation.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Net">
+<meta name="twitter:description" content="Network challenges from COlicyber — PCAP analysis, DNS, TLS, protocol-level exploitation.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Olicyber",
+      "item": "http://localhost:1313/writeups/olicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Practice Platform",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "COlicyber",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Net",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/"
+    }
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a></div>
+  <h1>
+    Net
+  </h1>
+  <div class="post-description">
+    Network challenges from COlicyber — PCAP analysis, DNS, TLS, protocol-level exploitation.
+  </div>
+  <div class="post-meta">
+    <span>13 min read total</span>
+  </div>
+</header>
+<div class="post-content"><p>Network challenges from the COlicyber practice track.</p>
+
+
+</div>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Chaos — TCP Payload Reconstruction from PCAP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Filter a PCAP for TCP packets, decode each packet’s payload from hex, and concatenate them in order — the resulting byte stream contains the flag.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Chaos — TCP Payload Reconstruction from PCAP" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Quantum Transport Layer — TLS ALPN Flag via gnutls-cli
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The TLS server returns the flag as the negotiated ALPN protocol name. Inject the server’s hostname into /etc/hosts, connect with gnutls-cli specifying –alpn=flag, and read the flag from the TLS handshake output.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Quantum Transport Layer — TLS ALPN Flag via gnutls-cli" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Sniff N Byte — Decode Hardcoded Hex Flag
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The flag is encoded as concatenated 0x-prefixed hex bytes embedded directly in the capture. Strip the prefixes, decode with bytes.fromhex, and print.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Sniff N Byte — Decode Hardcoded Hex Flag" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">That&#39;s a Lot of Fs — Flag in Ethernet Destination MAC via Custom EtherType
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Filter Ethernet frames with EtherType 0xffff — the custom protocol used by this challenge — collect the destination MAC address from each matching frame, interpret the first two hex bytes as ASCII, and concatenate to reveal the flag.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to That&#39;s a Lot of Fs — Flag in Ethernet Destination MAC via Custom EtherType" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Useless — Flag Hidden in PCAPNG via strings
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Run strings on the PCAPNG and grep for ‘flag’ — the flag is stored as plain ASCII inside the capture file and visible without any packet parsing.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Useless — Flag Hidden in PCAPNG via strings" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">WordWang — Protocol Format Wrapping
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The server returns a word from a custom protocol. Wrap the response in the expected format — prepend ‘?’, uppercase, append ‘!’ — send it back, and the server returns the flag.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to WordWang — Protocol Format Wrapping" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">You Complete Me — Binary Search Word Reconstruction
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>A sorted word list and a known sequence of binary-search response sizes pin down a unique word character by character. Reconstruct it by matching the precounted word counts at each prefix level.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to You Complete Me — Binary Search Word Reconstruction" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>File-Format on giordii</title>
+    <link>http://localhost:1313/tags/file-format/</link>
+    <description>Recent content in File-Format on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/file-format/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Corrupted Flag — Fix GIF Magic Bytes then Extract Frames</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/</guid>
+      <description>The GIF has wrong magic bytes at the start. Replace the first 13 bytes with the correct GIF89a header, open the repaired file with Pillow, and iterate through frames saved as WebP to find the flag.</description>
+    </item>
+  </channel>
+</rss>

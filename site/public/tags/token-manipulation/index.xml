@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Token-Manipulation on bBG — CTF Writeups</title>
+    <link>http://localhost:1313/tags/token-manipulation/</link>
+    <description>Recent content in Token-Manipulation on bBG — CTF Writeups</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/token-manipulation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cry3 — AES-CBC Bit-Flip on Token Parser</title>
+      <link>http://localhost:1313/writeups/olicyber/territoriale2025/cry3/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/territoriale2025/cry3/</guid>
+      <description>Exploit AES-CBC&amp;rsquo;s malleability to flip index bytes in a server-parsed token and recover flag chunks.</description>
+    </item>
+  </channel>
+</rss>

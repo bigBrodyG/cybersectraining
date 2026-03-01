@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Dynamic Secret | giordii</title>
+<meta name="keywords" content="misc, strace, linux, dynamic-analysis">
+<meta name="description" content="Use strace to trace the runtime syscalls of a binary and read the secret it loads from a file.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/olicyber/territoriale2026/demo/dynamicsecret/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/territoriale2026/demo/dynamicsecret/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/olicyber/territoriale2026/demo/dynamicsecret/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="Dynamic Secret">
+  <meta property="og:description" content="Use strace to trace the runtime syscalls of a binary and read the secret it loads from a file.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2026-02-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-02-28T00:00:00+00:00">
+    <meta property="article:tag" content="Misc">
+    <meta property="article:tag" content="Strace">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Dynamic-Analysis">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/territoriale2026/demo/http-inputs/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/territoriale2026/demo/math-solver/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/territoriale2026/demo/revme/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/territoriale2026/demo/secureadminpanel/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/territoriale2026/demo/sqli-cards/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/territoriale2026/demo/xss-escape/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dynamic Secret">
+<meta name="twitter:description" content="Use strace to trace the runtime syscalls of a binary and read the secret it loads from a file.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Olicyber",
+      "item": "http://localhost:1313/writeups/olicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Territoriale 2026",
+      "item": "http://localhost:1313/writeups/olicyber/territoriale2026/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Demo Round",
+      "item": "http://localhost:1313/writeups/olicyber/territoriale2026/demo/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Dynamic Secret",
+      "item": "http://localhost:1313/writeups/olicyber/territoriale2026/demo/dynamicsecret/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dynamic Secret",
+  "name": "Dynamic Secret",
+  "description": "Use strace to trace the runtime syscalls of a binary and read the secret it loads from a file.",
+  "keywords": [
+    "misc", "strace", "linux", "dynamic-analysis"
+  ],
+  "articleBody": "The Challenge dynamicsecret is a binary that loads something at runtime — from a file on disk or from an environment variable. Running it normally either crashes, prints nothing useful, or asks for credentials it won’t verify without the secret in place. The flag is that secret.\nApproach When a binary loads data from a file or environment at runtime, it has to make syscalls to do so. On Linux that means openat, read, getenv, and friends — all of which strace intercepts and prints verbatim. I don’t need to reverse the binary statically; I just run it under strace and watch what happens.\nstrace traces every syscall and prints the arguments and return values. When the binary calls openat to open a secret file, you see the path. When it calls read, you see the data. If it uses getenv, you see the variable name. Whatever mechanism it uses, strace will show it.\nThere’s no exploitation here — it’s a reconnaissance technique. The binary is doing exactly what it’s supposed to do; I’m just watching.\nSolution 1 strace ./dynamicsecret 2\u003e\u00261 | head -60 The 2\u003e\u00261 redirect is important because strace writes to stderr by default. Piping through head keeps the output manageable — you usually see the interesting syscalls in the first few dozen lines, before the binary gets to its main logic.\nIn the output, the relevant line looks something like:\n1 2 openat(AT_FDCWD, \"/path/to/secret_file\", O_RDONLY) = 3 read(3, \"flag{trust_the_runtime_path_e05f6877}\\0\", 64) = 37 The read call’s second argument is the buffer contents — strace pretty-prints strings for you. The flag is right there: flag{trust_the_runtime_path_e05f6877}.\nIf the binary loaded from an environment variable instead, you’d see:\n1 getenv(\"SECRET_VAR\") = \"flag{...}\" Either way, strace catches it. No disassembly, no decompiler, no guessing.\nWhat I Learned strace is one of the most underused tools in a CTF toolkit. Any time a binary “loads a secret at runtime,” it exposes that secret through syscalls — and syscalls are always visible to a tracer. Before opening Ghidra, try strace.\n",
+  "wordCount" : "336",
+  "inLanguage": "en",
+  "datePublished": "2026-02-28T00:00:00Z",
+  "dateModified": "2026-02-28T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/olicyber/territoriale2026/demo/dynamicsecret/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/territoriale2026/">Territoriale 2026</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/territoriale2026/demo/">Demo Round</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Dynamic Secret
+    </h1>
+    <div class="post-meta"><span title='2026-02-28 00:00:00 +0000 UTC'>February 28, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p><code>dynamicsecret</code> is a binary that loads something at runtime — from a file on disk or from an environment variable. Running it normally either crashes, prints nothing useful, or asks for credentials it won&rsquo;t verify without the secret in place. The flag is that secret.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>When a binary loads data from a file or environment at runtime, it has to make syscalls to do so. On Linux that means <code>openat</code>, <code>read</code>, <code>getenv</code>, and friends — all of which <code>strace</code> intercepts and prints verbatim. I don&rsquo;t need to reverse the binary statically; I just run it under <code>strace</code> and watch what happens.</p>
+<p><code>strace</code> traces every syscall and prints the arguments and return values. When the binary calls <code>openat</code> to open a secret file, you see the path. When it calls <code>read</code>, you see the data. If it uses <code>getenv</code>, you see the variable name. Whatever mechanism it uses, <code>strace</code> will show it.</p>
+<p>There&rsquo;s no exploitation here — it&rsquo;s a reconnaissance technique. The binary is doing exactly what it&rsquo;s supposed to do; I&rsquo;m just watching.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">strace ./dynamicsecret 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> head -60
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>2&gt;&amp;1</code> redirect is important because <code>strace</code> writes to stderr by default. Piping through <code>head</code> keeps the output manageable — you usually see the interesting syscalls in the first few dozen lines, before the binary gets to its main logic.</p>
+<p>In the output, the relevant line looks something like:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">openat(AT_FDCWD, &#34;/path/to/secret_file&#34;, O_RDONLY) = 3
+</span></span><span class="line"><span class="cl">read(3, &#34;flag{trust_the_runtime_path_e05f6877}\0&#34;, 64) = 37
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>read</code> call&rsquo;s second argument is the buffer contents — strace pretty-prints strings for you. The flag is right there: <code>flag{trust_the_runtime_path_e05f6877}</code>.</p>
+<p>If the binary loaded from an environment variable instead, you&rsquo;d see:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">getenv(&#34;SECRET_VAR&#34;)                    = &#34;flag{...}&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Either way, <code>strace</code> catches it. No disassembly, no decompiler, no guessing.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p><code>strace</code> is one of the most underused tools in a CTF toolkit. Any time a binary &ldquo;loads a secret at runtime,&rdquo; it exposes that secret through syscalls — and syscalls are always visible to a tracer. Before opening Ghidra, try <code>strace</code>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/misc/">Misc</a></li>
+      <li><a href="http://localhost:1313/tags/strace/">Strace</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/dynamic-analysis/">Dynamic-Analysis</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/writeups/olicyber/territoriale2026/demo/http-inputs/">
+    <span class="title">Next »</span>
+    <br>
+    <span>HTTP Inputs</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

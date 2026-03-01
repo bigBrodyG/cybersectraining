@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bank Logic Bypass — Scientific Notation Bypasses Integer Validation | giordii</title>
+<meta name="keywords" content="web, logic-bug, type-confusion, validation-bypass, python">
+<meta name="description" content="Submit a withdrawal amount in scientific notation to exploit loose type parsing and credit 1 billion to your balance.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="Bank Logic Bypass — Scientific Notation Bypasses Integer Validation">
+  <meta property="og:description" content="Submit a withdrawal amount in scientific notation to exploit loose type parsing and credit 1 billion to your balance.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Logic-Bug">
+    <meta property="article:tag" content="Type-Confusion">
+    <meta property="article:tag" content="Validation-Bypass">
+    <meta property="article:tag" content="Python">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/shellone/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/split/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bank Logic Bypass — Scientific Notation Bypasses Integer Validation">
+<meta name="twitter:description" content="Submit a withdrawal amount in scientific notation to exploit loose type parsing and credit 1 billion to your balance.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "CyberChallenge.IT",
+      "item": "http://localhost:1313/writeups/cyberchallenge/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Bank Logic Bypass — Scientific Notation Bypasses Integer Validation",
+      "item": "http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bank Logic Bypass — Scientific Notation Bypasses Integer Validation",
+  "name": "Bank Logic Bypass — Scientific Notation Bypasses Integer Validation",
+  "description": "Submit a withdrawal amount in scientific notation to exploit loose type parsing and credit 1 billion to your balance.",
+  "keywords": [
+    "web", "logic-bug", "type-confusion", "validation-bypass", "python"
+  ],
+  "articleBody": "The Challenge A bank web app lets you withdraw funds from your account. The frontend limits the amount field to 4 characters. The backend parses the amount but doesn’t strictly validate the format — it accepts floats or scientific notation strings and converts them loosely. Sending amount=1e9 bypasses the 4-character limit check (short string) and, if the backend treats it as -1e9 (a negative withdrawal, which is a deposit) or the logic subtracts the parsed float and wraps around, you end up with a billion in your account. Then /buy?item=flag lets you purchase the flag.\nApproach My first move was to just use the app normally. I logged in, saw my balance was small, tried to withdraw amounts and buy the flag — not enough money, obviously. Then I looked at the form: the amount field has a maxlength=\"4\" attribute. That tells the server nothing; maxlength only works in the browser.\nI tried submitting 9999 through Burp — still not enough. Then -1 thinking it might add to the balance as a negative withdrawal — the server rejected it with a validation error.\nThen I thought: what if I bypass the character limit with a short but numerically large value? Scientific notation — 1e9 is only 3 characters and means one billion. I sent it via the /withdraw?amount=1e9 GET parameter directly (the script skips the form entirely) and the server just credited the account instead of blocking it.\nFrom there, /buy?item=flag returned the flag in the URL as a reward= parameter.\nSolution 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 import requests BASE_URL = \"http://ccit25.havce.it:31347/\" session = requests.Session() # Step 1: Withdraw 1e9 (bypassing the 4-character limit restriction) withdraw_response = session.get(f\"{BASE_URL}/withdraw?amount=1e9\") print(\"Withdraw response:\", withdraw_response.url) # Step 2: Buy the flag buy_response = session.get(f\"{BASE_URL}/buy?item=flag\") print(\"Buy response:\", buy_response.url) # Step 3: Extract the flag from the response if \"reward=\" in buy_response.url: flag = buy_response.url.split(\"reward=\")[1] print(\"FLAG:\", flag) else: print(\"Flag not found, something went wrong.\") If the server expects a negative withdraw to credit the account, -1e9 works. If the bug is on a different endpoint or requires positive 1e9, adjust accordingly. Either way the pattern is: pass a scientific notation number short enough to evade the frontend character limit but large enough to overflow the balance check.\nWhat I Learned Client-side validation is never security. A 4-character limit in HTML does nothing once you’re sending raw HTTP requests. Backend validation has to check the parsed value’s range and type, not just the string length. Scientific notation exploiting parseFloat or Python’s float() conversion is a surprisingly common logic-bug vector.\n",
+  "wordCount" : "437",
+  "inLanguage": "en",
+  "datePublished": "2025-01-01T00:00:00Z",
+  "dateModified": "2025-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "giordii"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "giordii",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/cyberchallenge/">CyberChallenge.IT</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Bank Logic Bypass — Scientific Notation Bypasses Integer Validation
+    </h1>
+    <div class="post-meta"><span title='2025-01-01 00:00:00 +0000 UTC'>January 1, 2025</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>giordii</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-challenge" aria-label="The Challenge">The Challenge</a></li>
+                <li>
+                    <a href="#approach" aria-label="Approach">Approach</a></li>
+                <li>
+                    <a href="#solution" aria-label="Solution">Solution</a></li>
+                <li>
+                    <a href="#what-i-learned" aria-label="What I Learned">What I Learned</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-challenge">The Challenge<a hidden class="anchor" aria-hidden="true" href="#the-challenge">#</a></h2>
+<p>A bank web app lets you withdraw funds from your account. The frontend limits the <code>amount</code> field to 4 characters. The backend parses the amount but doesn&rsquo;t strictly validate the format — it accepts floats or scientific notation strings and converts them loosely. Sending <code>amount=1e9</code> bypasses the 4-character limit check (short string) and, if the backend treats it as <code>-1e9</code> (a negative withdrawal, which is a deposit) or the logic subtracts the parsed float and wraps around, you end up with a billion in your account. Then <code>/buy?item=flag</code> lets you purchase the flag.</p>
+<h2 id="approach">Approach<a hidden class="anchor" aria-hidden="true" href="#approach">#</a></h2>
+<p>My first move was to just use the app normally. I logged in, saw my balance was small, tried to withdraw amounts and buy the flag — not enough money, obviously. Then I looked at the form: the amount field has a <code>maxlength=&quot;4&quot;</code> attribute. That tells the server nothing; <code>maxlength</code> only works in the browser.</p>
+<p>I tried submitting <code>9999</code> through Burp — still not enough. Then <code>-1</code> thinking it might add to the balance as a negative withdrawal — the server rejected it with a validation error.</p>
+<p>Then I thought: what if I bypass the character limit with a <em>short</em> but numerically large value? Scientific notation — <code>1e9</code> is only 3 characters and means one billion. I sent it via the <code>/withdraw?amount=1e9</code> GET parameter directly (the script skips the form entirely) and the server just credited the account instead of blocking it.</p>
+<p>From there, <code>/buy?item=flag</code> returned the flag in the URL as a <code>reward=</code> parameter.</p>
+<h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&#34;http://ccit25.havce.it:31347/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 1: Withdraw 1e9 (bypassing the 4-character limit restriction)</span>
+</span></span><span class="line"><span class="cl"><span class="n">withdraw_response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s2">/withdraw?amount=1e9&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Withdraw response:&#34;</span><span class="p">,</span> <span class="n">withdraw_response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: Buy the flag</span>
+</span></span><span class="line"><span class="cl"><span class="n">buy_response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s2">/buy?item=flag&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Buy response:&#34;</span><span class="p">,</span> <span class="n">buy_response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: Extract the flag from the response</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="s2">&#34;reward=&#34;</span> <span class="ow">in</span> <span class="n">buy_response</span><span class="o">.</span><span class="n">url</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">flag</span> <span class="o">=</span> <span class="n">buy_response</span><span class="o">.</span><span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;reward=&#34;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;FLAG:&#34;</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Flag not found, something went wrong.&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If the server expects a negative withdraw to credit the account, <code>-1e9</code> works. If the bug is on a different endpoint or requires positive <code>1e9</code>, adjust accordingly. Either way the pattern is: pass a scientific notation number short enough to evade the frontend character limit but large enough to overflow the balance check.</p>
+<h2 id="what-i-learned">What I Learned<a hidden class="anchor" aria-hidden="true" href="#what-i-learned">#</a></h2>
+<p>Client-side validation is never security. A 4-character limit in HTML does nothing once you&rsquo;re sending raw HTTP requests. Backend validation has to check the parsed value&rsquo;s range and type, not just the string length. Scientific notation exploiting <code>parseFloat</code> or Python&rsquo;s <code>float()</code> conversion is a surprisingly common logic-bug vector.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/web/">Web</a></li>
+      <li><a href="http://localhost:1313/tags/logic-bug/">Logic-Bug</a></li>
+      <li><a href="http://localhost:1313/tags/type-confusion/">Type-Confusion</a></li>
+      <li><a href="http://localhost:1313/tags/validation-bypass/">Validation-Bypass</a></li>
+      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/writeups/olicyber/territoriale2025/segnalazione-cinghiali/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Segnalazione Cinghiali — Union-Based SQLi in Node/Express</span>
+  </a>
+  <a class="next" href="http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Basic Calculator — Variable Shadowing Bug</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

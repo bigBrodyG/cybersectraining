@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Off-by-One on giordii</title>
+    <link>http://localhost:1313/tags/off-by-one/</link>
+    <description>Recent content in Off-by-One on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/off-by-one/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Doge Ransom — IBAN Buffer Overflow with Control Byte Injection</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom/</guid>
+      <description>The IBAN input field copies 28 bytes into a buffer with room for 49. Appending the control byte 0x03 after the valid IBAN data overflows into an adjacent flag variable and unlocks the ransomware payment path.</description>
+    </item>
+  </channel>
+</rss>

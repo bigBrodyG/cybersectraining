@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Md5 on giordii</title>
+    <link>http://localhost:1313/tags/md5/</link>
+    <description>Recent content in Md5 on giordii</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <copyright>giordii</copyright>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/md5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confuse Me — PHP Magic Hash 0e MD5 Bypass</title>
+      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/confuse-me/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/confuse-me/</guid>
+      <description>PHP&amp;rsquo;s loose == treats any string starting with &amp;lsquo;0e&amp;rsquo; followed by digits as the float 0. Pass a known magic hash input whose MD5 begins with 0e to bypass a hash comparison.</description>
+    </item>
+  </channel>
+</rss>

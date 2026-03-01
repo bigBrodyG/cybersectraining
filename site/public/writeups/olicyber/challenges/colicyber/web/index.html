@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Web | giordii</title>
+<meta name="keywords" content="">
+<meta name="description" content="Web challenges from COlicyber — SQLi, IDOR, LFI, type juggling, cookie manipulation, command injection.">
+<meta name="author" content="giordii">
+<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/">
+  <meta property="og:site_name" content="giordii">
+  <meta property="og:title" content="Web">
+  <meta property="og:description" content="Web challenges from COlicyber — SQLi, IDOR, LFI, type juggling, cookie manipulation, command injection.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="website">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web">
+<meta name="twitter:description" content="Web challenges from COlicyber — SQLi, IDOR, LFI, type juggling, cookie manipulation, command injection.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Writeups",
+      "item": "http://localhost:1313/writeups/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Olicyber",
+      "item": "http://localhost:1313/writeups/olicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Practice Platform",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "COlicyber",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  5 ,
+      "name": "Web",
+      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/web/"
+    }
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/writeups/" title="Writeups">
+                    <span>Writeups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a></div>
+  <h1>
+    Web
+  </h1>
+  <div class="post-description">
+    Web challenges from COlicyber — SQLi, IDOR, LFI, type juggling, cookie manipulation, command injection.
+  </div>
+  <div class="post-meta">
+    <span>35 min read total</span>
+  </div>
+</header>
+<div class="post-content"><p>Web exploitation challenges from the COlicyber practice track.</p>
+
+
+</div>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">A Too Small Reminder — Session ID Enumeration
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Register, log in, notice the session_id cookie is a small integer. Brute-force integers upward from 30 until the admin session is hit and the flag appears.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to A Too Small Reminder — Session ID Enumeration" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Basic SQLi — Classic OR 1=1 Login Bypass
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Inject ’ OR ‘1’=‘1 into both username and password fields to make the SQL query always true and grab the flag from the response.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Basic SQLi — Classic OR 1=1 Login Bypass" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">C-Style Login — PHP Type Juggling Array Bypass
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>PHP’s loose comparison treats an array as truthy against any string. Sending password[] as an array in the POST body bypasses the string comparison and grants access.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to C-Style Login — PHP Type Juggling Array Bypass" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Click Me — Cookie Integer Forge to Reach Counter Target
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The app tracks clicks with an integer cookie. Skip the clicking by setting ‘cookies’ to 10000000 directly and request the page — the server trusts the cookie value and returns the flag.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Click Me — Cookie Integer Forge to Reach Counter Target" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/click-me/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Confuse Me — PHP Magic Hash 0e MD5 Bypass
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>PHP’s loose == treats any string starting with ‘0e’ followed by digits as the float 0. Pass a known magic hash input whose MD5 begins with 0e to bypass a hash comparison.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Confuse Me — PHP Magic Hash 0e MD5 Bypass" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/confuse-me/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Cookie Monster — Base64 JSON Cookie Role Elevation
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The session cookie is a URL-encoded base64 of a JSON string like ‘id-role-username’. Decode it, change the role to 0 and username to admin, re-encode, and access the admin page.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Cookie Monster — Base64 JSON Cookie Role Elevation" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/cookiemonster/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Flags Shop — Price Parameter Tampering
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The buy endpoint accepts a ‘costo’ (price) POST parameter from the client. Sending costo=0 purchases the expensive flag item for free.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Flags Shop — Price Parameter Tampering" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/flags-shop/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Headache — Flag in HTTP Response Header
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The flag is not in the response body — it is stored in a custom HTTP response header called ‘Flag’. Use a HEAD request and read r.headers[‘Flag’].</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Headache — Flag in HTTP Response Header" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/headache/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">I Got Magic — GIF Polyglot Webshell Upload &#43; RCE
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Craft a file that is simultaneously a valid GIF (magic bytes GIF89a) and a PHP shell (&lt;?php echo system(&#39;cat /flag.txt&#39;); ?&gt;). Upload it via the image upload form, find the timestamped filename in the response, and request that URL to execute the shell.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to I Got Magic — GIF Polyglot Webshell Upload &#43; RCE" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/i-got-magic/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Just a Reminder — Obfuscated JS Secret Key Recovery
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The login form runs client-side JS. Deobfuscating or inspecting it reveals a hardcoded secret key used to AES-decrypt the flag — the key is plaintext at the top of the obfuscated script.</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
+  <a class="entry-link" aria-label="post link to Just a Reminder — Obfuscated JS Secret Key Recovery" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/just-a-reminder/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span><a href="https://github.com/bigBrodyG">giordii</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

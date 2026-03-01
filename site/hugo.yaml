@@ -1,0 +1,98 @@
+baseURL: "https://writeups.giordii.dev/"
+title: "giordii"
+copyright: "[giordii](https://github.com/bigBrodyG)"
+languageCode: "en-us"
+paginate: 10
+theme: ["PaperMod"]
+
+enableRobotsTXT: true
+buildDrafts: false
+enableGitInfo: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
+    style: gruvbox
+
+taxonomies:
+  tag: tags
+  category: categories
+  series: series
+
+params:
+  env: production
+  author: "giordii"
+  defaultTheme: dark
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowPostNavLinks: true
+  ShowShareButtons: false
+  ShowToc: true
+  TocOpen: false
+  ShowWordCount: false
+  hidemeta: false
+  hideSummary: false
+
+  profileMode:
+    enabled: true
+    title: "giordii's Writeups"
+    subtitle: >-
+      CTF writeups, exploit scripts, and technical notes
+      from Italian Olympiad in Cybersecurity, CyberChallenge.IT, and beyond.
+    buttons:
+      - name: Writeups
+        url: /writeups/
+      - name: Archive
+        url: /archives/
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/bigBrodyG"
+    - name: linkedin
+      url: "https://linkedin.com/in/giordi"
+    - name: instagram
+      url: "https://instagram.com/fornari.giordano"
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    limit: 10
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: writeups
+      name: Writeups
+      url: /writeups/
+      weight: 10
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 20
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 30
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 40
