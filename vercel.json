@@ -1,0 +1,13 @@
+{
+  "buildCommand": "bash build.sh",
+  "outputDirectory": "site/public",
+  "framework": "other",
+  "env": {
+    "HUGO_VERSION": "0.157.0"
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
+}

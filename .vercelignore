@@ -1,0 +1,9 @@
+# Exclude large datasets and unnecessary directories
+SdrLen2026/Misc/Emojii-CAPTCHA/emoji-data/
+M0l3con/tools/
+M0l3con/datasets/
+*.pyc
+.venv
+node_modules
+.git
+.github
