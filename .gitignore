@@ -5,3 +5,10 @@ sw*
 .*/
 sql_tools
 👾 tools
+
+# Large dataset files
+SdrLen2026/Misc/Emojii-CAPTCHA/*.ttc
+SdrLen2026/Misc/Emojii-CAPTCHA/*.ttf
+SdrLen2026/Misc/Emojii-CAPTCHA/*.npy
+M0l3con/datasets/caas/ciphertexts
+M0l3con/datasets/caas/plaintexts
