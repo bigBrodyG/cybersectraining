@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Base64 on giordii</title>
-    <link>http://localhost:1313/tags/base64/</link>
+    <link>https://writeups.giordii.dev/tags/base64/</link>
     <description>Recent content in Base64 on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/base64/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/base64/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cookie Monster — Base64 JSON Cookie Role Elevation</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/cookiemonster/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/cookiemonster/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/cookiemonster/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/cookiemonster/</guid>
       <description>The session cookie is a URL-encoded base64 of a JSON string like &amp;lsquo;id-role-username&amp;rsquo;. Decode it, change the role to 0 and username to admin, re-encode, and access the admin page.</description>
     </item>
     <item>
       <title>Password Changer 3000 — Insecure Token via Base64-Encoded Username</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/password-changer-3000/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/password-changer-3000/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/password-changer-3000/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/password-changer-3000/</guid>
       <description>The password-reset token is simply the base64 encoding of the username. Encoding &amp;lsquo;admin&amp;rsquo; and passing it as the token query parameter triggers the admin password change flow and reveals the flag.</description>
     </item>
     <item>
       <title>Sn4ck Sh3nan1gans — UNION SQL Injection via Base64 JSON Cookie</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</guid>
       <description>The server reads a base64-encoded JSON cookie containing an ID field and passes it unsanitised into a SQL query. Inject a UNION SELECT payload inside the JSON, re-encode as base64, and set the forged cookie to extract the flag in three phases.</description>
     </item>
   </channel>

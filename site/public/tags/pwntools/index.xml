@@ -2,137 +2,137 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Pwntools on giordii</title>
-    <link>http://localhost:1313/tags/pwntools/</link>
+    <link>https://writeups.giordii.dev/tags/pwntools/</link>
     <description>Recent content in Pwntools on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/pwntools/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/pwntools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RevMe</title>
-      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/revme/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/revme/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/revme/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/revme/</guid>
       <description>Reverse a three-step transformation (reverse + rotate + XOR) applied to a 36-byte target symbol to recover the flag.</description>
     </item>
     <item>
       <title>Secure Admin Panel — Stack Canary Leak &#43; ret2win</title>
-      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/secureadminpanel/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/secureadminpanel/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/secureadminpanel/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/secureadminpanel/</guid>
       <description>Leak the stack canary via a controlled print function, then overflow to overwrite the return address without triggering the canary check.</description>
     </item>
     <item>
       <title>Split — ret2win with ROP pop rdi Gadget</title>
-      <link>http://localhost:1313/writeups/cyberchallenge/software-security/split/</link>
+      <link>https://writeups.giordii.dev/writeups/cyberchallenge/software-security/split/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/cyberchallenge/software-security/split/</guid>
+      <guid>https://writeups.giordii.dev/writeups/cyberchallenge/software-security/split/</guid>
       <description>Classic x86-64 ret2win: overflow the return address, use a pop rdi gadget to pass the /bin/cat flag.txt string as argument, jump to system.</description>
     </item>
     <item>
       <title>2048 — Arithmetic Server Bot</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/2048/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/2048/</guid>
       <description>Connect to a server that fires 2049 arithmetic challenges in Italian — SOMMA, DIFFERENZA, PRODOTTO, POTENZA, DIVISIONE_INTERA — and solve each one in under the timeout to receive the flag.</description>
     </item>
     <item>
       <title>Based and Encoded — Multi-Format Encoding Bot</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</guid>
       <description>A JSON-framed server demands conversions between base64, hex, and binary in both encode and decode directions. Write a bot that parses the Italian operation description and returns the correct transformed value.</description>
     </item>
     <item>
       <title>Doge Ransom — IBAN Buffer Overflow with Control Byte Injection</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom/</guid>
       <description>The IBAN input field copies 28 bytes into a buffer with room for 49. Appending the control byte 0x03 after the valid IBAN data overflows into an adjacent flag variable and unlocks the ransomware payment path.</description>
     </item>
     <item>
       <title>Doge Ransom 2 — ROP ret2puts Leak then ADMIN re-login</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</guid>
       <description>Overflow the IBAN field to leak the binary&amp;rsquo;s own password via puts, then re-login as ADMIN using the leaked credential and repeat the overflow to reach the flag path.</description>
     </item>
     <item>
       <title>Emergency Call — ROP Syscall Chain for execve</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/emergency-call/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/emergency-call/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/emergency-call/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/emergency-call/</guid>
       <description>Write /bin/sh into a known writable address, then build a ROP chain that sets rax=59, rdi=/bin/sh, rsi=0, rdx=0 using dedicated pop gadgets and a syscall instruction to get a shell.</description>
     </item>
     <item>
       <title>Formatted — Format String Write with %n</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/formatted/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/formatted/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/formatted/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/formatted/</guid>
       <description>Use a format string %n write to overwrite a target variable at a known address and unlock the flag path.</description>
     </item>
     <item>
       <title>Generatore Poco Casuale — Shellcode Injection via Leaked Stack Address</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</guid>
       <description>The binary leaks a runtime stack address disguised as a &amp;lsquo;random number&amp;rsquo;. Add 6 to land inside the shellcode region, then spray that address 800 times to cover the return target and get a shell.</description>
     </item>
     <item>
       <title>Guess The Number — Stack Overflow &#43; Integer Overflow</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/guess-the-number/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/guess-the-number/</guid>
       <description>Overflow the name buffer to corrupt the internal number variable, then feed back the overflowed value as a decimal integer to satisfy the equality check.</description>
     </item>
     <item>
       <title>Guess the Number 2 — ROP Chain GOT Overwrite via gets</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/</guid>
       <description>Build a ROP chain that calls gets twice to plant arbitrary data in the GOT, redirect strcspn to a shellcode stub, then trigger the win print path.</description>
     </item>
     <item>
       <title>More Private Club — Simple ret2win Buffer Overflow</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/more-private-club/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/more-private-club/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/more-private-club/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/more-private-club/</guid>
       <description>Overflow a stack buffer to overwrite the return address with a known win function address, then trigger it.</description>
     </item>
     <item>
       <title>readdle — Two-Stage Shellcode via Stub Read Gadget</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/readdle/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/readdle/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/readdle/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/readdle/</guid>
       <description>Inject a 4-byte stub shellcode that calls read to pull a full shell payload into the same buffer, then jump to it — bypassing the initial 4-byte size constraint on the first write.</description>
     </item>
     <item>
       <title>Secret Vault — Heap Address Leak &#43; Shellcode via Stack Overflow</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/secret-vault/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/secret-vault/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/secret-vault/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/secret-vault/</guid>
       <description>Trigger a heap allocation that the binary prints, compute the shellcode landing address at heap+96, then overflow the stack with that return address followed by shellcode to get a shell.</description>
     </item>
     <item>
       <title>Super Market — Integer Underflow Price Manipulation</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/super-market/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/super-market/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/super-market/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/super-market/</guid>
       <description>Pass a negative quantity to an unsigned arithmetic check, causing integer underflow that bypasses a balance validation and grants access to a premium item.</description>
     </item>
     <item>
       <title>Terminator — Canary Leak &#43; Full ret2libc</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/terminator/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/terminator/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/terminator/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/terminator/</guid>
       <description>Overwrite the canary&amp;rsquo;s null byte to leak the full 8-byte cookie over printf, simultaneously leak a saved RBP to base the stack, then use puts@got to find libc base and call system(&amp;rsquo;/bin/sh&amp;rsquo;) — all in two trips through the same vulnerable function.</description>
     </item>
     <item>
       <title>WordWang — Protocol Format Wrapping</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/wordwang/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/wordwang/</guid>
       <description>The server returns a word from a custom protocol. Wrap the response in the expected format — prepend &amp;lsquo;?&amp;rsquo;, uppercase, append &amp;lsquo;!&amp;rsquo; — send it back, and the server returns the flag.</description>
     </item>
   </channel>

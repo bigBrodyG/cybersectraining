@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Robots-Txt on giordii</title>
-    <link>http://localhost:1313/tags/robots-txt/</link>
+    <link>https://writeups.giordii.dev/tags/robots-txt/</link>
     <description>Recent content in Robots-Txt on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/robots-txt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/robots-txt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>No Robots Here — Disallowed Path Discovery via robots.txt</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-robots-here/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/no-robots-here/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-robots-here/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/no-robots-here/</guid>
       <description>robots.txt lists a Disallow path that the crawler is never supposed to visit. That path contains the flag.</description>
     </item>
   </channel>

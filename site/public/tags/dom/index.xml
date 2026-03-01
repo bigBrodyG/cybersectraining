@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Dom on giordii</title>
-    <link>http://localhost:1313/tags/dom/</link>
+    <link>https://writeups.giordii.dev/tags/dom/</link>
     <description>Recent content in Dom on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dom/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/dom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>XSS Escape — Breaking Out of a Script String Context</title>
-      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/xss-escape/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/xss-escape/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/xss-escape/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/xss-escape/</guid>
       <description>Escape a JavaScript string context inside a script tag by injecting a closing script tag that the sanitizer fails to block.</description>
     </item>
   </channel>

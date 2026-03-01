@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Protocol on giordii</title>
-    <link>http://localhost:1313/tags/protocol/</link>
+    <link>https://writeups.giordii.dev/tags/protocol/</link>
     <description>Recent content in Protocol on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/protocol/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/protocol/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WordWang — Protocol Format Wrapping</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/wordwang/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/wordwang/</guid>
       <description>The server returns a word from a custom protocol. Wrap the response in the expected format — prepend &amp;lsquo;?&amp;rsquo;, uppercase, append &amp;lsquo;!&amp;rsquo; — send it back, and the server returns the flag.</description>
     </item>
   </channel>

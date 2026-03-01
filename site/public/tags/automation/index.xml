@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Automation on giordii</title>
-    <link>http://localhost:1313/tags/automation/</link>
+    <link>https://writeups.giordii.dev/tags/automation/</link>
     <description>Recent content in Automation on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/automation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Math Solver</title>
-      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/math-solver/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/math-solver/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/math-solver/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/math-solver/</guid>
       <description>Automate solving 100 consecutive linear equations within a single HTTP session to unlock the flag.</description>
     </item>
     <item>
       <title>Unzip Matryoshka — 3000 Nested Zip Files</title>
-      <link>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</link>
+      <link>https://writeups.giordii.dev/writeups/cyberchallenge/misc/unzip-matryoshka/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</guid>
+      <guid>https://writeups.giordii.dev/writeups/cyberchallenge/misc/unzip-matryoshka/</guid>
       <description>Automate extraction of 3000 nested zip files to retrieve the flag from the innermost archive.</description>
     </item>
     <item>
       <title>2048 — Arithmetic Server Bot</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/2048/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/2048/</guid>
       <description>Connect to a server that fires 2049 arithmetic challenges in Italian — SOMMA, DIFFERENZA, PRODOTTO, POTENZA, DIVISIONE_INTERA — and solve each one in under the timeout to receive the flag.</description>
     </item>
     <item>
       <title>Based and Encoded — Multi-Format Encoding Bot</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</guid>
       <description>A JSON-framed server demands conversions between base64, hex, and binary in both encode and decode directions. Write a bot that parses the Italian operation description and returns the correct transformed value.</description>
     </item>
     <item>
       <title>Zipception — 3000 Nested ZIPs</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception/</guid>
       <description>A flag is hidden inside 3000 recursively nested ZIP archives. Loop backwards from flag3000.zip to flag1.zip, extracting and deleting each archive in turn until the innermost file is revealed.</description>
     </item>
   </channel>

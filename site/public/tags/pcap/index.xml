@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Pcap on giordii</title>
-    <link>http://localhost:1313/tags/pcap/</link>
+    <link>https://writeups.giordii.dev/tags/pcap/</link>
     <description>Recent content in Pcap on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/pcap/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/pcap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chaos — TCP Payload Reconstruction from PCAP</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/chaos/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/chaos/</guid>
       <description>Filter a PCAP for TCP packets, decode each packet&amp;rsquo;s payload from hex, and concatenate them in order — the resulting byte stream contains the flag.</description>
     </item>
     <item>
       <title>SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</guid>
       <description>Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.</description>
     </item>
     <item>
       <title>That&#39;s a Lot of Fs — Flag in Ethernet Destination MAC via Custom EtherType</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</guid>
       <description>Filter Ethernet frames with EtherType 0xffff — the custom protocol used by this challenge — collect the destination MAC address from each matching frame, interpret the first two hex bytes as ASCII, and concatenate to reveal the flag.</description>
     </item>
     <item>
       <title>Useless — Flag Hidden in PCAPNG via strings</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/</guid>
       <description>Run strings on the PCAPNG and grep for &amp;lsquo;flag&amp;rsquo; — the flag is stored as plain ASCII inside the capture file and visible without any packet parsing.</description>
     </item>
   </channel>

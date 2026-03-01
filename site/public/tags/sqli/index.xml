@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Sqli on giordii</title>
-    <link>http://localhost:1313/tags/sqli/</link>
+    <link>https://writeups.giordii.dev/tags/sqli/</link>
     <description>Recent content in Sqli on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/sqli/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/sqli/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SQLi Cards — Union Injection into SQLite</title>
-      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/sqli-cards/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/sqli-cards/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/sqli-cards/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/sqli-cards/</guid>
       <description>Union-based SQL injection in a card lookup form to enumerate tables via sqlite_master and extract the flag.</description>
     </item>
     <item>
       <title>Segnalazione Cinghiali — Union-Based SQLi in Node/Express</title>
-      <link>http://localhost:1313/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</guid>
       <description>Union-based SQL injection in the report ID parameter of a Node.js/TypeScript Express app to leak the flag from a hidden table.</description>
     </item>
     <item>
       <title>Blind SQLi Login — Boolean-Based Character Extraction</title>
-      <link>http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/</link>
+      <link>https://writeups.giordii.dev/writeups/cyberchallenge/web/blind-sqli/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/</guid>
+      <guid>https://writeups.giordii.dev/writeups/cyberchallenge/web/blind-sqli/</guid>
       <description>Boolean blind SQL injection on a login form to extract a password character by character using HEX comparison.</description>
     </item>
     <item>
       <title>Basic SQLi — Classic OR 1=1 Login Bypass</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/basic-sqli/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/basic-sqli/</guid>
       <description>Inject &amp;rsquo; OR &amp;lsquo;1&amp;rsquo;=&amp;lsquo;1 into both username and password fields to make the SQL query always true and grab the flag from the response.</description>
     </item>
     <item>
       <title>No Time — UNION SQL Injection with Keyword Filter Bypass via OFFSET Injection</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-time/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/no-time/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-time/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/no-time/</guid>
       <description>A WAF strips forbidden SQL keywords. Inject OFFSET inside reserved words (SELECT → SELOFFSETECT) so after the WAF removes OFFSET the original keyword is reconstructed, landing a UNION SELECT to dump the flag.</description>
     </item>
     <item>
       <title>Sn4ck Sh3nan1gans — UNION SQL Injection via Base64 JSON Cookie</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</guid>
       <description>The server reads a base64-encoded JSON cookie containing an ID field and passes it unsanitised into a SQL query. Inject a UNION SELECT payload inside the JSON, re-encode as base64, and set the forged cookie to extract the flag in three phases.</description>
     </item>
   </channel>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ret2puts on giordii</title>
-    <link>http://localhost:1313/tags/ret2puts/</link>
+    <link>https://writeups.giordii.dev/tags/ret2puts/</link>
     <description>Recent content in Ret2puts on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ret2puts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/ret2puts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Doge Ransom 2 — ROP ret2puts Leak then ADMIN re-login</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</guid>
       <description>Overflow the IBAN field to leak the binary&amp;rsquo;s own password via puts, then re-login as ADMIN using the leaked credential and repeat the overflow to reach the flag path.</description>
     </item>
   </channel>

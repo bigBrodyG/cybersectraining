@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Path-Traversal on giordii</title>
-    <link>http://localhost:1313/tags/path-traversal/</link>
+    <link>https://writeups.giordii.dev/tags/path-traversal/</link>
     <description>Recent content in Path-Traversal on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/path-traversal/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/path-traversal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Light or Dark — Path Traversal with Dot Obfuscation &#43; Null Byte</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/light-or-dark/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/light-or-dark/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/light-or-dark/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/light-or-dark/</guid>
       <description>The theme parameter appends .css to the user-supplied path before serving it. Use &amp;hellip;/ triples (which reduce to ../) and a URL-encoded null byte to escape the CSS directory and read /flag.txt.</description>
     </item>
   </channel>

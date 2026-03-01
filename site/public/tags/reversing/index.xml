@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Reversing on giordii</title>
-    <link>http://localhost:1313/tags/reversing/</link>
+    <link>https://writeups.giordii.dev/tags/reversing/</link>
     <description>Recent content in Reversing on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/reversing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/reversing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ASMR — Static XOR Reverse Engineering</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/asmr/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/asmr/</guid>
       <description>Reverse a static XOR encryption: subtract flag bytes from key bytes position-by-position to recover the plaintext.</description>
     </item>
     <item>
       <title>Coffee Hash — Z3 Cyclic Hash Constraint Solving</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/coffee-hash/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/coffee-hash/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/coffee-hash/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/coffee-hash/</guid>
       <description>Model a cyclic windowed hash as a system of linear equations over integer variables and solve it with Z3 to recover the flag.</description>
     </item>
     <item>
       <title>CrackMat — Z3 Per-Character Quadratic Equations</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/crackmat/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/crackmat/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/crackmat/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/crackmat/</guid>
       <description>Each flag character satisfies an independent quadratic equation in integer form; Z3 solves all 20 simultaneously to recover the flag.</description>
     </item>
   </channel>

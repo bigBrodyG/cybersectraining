@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,16 +9,16 @@
 <meta name="keywords" content="web, sqli, blind-sqli, boolean-based, python">
 <meta name="description" content="Boolean blind SQL injection on a login form to extract a password character by character using HEX comparison.">
 <meta name="author" content="giordii">
-<link rel="canonical" href="http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/">
+<link rel="canonical" href="https://writeups.giordii.dev/writeups/cyberchallenge/web/blind-sqli/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://writeups.giordii.dev/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://writeups.giordii.dev/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://writeups.giordii.dev/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://writeups.giordii.dev/apple-touch-icon.png">
+<link rel="mask-icon" href="https://writeups.giordii.dev/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/">
+<link rel="alternate" hreflang="en" href="https://writeups.giordii.dev/writeups/cyberchallenge/web/blind-sqli/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +36,7 @@
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<meta property="og:url" content="http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/">
+<meta property="og:url" content="https://writeups.giordii.dev/writeups/cyberchallenge/web/blind-sqli/">
   <meta property="og:site_name" content="giordii">
   <meta property="og:title" content="Blind SQLi Login — Boolean-Based Character Extraction">
   <meta property="og:description" content="Boolean blind SQL injection on a login form to extract a password character by character using HEX comparison.">
@@ -50,12 +50,12 @@
     <meta property="article:tag" content="Blind-Sqli">
     <meta property="article:tag" content="Boolean-Based">
     <meta property="article:tag" content="Python">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/shellone/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/cyberchallenge/software-security/split/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/cyberchallenge/web/bank-logic-bypass/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/cyberchallenge/misc/basic-calculator/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/cyberchallenge/web/extract-html-comments/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/cyberchallenge/software-security/shellfour-orw/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/cyberchallenge/software-security/shellone/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/cyberchallenge/software-security/split/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blind SQLi Login — Boolean-Based Character Extraction">
 <meta name="twitter:description" content="Boolean blind SQL injection on a login form to extract a password character by character using HEX comparison.">
@@ -70,19 +70,19 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Writeups",
-      "item": "http://localhost:1313/writeups/"
+      "item": "https://writeups.giordii.dev/writeups/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "CyberChallenge.IT",
-      "item": "http://localhost:1313/writeups/cyberchallenge/"
+      "item": "https://writeups.giordii.dev/writeups/cyberchallenge/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "Blind SQLi Login — Boolean-Based Character Extraction",
-      "item": "http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/"
+      "item": "https://writeups.giordii.dev/writeups/cyberchallenge/web/blind-sqli/"
     }
   ]
 }
@@ -108,14 +108,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/"
+    "@id": "https://writeups.giordii.dev/writeups/cyberchallenge/web/blind-sqli/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "giordii",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "https://writeups.giordii.dev/favicon.ico"
     }
   }
 }
@@ -125,7 +125,7 @@
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <a href="https://writeups.giordii.dev/" accesskey="h" title="giordii (Alt + H)">giordii</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -151,22 +151,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/writeups/" title="Writeups">
+                <a href="https://writeups.giordii.dev/writeups/" title="Writeups">
                     <span>Writeups</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://writeups.giordii.dev/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://writeups.giordii.dev/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://writeups.giordii.dev/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -177,7 +177,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/cyberchallenge/">CyberChallenge.IT</a></div>
+    <div class="breadcrumbs"><a href="https://writeups.giordii.dev/">Home</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/cyberchallenge/">CyberChallenge.IT</a></div>
     <h1 class="post-title entry-hint-parent">
       Blind SQLi Login — Boolean-Based Character Extraction
     </h1>
@@ -270,19 +270,19 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/web/">Web</a></li>
-      <li><a href="http://localhost:1313/tags/sqli/">Sqli</a></li>
-      <li><a href="http://localhost:1313/tags/blind-sqli/">Blind-Sqli</a></li>
-      <li><a href="http://localhost:1313/tags/boolean-based/">Boolean-Based</a></li>
-      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+      <li><a href="https://writeups.giordii.dev/tags/web/">Web</a></li>
+      <li><a href="https://writeups.giordii.dev/tags/sqli/">Sqli</a></li>
+      <li><a href="https://writeups.giordii.dev/tags/blind-sqli/">Blind-Sqli</a></li>
+      <li><a href="https://writeups.giordii.dev/tags/boolean-based/">Boolean-Based</a></li>
+      <li><a href="https://writeups.giordii.dev/tags/python/">Python</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/">
+  <a class="prev" href="https://writeups.giordii.dev/writeups/cyberchallenge/misc/basic-calculator/">
     <span class="title">« Prev</span>
     <br>
     <span>Basic Calculator — Variable Shadowing Bug</span>
   </a>
-  <a class="next" href="http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/">
+  <a class="next" href="https://writeups.giordii.dev/writeups/cyberchallenge/web/extract-html-comments/">
     <span class="title">Next »</span>
     <br>
     <span>Extract HTML Comments</span>

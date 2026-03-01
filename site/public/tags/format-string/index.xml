@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Format-String on giordii</title>
-    <link>http://localhost:1313/tags/format-string/</link>
+    <link>https://writeups.giordii.dev/tags/format-string/</link>
     <description>Recent content in Format-String on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/format-string/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/format-string/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Formatted — Format String Write with %n</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/formatted/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/formatted/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/formatted/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/formatted/</guid>
       <description>Use a format string %n write to overwrite a target variable at a known address and unlock the flag path.</description>
     </item>
   </channel>

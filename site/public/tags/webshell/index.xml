@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Webshell on giordii</title>
-    <link>http://localhost:1313/tags/webshell/</link>
+    <link>https://writeups.giordii.dev/tags/webshell/</link>
     <description>Recent content in Webshell on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/webshell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/webshell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell&#39;s Revenge — GIF Polyglot PHP Webshell Upload</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/shells-revenge/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/shells-revenge/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/shells-revenge/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/shells-revenge/</guid>
       <description>Upload a file starting with the GIF89a magic bytes followed by a PHP shell. The server validates MIME type from the header but saves the file where PHP can execute it. Access the uploaded file URL to run arbitrary commands.</description>
     </item>
   </channel>

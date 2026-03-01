@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Aslr-Bypass on giordii</title>
-    <link>http://localhost:1313/tags/aslr-bypass/</link>
+    <link>https://writeups.giordii.dev/tags/aslr-bypass/</link>
     <description>Recent content in Aslr-Bypass on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/aslr-bypass/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/aslr-bypass/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Generatore Poco Casuale — Shellcode Injection via Leaked Stack Address</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</guid>
       <description>The binary leaks a runtime stack address disguised as a &amp;lsquo;random number&amp;rsquo;. Add 6 to land inside the shellcode region, then spray that address 800 times to cover the return target and get a shell.</description>
     </item>
     <item>
       <title>Terminator — Canary Leak &#43; Full ret2libc</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/terminator/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/terminator/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/terminator/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/terminator/</guid>
       <description>Overwrite the canary&amp;rsquo;s null byte to leak the full 8-byte cookie over printf, simultaneously leak a saved RBP to base the stack, then use puts@got to find libc base and call system(&amp;rsquo;/bin/sh&amp;rsquo;) — all in two trips through the same vulnerable function.</description>
     </item>
   </channel>

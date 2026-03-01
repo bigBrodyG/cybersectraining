@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Binary-Search on giordii</title>
-    <link>http://localhost:1313/tags/binary-search/</link>
+    <link>https://writeups.giordii.dev/tags/binary-search/</link>
     <description>Recent content in Binary-Search on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/binary-search/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/binary-search/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>You Complete Me — Binary Search Word Reconstruction</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/you-complete-me/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/you-complete-me/</guid>
       <description>A sorted word list and a known sequence of binary-search response sizes pin down a unique word character by character. Reconstruct it by matching the precounted word counts at each prefix level.</description>
     </item>
   </channel>

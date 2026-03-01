@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Series on giordii</title>
-    <link>http://localhost:1313/series/</link>
+    <link>https://writeups.giordii.dev/series/</link>
     <description>Recent content in Series on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Territoriale 2026</title>
-      <link>http://localhost:1313/series/territoriale-2026/</link>
+      <link>https://writeups.giordii.dev/series/territoriale-2026/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/series/territoriale-2026/</guid>
+      <guid>https://writeups.giordii.dev/series/territoriale-2026/</guid>
       <description></description>
     </item>
     <item>
       <title>Territoriale 2026 Demo</title>
-      <link>http://localhost:1313/series/territoriale-2026-demo/</link>
+      <link>https://writeups.giordii.dev/series/territoriale-2026-demo/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/series/territoriale-2026-demo/</guid>
+      <guid>https://writeups.giordii.dev/series/territoriale-2026-demo/</guid>
       <description></description>
     </item>
     <item>
       <title>Territoriale 2025</title>
-      <link>http://localhost:1313/series/territoriale-2025/</link>
+      <link>https://writeups.giordii.dev/series/territoriale-2025/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/series/territoriale-2025/</guid>
+      <guid>https://writeups.giordii.dev/series/territoriale-2025/</guid>
       <description></description>
     </item>
     <item>
       <title>CyberChallenge Italy</title>
-      <link>http://localhost:1313/series/cyberchallenge-italy/</link>
+      <link>https://writeups.giordii.dev/series/cyberchallenge-italy/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/series/cyberchallenge-italy/</guid>
+      <guid>https://writeups.giordii.dev/series/cyberchallenge-italy/</guid>
       <description></description>
     </item>
     <item>
       <title>COlicyber</title>
-      <link>http://localhost:1313/series/colicyber/</link>
+      <link>https://writeups.giordii.dev/series/colicyber/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/series/colicyber/</guid>
+      <guid>https://writeups.giordii.dev/series/colicyber/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Lfi on giordii</title>
-    <link>http://localhost:1313/tags/lfi/</link>
+    <link>https://writeups.giordii.dev/tags/lfi/</link>
     <description>Recent content in Lfi on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/lfi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/lfi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>I Got Magic — GIF Polyglot Webshell Upload &#43; RCE</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/i-got-magic/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/i-got-magic/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/i-got-magic/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/i-got-magic/</guid>
       <description>Craft a file that is simultaneously a valid GIF (magic bytes GIF89a) and a PHP shell (&lt;?php echo system(&#39;cat /flag.txt&#39;); ?&gt;). Upload it via the image upload form, find the timestamped filename in the response, and request that URL to execute the shell.</description>
     </item>
     <item>
       <title>Light or Dark — Path Traversal with Dot Obfuscation &#43; Null Byte</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/light-or-dark/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/light-or-dark/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/light-or-dark/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/light-or-dark/</guid>
       <description>The theme parameter appends .css to the user-supplied path before serving it. Use &amp;hellip;/ triples (which reduce to ../) and a URL-encoded null byte to escape the CSS directory and read /flag.txt.</description>
     </item>
     <item>
       <title>Shell&#39;s Revenge 2 — GIF Polyglot Webshell via LFI Include</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/shells-revenge-2/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/shells-revenge-2/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/shells-revenge-2/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/shells-revenge-2/</guid>
       <description>Upload a GIF polyglot containing a PHP shell, then trigger its execution through a local file inclusion vulnerable ?page= parameter that includes the uploaded file path.</description>
     </item>
   </channel>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="">
 <meta name="description" content="Binary exploitation challenges from COlicyber — buffer overflows, format strings, ROP, shellcode, reversing.">
 <meta name="author" content="giordii">
-<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/">
+<link rel="canonical" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://writeups.giordii.dev/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://writeups.giordii.dev/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://writeups.giordii.dev/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://writeups.giordii.dev/apple-touch-icon.png">
+<link rel="mask-icon" href="https://writeups.giordii.dev/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/">
+<link rel="alternate" type="application/rss+xml" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,19 +37,19 @@
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/">
+<meta property="og:url" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/">
   <meta property="og:site_name" content="giordii">
   <meta property="og:title" content="Binary">
   <meta property="og:description" content="Binary exploitation challenges from COlicyber — buffer overflows, format strings, ROP, shellcode, reversing.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="website">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/c-style-login/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Binary">
 <meta name="twitter:description" content="Binary exploitation challenges from COlicyber — buffer overflows, format strings, ROP, shellcode, reversing.">
@@ -64,31 +64,31 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Writeups",
-      "item": "http://localhost:1313/writeups/"
+      "item": "https://writeups.giordii.dev/writeups/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Olicyber",
-      "item": "http://localhost:1313/writeups/olicyber/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "Practice Platform",
-      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/challenges/"
     }, 
     {
       "@type": "ListItem",
       "position":  4 ,
       "name": "COlicyber",
-      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/"
     }, 
     {
       "@type": "ListItem",
       "position":  5 ,
       "name": "Binary",
-      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/"
     }
   ]
 }
@@ -98,7 +98,7 @@
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <a href="https://writeups.giordii.dev/" accesskey="h" title="giordii (Alt + H)">giordii</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -124,22 +124,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/writeups/" title="Writeups">
+                <a href="https://writeups.giordii.dev/writeups/" title="Writeups">
                     <span>Writeups</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://writeups.giordii.dev/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://writeups.giordii.dev/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://writeups.giordii.dev/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -147,7 +147,7 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://writeups.giordii.dev/">Home</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/">COlicyber</a></div>
   <h1>
     Binary
   </h1>
@@ -172,7 +172,7 @@
     <p>Reverse a static XOR encryption: subtract flag bytes from key bytes position-by-position to recover the plaintext.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to ASMR — Static XOR Reverse Engineering" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/"></a>
+  <a class="entry-link" aria-label="post link to ASMR — Static XOR Reverse Engineering" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/asmr/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -184,7 +184,7 @@
     <p>Model a cyclic windowed hash as a system of linear equations over integer variables and solve it with Z3 to recover the flag.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to Coffee Hash — Z3 Cyclic Hash Constraint Solving" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/coffee-hash/"></a>
+  <a class="entry-link" aria-label="post link to Coffee Hash — Z3 Cyclic Hash Constraint Solving" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/coffee-hash/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -196,7 +196,7 @@
     <p>Each flag character satisfies an independent quadratic equation in integer form; Z3 solves all 20 simultaneously to recover the flag.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to CrackMat — Z3 Per-Character Quadratic Equations" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/crackmat/"></a>
+  <a class="entry-link" aria-label="post link to CrackMat — Z3 Per-Character Quadratic Equations" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/crackmat/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -208,7 +208,7 @@
     <p>The IBAN input field copies 28 bytes into a buffer with room for 49. Appending the control byte 0x03 after the valid IBAN data overflows into an adjacent flag variable and unlocks the ransomware payment path.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to Doge Ransom — IBAN Buffer Overflow with Control Byte Injection" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom/"></a>
+  <a class="entry-link" aria-label="post link to Doge Ransom — IBAN Buffer Overflow with Control Byte Injection" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -220,7 +220,7 @@
     <p>Overflow the IBAN field to leak the binary’s own password via puts, then re-login as ADMIN using the leaked credential and repeat the overflow to reach the flag path.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to Doge Ransom 2 — ROP ret2puts Leak then ADMIN re-login" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/"></a>
+  <a class="entry-link" aria-label="post link to Doge Ransom 2 — ROP ret2puts Leak then ADMIN re-login" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -232,7 +232,7 @@
     <p>Write /bin/sh into a known writable address, then build a ROP chain that sets rax=59, rdi=/bin/sh, rsi=0, rdx=0 using dedicated pop gadgets and a syscall instruction to get a shell.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to Emergency Call — ROP Syscall Chain for execve" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/emergency-call/"></a>
+  <a class="entry-link" aria-label="post link to Emergency Call — ROP Syscall Chain for execve" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/emergency-call/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -244,7 +244,7 @@
     <p>Use a format string %n write to overwrite a target variable at a known address and unlock the flag path.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to Formatted — Format String Write with %n" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/formatted/"></a>
+  <a class="entry-link" aria-label="post link to Formatted — Format String Write with %n" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/formatted/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -256,7 +256,7 @@
     <p>The binary leaks a runtime stack address disguised as a ‘random number’. Add 6 to land inside the shellcode region, then spray that address 800 times to cover the return target and get a shell.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to Generatore Poco Casuale — Shellcode Injection via Leaked Stack Address" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/"></a>
+  <a class="entry-link" aria-label="post link to Generatore Poco Casuale — Shellcode Injection via Leaked Stack Address" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -268,7 +268,7 @@
     <p>Overflow the name buffer to corrupt the internal number variable, then feed back the overflowed value as a decimal integer to satisfy the equality check.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to Guess The Number — Stack Overflow &#43; Integer Overflow" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number/"></a>
+  <a class="entry-link" aria-label="post link to Guess The Number — Stack Overflow &#43; Integer Overflow" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/guess-the-number/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -280,11 +280,11 @@
     <p>Build a ROP chain that calls gets twice to plant arbitrary data in the GOT, redirect strcspn to a shellcode stub, then trigger the win print path.</p>
   </div>
   <footer class="entry-footer"><span title='2024-01-01 00:00:00 +0000 UTC'>January 1, 2024</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>giordii</span></footer>
-  <a class="entry-link" aria-label="post link to Guess the Number 2 — ROP Chain GOT Overwrite via gets" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/"></a>
+  <a class="entry-link" aria-label="post link to Guess the Number 2 — ROP Chain GOT Overwrite via gets" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/page/2/">Next&nbsp;&nbsp;»
+    <a class="next" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/page/2/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

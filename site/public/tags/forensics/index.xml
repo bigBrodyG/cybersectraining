@@ -2,81 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Forensics on giordii</title>
-    <link>http://localhost:1313/tags/forensics/</link>
+    <link>https://writeups.giordii.dev/tags/forensics/</link>
     <description>Recent content in Forensics on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/forensics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Byte Flag — Flag Hidden in Raw PNG Bytes</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/byte-flag/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/byte-flag/</guid>
       <description>Open the PNG in binary mode, locate the ASCII string &amp;lsquo;flag&amp;rsquo; in the raw byte stream, and print every byte after that index — the flag is embedded verbatim in the file&amp;rsquo;s binary content.</description>
     </item>
     <item>
       <title>Chaos — TCP Payload Reconstruction from PCAP</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/chaos/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/chaos/</guid>
       <description>Filter a PCAP for TCP packets, decode each packet&amp;rsquo;s payload from hex, and concatenate them in order — the resulting byte stream contains the flag.</description>
     </item>
     <item>
       <title>Corrupted Flag — Fix GIF Magic Bytes then Extract Frames</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/</guid>
       <description>The GIF has wrong magic bytes at the start. Replace the first 13 bytes with the correct GIF89a header, open the repaired file with Pillow, and iterate through frames saved as WebP to find the flag.</description>
     </item>
     <item>
       <title>Sniff N Byte — Decode Hardcoded Hex Flag</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</guid>
       <description>The flag is encoded as concatenated 0x-prefixed hex bytes embedded directly in the capture. Strip the prefixes, decode with bytes.fromhex, and print.</description>
     </item>
     <item>
       <title>SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</guid>
       <description>Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.</description>
     </item>
     <item>
       <title>Suoni Misteriosi — Morse Audio Decoder</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</guid>
       <description>A WAV file carries the flag in Morse code audio. Decode it automatically with morse-audio-decoder and wrap the result in flag{&amp;hellip;}.</description>
     </item>
     <item>
       <title>That&#39;s a Lot of Fs — Flag in Ethernet Destination MAC via Custom EtherType</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</guid>
       <description>Filter Ethernet frames with EtherType 0xffff — the custom protocol used by this challenge — collect the destination MAC address from each matching frame, interpret the first two hex bytes as ASCII, and concatenate to reveal the flag.</description>
     </item>
     <item>
       <title>Useless — Flag Hidden in PCAPNG via strings</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/</guid>
       <description>Run strings on the PCAPNG and grep for &amp;lsquo;flag&amp;rsquo; — the flag is stored as plain ASCII inside the capture file and visible without any packet parsing.</description>
     </item>
     <item>
       <title>Zipception — 3000 Nested ZIPs</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception/</guid>
       <description>A flag is hidden inside 3000 recursively nested ZIP archives. Loop backwards from flag3000.zip to flag1.zip, extracting and deleting each archive in turn until the innermost file is revealed.</description>
     </item>
     <item>
       <title>Zipception 2.0 — Nested ZIPs with Password Protection</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception-2/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception-2/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception-2/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception-2/</guid>
       <description>100 nested password-protected ZIPs. Crack each archive&amp;rsquo;s password against the rockyou wordlist, extract, delete, and repeat — 100 times.</description>
     </item>
   </channel>

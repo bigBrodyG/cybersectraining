@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Xor on giordii</title>
-    <link>http://localhost:1313/tags/xor/</link>
+    <link>https://writeups.giordii.dev/tags/xor/</link>
     <description>Recent content in Xor on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/xor/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/xor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RevMe</title>
-      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/revme/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/revme/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/revme/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/revme/</guid>
       <description>Reverse a three-step transformation (reverse + rotate + XOR) applied to a 36-byte target symbol to recover the flag.</description>
     </item>
     <item>
       <title>ASMR — Static XOR Reverse Engineering</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/asmr/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/asmr/</guid>
       <description>Reverse a static XOR encryption: subtract flag bytes from key bytes position-by-position to recover the plaintext.</description>
     </item>
     <item>
       <title>SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</guid>
       <description>Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.</description>
     </item>
   </channel>

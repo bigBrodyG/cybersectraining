@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Audio on giordii</title>
-    <link>http://localhost:1313/tags/audio/</link>
+    <link>https://writeups.giordii.dev/tags/audio/</link>
     <description>Recent content in Audio on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/audio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/audio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Suoni Misteriosi — Morse Audio Decoder</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</guid>
       <description>A WAV file carries the flag in Morse code audio. Decode it automatically with morse-audio-decoder and wrap the result in flag{&amp;hellip;}.</description>
     </item>
   </channel>

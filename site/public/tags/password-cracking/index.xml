@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Password-Cracking on giordii</title>
-    <link>http://localhost:1313/tags/password-cracking/</link>
+    <link>https://writeups.giordii.dev/tags/password-cracking/</link>
     <description>Recent content in Password-Cracking on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/password-cracking/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/password-cracking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zipception 2.0 — Nested ZIPs with Password Protection</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception-2/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception-2/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception-2/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception-2/</guid>
       <description>100 nested password-protected ZIPs. Crack each archive&amp;rsquo;s password against the rockyou wordlist, extract, delete, and repeat — 100 times.</description>
     </item>
   </channel>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="dark">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,16 +9,16 @@
 <meta name="keywords" content="net, forensics, pcap">
 <meta name="description" content="Run strings on the PCAPNG and grep for &lsquo;flag&rsquo; — the flag is stored as plain ASCII inside the capture file and visible without any packet parsing.">
 <meta name="author" content="giordii">
-<link rel="canonical" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/">
+<link rel="canonical" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.5328bc3f000064ecdddf6d0799c6d1c37593b8d82e9ea0fa156bef559494379a.css" integrity="sha256-Uyi8PwAAZOzd320HmcbRw3WTuNgunqD6FWvvVZSUN5o=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://writeups.giordii.dev/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://writeups.giordii.dev/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://writeups.giordii.dev/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://writeups.giordii.dev/apple-touch-icon.png">
+<link rel="mask-icon" href="https://writeups.giordii.dev/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/">
+<link rel="alternate" hreflang="en" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +36,7 @@
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<meta property="og:url" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/">
+<meta property="og:url" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/">
   <meta property="og:site_name" content="giordii">
   <meta property="og:title" content="Useless — Flag Hidden in PCAPNG via strings">
   <meta property="og:description" content="Run strings on the PCAPNG and grep for ‘flag’ — the flag is stored as plain ASCII inside the capture file and visible without any packet parsing.">
@@ -48,13 +48,13 @@
     <meta property="article:tag" content="Net">
     <meta property="article:tag" content="Forensics">
     <meta property="article:tag" content="Pcap">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
-      <meta property="og:see_also" content="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/2048/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/asmr/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/basic-sqli/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/byte-flag/">
+      <meta property="og:see_also" content="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/c-style-login/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Useless — Flag Hidden in PCAPNG via strings">
 <meta name="twitter:description" content="Run strings on the PCAPNG and grep for &lsquo;flag&rsquo; — the flag is stored as plain ASCII inside the capture file and visible without any packet parsing.">
@@ -69,37 +69,37 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Writeups",
-      "item": "http://localhost:1313/writeups/"
+      "item": "https://writeups.giordii.dev/writeups/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Olicyber",
-      "item": "http://localhost:1313/writeups/olicyber/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
       "name": "Practice Platform",
-      "item": "http://localhost:1313/writeups/olicyber/challenges/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/challenges/"
     }, 
     {
       "@type": "ListItem",
       "position":  4 ,
       "name": "COlicyber",
-      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/"
     }, 
     {
       "@type": "ListItem",
       "position":  5 ,
       "name": "Net",
-      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/"
     }, 
     {
       "@type": "ListItem",
       "position":  6 ,
       "name": "Useless — Flag Hidden in PCAPNG via strings",
-      "item": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/"
+      "item": "https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/"
     }
   ]
 }
@@ -125,14 +125,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/"
+    "@id": "https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "giordii",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "https://writeups.giordii.dev/favicon.ico"
     }
   }
 }
@@ -142,7 +142,7 @@
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="giordii (Alt + H)">giordii</a>
+            <a href="https://writeups.giordii.dev/" accesskey="h" title="giordii (Alt + H)">giordii</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -168,22 +168,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/writeups/" title="Writeups">
+                <a href="https://writeups.giordii.dev/writeups/" title="Writeups">
                     <span>Writeups</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Archive">
+                <a href="https://writeups.giordii.dev/archives/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://writeups.giordii.dev/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="https://writeups.giordii.dev/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
@@ -194,7 +194,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/">COlicyber</a>&nbsp;»&nbsp;<a href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/">Net</a></div>
+    <div class="breadcrumbs"><a href="https://writeups.giordii.dev/">Home</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/">Writeups</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/olicyber/">Olicyber</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/olicyber/challenges/">Practice Platform</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/">COlicyber</a>&nbsp;»&nbsp;<a href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/">Net</a></div>
     <h1 class="post-title entry-hint-parent">
       Useless — Flag Hidden in PCAPNG via strings
     </h1>
@@ -246,17 +246,17 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/net/">Net</a></li>
-      <li><a href="http://localhost:1313/tags/forensics/">Forensics</a></li>
-      <li><a href="http://localhost:1313/tags/pcap/">Pcap</a></li>
+      <li><a href="https://writeups.giordii.dev/tags/net/">Net</a></li>
+      <li><a href="https://writeups.giordii.dev/tags/forensics/">Forensics</a></li>
+      <li><a href="https://writeups.giordii.dev/tags/pcap/">Pcap</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/web/truly-random-signature/">
+  <a class="prev" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/truly-random-signature/">
     <span class="title">« Prev</span>
     <br>
     <span>Truly Random Signature — Predictable Session Token Analysis</span>
   </a>
-  <a class="next" href="http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/villa-pisani/">
+  <a class="next" href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/villa-pisani/">
     <span class="title">Next »</span>
     <br>
     <span>Villa Pisani — DNS Maze DFS via CNAME Records</span>

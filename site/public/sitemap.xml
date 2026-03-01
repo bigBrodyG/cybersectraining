@@ -2,645 +2,645 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://writeups.giordii.dev/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/automation/</loc>
+    <loc>https://writeups.giordii.dev/tags/automation/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bit-rotation/</loc>
+    <loc>https://writeups.giordii.dev/tags/bit-rotation/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/buffer-overflow/</loc>
+    <loc>https://writeups.giordii.dev/tags/buffer-overflow/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://writeups.giordii.dev/categories/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cookies/</loc>
+    <loc>https://writeups.giordii.dev/tags/cookies/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/csp-bypass/</loc>
+    <loc>https://writeups.giordii.dev/tags/csp-bypass/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/demo/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/dom/</loc>
+    <loc>https://writeups.giordii.dev/tags/dom/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/demo/dynamicsecret/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/dynamicsecret/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/dynamic-analysis/</loc>
+    <loc>https://writeups.giordii.dev/tags/dynamic-analysis/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/headers/</loc>
+    <loc>https://writeups.giordii.dev/tags/headers/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/http/</loc>
+    <loc>https://writeups.giordii.dev/tags/http/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/demo/http-inputs/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/http-inputs/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/javascript/</loc>
+    <loc>https://writeups.giordii.dev/tags/javascript/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/linux/</loc>
+    <loc>https://writeups.giordii.dev/tags/linux/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/demo/math-solver/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/math-solver/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/misc/</loc>
+    <loc>https://writeups.giordii.dev/tags/misc/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/olicyber/</loc>
+    <loc>https://writeups.giordii.dev/categories/olicyber/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/options-method/</loc>
+    <loc>https://writeups.giordii.dev/tags/options-method/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pwn/</loc>
+    <loc>https://writeups.giordii.dev/tags/pwn/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pwntools/</loc>
+    <loc>https://writeups.giordii.dev/tags/pwntools/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
+    <loc>https://writeups.giordii.dev/tags/python/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/requests/</loc>
+    <loc>https://writeups.giordii.dev/tags/requests/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ret2win/</loc>
+    <loc>https://writeups.giordii.dev/tags/ret2win/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/rev/</loc>
+    <loc>https://writeups.giordii.dev/tags/rev/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/reverse-engineering/</loc>
+    <loc>https://writeups.giordii.dev/tags/reverse-engineering/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/demo/revme/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/revme/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/demo/secureadminpanel/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/secureadminpanel/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/</loc>
+    <loc>https://writeups.giordii.dev/series/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/session/</loc>
+    <loc>https://writeups.giordii.dev/tags/session/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/sqli/</loc>
+    <loc>https://writeups.giordii.dev/tags/sqli/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/demo/sqli-cards/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/sqli-cards/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/sqlite/</loc>
+    <loc>https://writeups.giordii.dev/tags/sqlite/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/sqlite-master/</loc>
+    <loc>https://writeups.giordii.dev/tags/sqlite-master/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/stack-canary/</loc>
+    <loc>https://writeups.giordii.dev/tags/stack-canary/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/strace/</loc>
+    <loc>https://writeups.giordii.dev/tags/strace/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://writeups.giordii.dev/tags/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/territoriale-2026/</loc>
+    <loc>https://writeups.giordii.dev/series/territoriale-2026/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/territoriale-2026-demo/</loc>
+    <loc>https://writeups.giordii.dev/series/territoriale-2026-demo/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/union-injection/</loc>
+    <loc>https://writeups.giordii.dev/tags/union-injection/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/web/</loc>
+    <loc>https://writeups.giordii.dev/tags/web/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/</loc>
+    <loc>https://writeups.giordii.dev/writeups/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/xor/</loc>
+    <loc>https://writeups.giordii.dev/tags/xor/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/xss/</loc>
+    <loc>https://writeups.giordii.dev/tags/xss/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/demo/xss-escape/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/xss-escape/</loc>
     <lastmod>2026-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2025/baity5/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2025/baity5/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/bash/</loc>
+    <loc>https://writeups.giordii.dev/tags/bash/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2025/bash-filter-bypass/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2025/bash-filter-bypass/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/binary-exploitation/</loc>
+    <loc>https://writeups.giordii.dev/tags/binary-exploitation/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/filter-bypass/</loc>
+    <loc>https://writeups.giordii.dev/tags/filter-bypass/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/lookalike/</loc>
+    <loc>https://writeups.giordii.dev/tags/lookalike/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/nodejs/</loc>
+    <loc>https://writeups.giordii.dev/tags/nodejs/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/rop/</loc>
+    <loc>https://writeups.giordii.dev/tags/rop/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2025/segnalazione-cinghiali/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/territoriale-2025/</loc>
+    <loc>https://writeups.giordii.dev/series/territoriale-2025/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2025/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2025/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/unicode/</loc>
+    <loc>https://writeups.giordii.dev/tags/unicode/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/assembly/</loc>
+    <loc>https://writeups.giordii.dev/tags/assembly/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/web/bank-logic-bypass/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/web/bank-logic-bypass/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/misc/basic-calculator/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/beautifulsoup/</loc>
+    <loc>https://writeups.giordii.dev/tags/beautifulsoup/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/web/blind-sqli/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/web/blind-sqli/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/blind-sqli/</loc>
+    <loc>https://writeups.giordii.dev/tags/blind-sqli/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/boolean-based/</loc>
+    <loc>https://writeups.giordii.dev/tags/boolean-based/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/comments/</loc>
+    <loc>https://writeups.giordii.dev/tags/comments/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/cyberchallenge/</loc>
+    <loc>https://writeups.giordii.dev/categories/cyberchallenge/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/cyberchallenge-italy/</loc>
+    <loc>https://writeups.giordii.dev/series/cyberchallenge-italy/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/debugging/</loc>
+    <loc>https://writeups.giordii.dev/tags/debugging/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/web/extract-html-comments/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/web/extract-html-comments/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/html/</loc>
+    <loc>https://writeups.giordii.dev/tags/html/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/logic-bug/</loc>
+    <loc>https://writeups.giordii.dev/tags/logic-bug/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/openat/</loc>
+    <loc>https://writeups.giordii.dev/tags/openat/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/orw/</loc>
+    <loc>https://writeups.giordii.dev/tags/orw/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/scripting/</loc>
+    <loc>https://writeups.giordii.dev/tags/scripting/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/seccomp/</loc>
+    <loc>https://writeups.giordii.dev/tags/seccomp/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/software-security/shellfour-orw/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/software-security/shellfour-orw/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/software-security/shellone/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/software-security/shellone/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/shellcode/</loc>
+    <loc>https://writeups.giordii.dev/tags/shellcode/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/software-security/split/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/software-security/split/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/steganography/</loc>
+    <loc>https://writeups.giordii.dev/tags/steganography/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/syscall/</loc>
+    <loc>https://writeups.giordii.dev/tags/syscall/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/type-confusion/</loc>
+    <loc>https://writeups.giordii.dev/tags/type-confusion/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/cyberchallenge/misc/unzip-matryoshka/</loc>
+    <loc>https://writeups.giordii.dev/writeups/cyberchallenge/misc/unzip-matryoshka/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/validation-bypass/</loc>
+    <loc>https://writeups.giordii.dev/tags/validation-bypass/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/variable-shadowing/</loc>
+    <loc>https://writeups.giordii.dev/tags/variable-shadowing/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/x86/</loc>
+    <loc>https://writeups.giordii.dev/tags/x86/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/x86-64/</loc>
+    <loc>https://writeups.giordii.dev/tags/x86-64/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/zip/</loc>
+    <loc>https://writeups.giordii.dev/tags/zip/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/2048/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/2048/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/a-too-small-reminder/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/alpn/</loc>
+    <loc>https://writeups.giordii.dev/tags/alpn/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/aslr-bypass/</loc>
+    <loc>https://writeups.giordii.dev/tags/aslr-bypass/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/asmr/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/asmr/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/audio/</loc>
+    <loc>https://writeups.giordii.dev/tags/audio/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/base64/</loc>
+    <loc>https://writeups.giordii.dev/tags/base64/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/based-and-encoded/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/basic-sqli/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/basic-sqli/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/binary-search/</loc>
+    <loc>https://writeups.giordii.dev/tags/binary-search/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/brute-force/</loc>
+    <loc>https://writeups.giordii.dev/tags/brute-force/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/byte-flag/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/byte-flag/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/c-style-login/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/c-style-login/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/chaos/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/click-me/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/click-me/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/coffee-hash/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/coffee-hash/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/series/colicyber/</loc>
+    <loc>https://writeups.giordii.dev/series/colicyber/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/command-injection/</loc>
+    <loc>https://writeups.giordii.dev/tags/command-injection/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/confuse-me/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/confuse-me/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/constraint-solving/</loc>
+    <loc>https://writeups.giordii.dev/tags/constraint-solving/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/cookiemonster/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/cookiemonster/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/cookie-manipulation/</loc>
+    <loc>https://writeups.giordii.dev/tags/cookie-manipulation/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/corrupted-flag/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/crackmat/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/crackmat/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/crypto/</loc>
+    <loc>https://writeups.giordii.dev/tags/crypto/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/dashed/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/dashed/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/dns/</loc>
+    <loc>https://writeups.giordii.dev/tags/dns/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/doge-ransom-2/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/emergency-call/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/emergency-call/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/encoding/</loc>
+    <loc>https://writeups.giordii.dev/tags/encoding/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/file-format/</loc>
+    <loc>https://writeups.giordii.dev/tags/file-format/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/file-upload/</loc>
+    <loc>https://writeups.giordii.dev/tags/file-upload/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/flags-shop/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/flags-shop/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/forensics/</loc>
+    <loc>https://writeups.giordii.dev/tags/forensics/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/format-string/</loc>
+    <loc>https://writeups.giordii.dev/tags/format-string/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/formatted/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/formatted/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/generatore-poco-casuale/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/got-leak/</loc>
+    <loc>https://writeups.giordii.dev/tags/got-leak/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/got-overwrite/</loc>
+    <loc>https://writeups.giordii.dev/tags/got-overwrite/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/guess-the-number/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/guess-the-number-2/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/hash/</loc>
+    <loc>https://writeups.giordii.dev/tags/hash/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/headache/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/headache/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/heap-leak/</loc>
+    <loc>https://writeups.giordii.dev/tags/heap-leak/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/http-headers/</loc>
+    <loc>https://writeups.giordii.dev/tags/http-headers/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/i-got-magic/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/i-got-magic/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/idor/</loc>
+    <loc>https://writeups.giordii.dev/tags/idor/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/insecure-design/</loc>
+    <loc>https://writeups.giordii.dev/tags/insecure-design/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/insecure-randomness/</loc>
+    <loc>https://writeups.giordii.dev/tags/insecure-randomness/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/integer-overflow/</loc>
+    <loc>https://writeups.giordii.dev/tags/integer-overflow/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/integer-underflow/</loc>
+    <loc>https://writeups.giordii.dev/tags/integer-underflow/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/just-a-reminder/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/just-a-reminder/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/lfi/</loc>
+    <loc>https://writeups.giordii.dev/tags/lfi/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/light-or-dark/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/light-or-dark/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/logic-bypass/</loc>
+    <loc>https://writeups.giordii.dev/tags/logic-bypass/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/make-a-wish/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/make-a-wish/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/md5/</loc>
+    <loc>https://writeups.giordii.dev/tags/md5/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/more-private-club/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/more-private-club/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/morse/</loc>
+    <loc>https://writeups.giordii.dev/tags/morse/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/net/</loc>
+    <loc>https://writeups.giordii.dev/tags/net/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/networking/</loc>
+    <loc>https://writeups.giordii.dev/tags/networking/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-robots-here/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/no-robots-here/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/no-time/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/no-time/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/off-by-one/</loc>
+    <loc>https://writeups.giordii.dev/tags/off-by-one/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/password-changer-3000/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/password-changer-3000/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/password-cracking/</loc>
+    <loc>https://writeups.giordii.dev/tags/password-cracking/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/path-traversal/</loc>
+    <loc>https://writeups.giordii.dev/tags/path-traversal/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pcap/</loc>
+    <loc>https://writeups.giordii.dev/tags/pcap/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/php/</loc>
+    <loc>https://writeups.giordii.dev/tags/php/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/protocol/</loc>
+    <loc>https://writeups.giordii.dev/tags/protocol/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/rce/</loc>
+    <loc>https://writeups.giordii.dev/tags/rce/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/readdle/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/readdle/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/recon/</loc>
+    <loc>https://writeups.giordii.dev/tags/recon/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/redirect/</loc>
+    <loc>https://writeups.giordii.dev/tags/redirect/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ret2libc/</loc>
+    <loc>https://writeups.giordii.dev/tags/ret2libc/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ret2puts/</loc>
+    <loc>https://writeups.giordii.dev/tags/ret2puts/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/reversing/</loc>
+    <loc>https://writeups.giordii.dev/tags/reversing/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/rick-roller/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/rick-roller/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/robots-txt/</loc>
+    <loc>https://writeups.giordii.dev/tags/robots-txt/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/rockyou/</loc>
+    <loc>https://writeups.giordii.dev/tags/rockyou/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/scapy/</loc>
+    <loc>https://writeups.giordii.dev/tags/scapy/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/secret-vault/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/secret-vault/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/shells-revenge/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/shells-revenge/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/shells-revenge-2/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/shells-revenge-2/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/side-channel/</loc>
+    <loc>https://writeups.giordii.dev/tags/side-channel/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sito-vuoto/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/sito-vuoto/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/sn4ck-sh3nan1gans/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/source-review/</loc>
+    <loc>https://writeups.giordii.dev/tags/source-review/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/staged-exploit/</loc>
+    <loc>https://writeups.giordii.dev/tags/staged-exploit/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/static-analysis/</loc>
+    <loc>https://writeups.giordii.dev/tags/static-analysis/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/suoni-misteriosi/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/super-market/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/super-market/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/binary/terminator/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/binary/terminator/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/time-is-key/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/time-is-key/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/timing-attack/</loc>
+    <loc>https://writeups.giordii.dev/tags/timing-attack/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/timp/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/timp/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/tls/</loc>
+    <loc>https://writeups.giordii.dev/tags/tls/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/truly-random-signature/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/truly-random-signature/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/type-juggling/</loc>
+    <loc>https://writeups.giordii.dev/tags/type-juggling/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/union-based/</loc>
+    <loc>https://writeups.giordii.dev/tags/union-based/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/villa-pisani/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/villa-pisani/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/web/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/web/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/webshell/</loc>
+    <loc>https://writeups.giordii.dev/tags/webshell/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/wordwang/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/you-complete-me/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/z3/</loc>
+    <loc>https://writeups.giordii.dev/tags/z3/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/misc/zipception-2/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/misc/zipception-2/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://writeups.giordii.dev/archives/</loc>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/challenges/colicyber/crypto/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/crypto/</loc>
   </url><url>
-    <loc>http://localhost:1313/writeups/olicyber/territoriale2026/gara/</loc>
+    <loc>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/gara/</loc>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://writeups.giordii.dev/search/</loc>
   </url>
 </urlset>

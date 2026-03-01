@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Dynamic-Analysis on giordii</title>
-    <link>http://localhost:1313/tags/dynamic-analysis/</link>
+    <link>https://writeups.giordii.dev/tags/dynamic-analysis/</link>
     <description>Recent content in Dynamic-Analysis on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dynamic-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/dynamic-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dynamic Secret</title>
-      <link>http://localhost:1313/writeups/olicyber/territoriale2026/demo/dynamicsecret/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/dynamicsecret/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/territoriale2026/demo/dynamicsecret/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/territoriale2026/demo/dynamicsecret/</guid>
       <description>Use strace to trace the runtime syscalls of a binary and read the secret it loads from a file.</description>
     </item>
   </channel>

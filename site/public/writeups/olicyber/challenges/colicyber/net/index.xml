@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Net on giordii</title>
-    <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/</link>
+    <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/</link>
     <description>Recent content in Net on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/writeups/olicyber/challenges/colicyber/net/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chaos — TCP Payload Reconstruction from PCAP</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/chaos/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/chaos/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/chaos/</guid>
       <description>Filter a PCAP for TCP packets, decode each packet&amp;rsquo;s payload from hex, and concatenate them in order — the resulting byte stream contains the flag.</description>
     </item>
     <item>
       <title>Quantum Transport Layer — TLS ALPN Flag via gnutls-cli</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/quantum-transport-layer/</guid>
       <description>The TLS server returns the flag as the negotiated ALPN protocol name. Inject the server&amp;rsquo;s hostname into /etc/hosts, connect with gnutls-cli specifying &amp;ndash;alpn=flag, and read the flag from the TLS handshake output.</description>
     </item>
     <item>
       <title>Sniff N Byte — Decode Hardcoded Hex Flag</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/sniff-n-byte/</guid>
       <description>The flag is encoded as concatenated 0x-prefixed hex bytes embedded directly in the capture. Strip the prefixes, decode with bytes.fromhex, and print.</description>
     </item>
     <item>
       <title>SSA0x42 — XOR Key Recovery from Known-Plaintext PCAP Headers</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/ssa0x42/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/ssa0x42/</guid>
       <description>Two known-plaintext byte sequences (k and l) from the PCAP header XOR to reveal the repeating key. XOR the encrypted flag block with that key to recover the plaintext.</description>
     </item>
     <item>
       <title>That&#39;s a Lot of Fs — Flag in Ethernet Destination MAC via Custom EtherType</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/thats-a-lot-of-fs/</guid>
       <description>Filter Ethernet frames with EtherType 0xffff — the custom protocol used by this challenge — collect the destination MAC address from each matching frame, interpret the first two hex bytes as ASCII, and concatenate to reveal the flag.</description>
     </item>
     <item>
       <title>Useless — Flag Hidden in PCAPNG via strings</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/useless/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/useless/</guid>
       <description>Run strings on the PCAPNG and grep for &amp;lsquo;flag&amp;rsquo; — the flag is stored as plain ASCII inside the capture file and visible without any packet parsing.</description>
     </item>
     <item>
       <title>WordWang — Protocol Format Wrapping</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/wordwang/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/wordwang/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/wordwang/</guid>
       <description>The server returns a word from a custom protocol. Wrap the response in the expected format — prepend &amp;lsquo;?&amp;rsquo;, uppercase, append &amp;lsquo;!&amp;rsquo; — send it back, and the server returns the flag.</description>
     </item>
     <item>
       <title>You Complete Me — Binary Search Word Reconstruction</title>
-      <link>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/</link>
+      <link>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/you-complete-me/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/olicyber/challenges/colicyber/net/you-complete-me/</guid>
+      <guid>https://writeups.giordii.dev/writeups/olicyber/challenges/colicyber/net/you-complete-me/</guid>
       <description>A sorted word list and a known sequence of binary-search response sizes pin down a unique word character by character. Reconstruct it by matching the precounted word counts at each prefix level.</description>
     </item>
   </channel>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Variable-Shadowing on giordii</title>
-    <link>http://localhost:1313/tags/variable-shadowing/</link>
+    <link>https://writeups.giordii.dev/tags/variable-shadowing/</link>
     <description>Recent content in Variable-Shadowing on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/variable-shadowing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/variable-shadowing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Calculator — Variable Shadowing Bug</title>
-      <link>http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/</link>
+      <link>https://writeups.giordii.dev/writeups/cyberchallenge/misc/basic-calculator/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/writeups/cyberchallenge/misc/basic-calculator/</guid>
+      <guid>https://writeups.giordii.dev/writeups/cyberchallenge/misc/basic-calculator/</guid>
       <description>Identify and work around a Python variable shadowing bug where a function definition overwrites a string variable of the same name.</description>
     </item>
   </channel>

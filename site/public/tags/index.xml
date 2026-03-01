@@ -2,816 +2,816 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on giordii</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://writeups.giordii.dev/tags/</link>
     <description>Recent content in Tags on giordii</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>giordii</copyright>
     <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://writeups.giordii.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automation</title>
-      <link>http://localhost:1313/tags/automation/</link>
+      <link>https://writeups.giordii.dev/tags/automation/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/automation/</guid>
+      <guid>https://writeups.giordii.dev/tags/automation/</guid>
       <description></description>
     </item>
     <item>
       <title>Bit-Rotation</title>
-      <link>http://localhost:1313/tags/bit-rotation/</link>
+      <link>https://writeups.giordii.dev/tags/bit-rotation/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/bit-rotation/</guid>
+      <guid>https://writeups.giordii.dev/tags/bit-rotation/</guid>
       <description></description>
     </item>
     <item>
       <title>Buffer-Overflow</title>
-      <link>http://localhost:1313/tags/buffer-overflow/</link>
+      <link>https://writeups.giordii.dev/tags/buffer-overflow/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/buffer-overflow/</guid>
+      <guid>https://writeups.giordii.dev/tags/buffer-overflow/</guid>
       <description></description>
     </item>
     <item>
       <title>Cookies</title>
-      <link>http://localhost:1313/tags/cookies/</link>
+      <link>https://writeups.giordii.dev/tags/cookies/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cookies/</guid>
+      <guid>https://writeups.giordii.dev/tags/cookies/</guid>
       <description></description>
     </item>
     <item>
       <title>Csp-Bypass</title>
-      <link>http://localhost:1313/tags/csp-bypass/</link>
+      <link>https://writeups.giordii.dev/tags/csp-bypass/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/csp-bypass/</guid>
+      <guid>https://writeups.giordii.dev/tags/csp-bypass/</guid>
       <description></description>
     </item>
     <item>
       <title>Dom</title>
-      <link>http://localhost:1313/tags/dom/</link>
+      <link>https://writeups.giordii.dev/tags/dom/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/dom/</guid>
+      <guid>https://writeups.giordii.dev/tags/dom/</guid>
       <description></description>
     </item>
     <item>
       <title>Dynamic-Analysis</title>
-      <link>http://localhost:1313/tags/dynamic-analysis/</link>
+      <link>https://writeups.giordii.dev/tags/dynamic-analysis/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/dynamic-analysis/</guid>
+      <guid>https://writeups.giordii.dev/tags/dynamic-analysis/</guid>
       <description></description>
     </item>
     <item>
       <title>Headers</title>
-      <link>http://localhost:1313/tags/headers/</link>
+      <link>https://writeups.giordii.dev/tags/headers/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/headers/</guid>
+      <guid>https://writeups.giordii.dev/tags/headers/</guid>
       <description></description>
     </item>
     <item>
       <title>Http</title>
-      <link>http://localhost:1313/tags/http/</link>
+      <link>https://writeups.giordii.dev/tags/http/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/http/</guid>
+      <guid>https://writeups.giordii.dev/tags/http/</guid>
       <description></description>
     </item>
     <item>
       <title>Javascript</title>
-      <link>http://localhost:1313/tags/javascript/</link>
+      <link>https://writeups.giordii.dev/tags/javascript/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/javascript/</guid>
+      <guid>https://writeups.giordii.dev/tags/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
+      <link>https://writeups.giordii.dev/tags/linux/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/linux/</guid>
+      <guid>https://writeups.giordii.dev/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Misc</title>
-      <link>http://localhost:1313/tags/misc/</link>
+      <link>https://writeups.giordii.dev/tags/misc/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/misc/</guid>
+      <guid>https://writeups.giordii.dev/tags/misc/</guid>
       <description></description>
     </item>
     <item>
       <title>Options-Method</title>
-      <link>http://localhost:1313/tags/options-method/</link>
+      <link>https://writeups.giordii.dev/tags/options-method/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/options-method/</guid>
+      <guid>https://writeups.giordii.dev/tags/options-method/</guid>
       <description></description>
     </item>
     <item>
       <title>Pwn</title>
-      <link>http://localhost:1313/tags/pwn/</link>
+      <link>https://writeups.giordii.dev/tags/pwn/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/pwn/</guid>
+      <guid>https://writeups.giordii.dev/tags/pwn/</guid>
       <description></description>
     </item>
     <item>
       <title>Pwntools</title>
-      <link>http://localhost:1313/tags/pwntools/</link>
+      <link>https://writeups.giordii.dev/tags/pwntools/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/pwntools/</guid>
+      <guid>https://writeups.giordii.dev/tags/pwntools/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://writeups.giordii.dev/tags/python/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://writeups.giordii.dev/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Requests</title>
-      <link>http://localhost:1313/tags/requests/</link>
+      <link>https://writeups.giordii.dev/tags/requests/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/requests/</guid>
+      <guid>https://writeups.giordii.dev/tags/requests/</guid>
       <description></description>
     </item>
     <item>
       <title>Ret2win</title>
-      <link>http://localhost:1313/tags/ret2win/</link>
+      <link>https://writeups.giordii.dev/tags/ret2win/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ret2win/</guid>
+      <guid>https://writeups.giordii.dev/tags/ret2win/</guid>
       <description></description>
     </item>
     <item>
       <title>Rev</title>
-      <link>http://localhost:1313/tags/rev/</link>
+      <link>https://writeups.giordii.dev/tags/rev/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rev/</guid>
+      <guid>https://writeups.giordii.dev/tags/rev/</guid>
       <description></description>
     </item>
     <item>
       <title>Reverse-Engineering</title>
-      <link>http://localhost:1313/tags/reverse-engineering/</link>
+      <link>https://writeups.giordii.dev/tags/reverse-engineering/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/reverse-engineering/</guid>
+      <guid>https://writeups.giordii.dev/tags/reverse-engineering/</guid>
       <description></description>
     </item>
     <item>
       <title>Session</title>
-      <link>http://localhost:1313/tags/session/</link>
+      <link>https://writeups.giordii.dev/tags/session/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/session/</guid>
+      <guid>https://writeups.giordii.dev/tags/session/</guid>
       <description></description>
     </item>
     <item>
       <title>Sqli</title>
-      <link>http://localhost:1313/tags/sqli/</link>
+      <link>https://writeups.giordii.dev/tags/sqli/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/sqli/</guid>
+      <guid>https://writeups.giordii.dev/tags/sqli/</guid>
       <description></description>
     </item>
     <item>
       <title>Sqlite</title>
-      <link>http://localhost:1313/tags/sqlite/</link>
+      <link>https://writeups.giordii.dev/tags/sqlite/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/sqlite/</guid>
+      <guid>https://writeups.giordii.dev/tags/sqlite/</guid>
       <description></description>
     </item>
     <item>
       <title>Sqlite-Master</title>
-      <link>http://localhost:1313/tags/sqlite-master/</link>
+      <link>https://writeups.giordii.dev/tags/sqlite-master/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/sqlite-master/</guid>
+      <guid>https://writeups.giordii.dev/tags/sqlite-master/</guid>
       <description></description>
     </item>
     <item>
       <title>Stack-Canary</title>
-      <link>http://localhost:1313/tags/stack-canary/</link>
+      <link>https://writeups.giordii.dev/tags/stack-canary/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/stack-canary/</guid>
+      <guid>https://writeups.giordii.dev/tags/stack-canary/</guid>
       <description></description>
     </item>
     <item>
       <title>Strace</title>
-      <link>http://localhost:1313/tags/strace/</link>
+      <link>https://writeups.giordii.dev/tags/strace/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/strace/</guid>
+      <guid>https://writeups.giordii.dev/tags/strace/</guid>
       <description></description>
     </item>
     <item>
       <title>Union-Injection</title>
-      <link>http://localhost:1313/tags/union-injection/</link>
+      <link>https://writeups.giordii.dev/tags/union-injection/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/union-injection/</guid>
+      <guid>https://writeups.giordii.dev/tags/union-injection/</guid>
       <description></description>
     </item>
     <item>
       <title>Web</title>
-      <link>http://localhost:1313/tags/web/</link>
+      <link>https://writeups.giordii.dev/tags/web/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/web/</guid>
+      <guid>https://writeups.giordii.dev/tags/web/</guid>
       <description></description>
     </item>
     <item>
       <title>Xor</title>
-      <link>http://localhost:1313/tags/xor/</link>
+      <link>https://writeups.giordii.dev/tags/xor/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/xor/</guid>
+      <guid>https://writeups.giordii.dev/tags/xor/</guid>
       <description></description>
     </item>
     <item>
       <title>Xss</title>
-      <link>http://localhost:1313/tags/xss/</link>
+      <link>https://writeups.giordii.dev/tags/xss/</link>
       <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/xss/</guid>
+      <guid>https://writeups.giordii.dev/tags/xss/</guid>
       <description></description>
     </item>
     <item>
       <title>Bash</title>
-      <link>http://localhost:1313/tags/bash/</link>
+      <link>https://writeups.giordii.dev/tags/bash/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/bash/</guid>
+      <guid>https://writeups.giordii.dev/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>Binary-Exploitation</title>
-      <link>http://localhost:1313/tags/binary-exploitation/</link>
+      <link>https://writeups.giordii.dev/tags/binary-exploitation/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/binary-exploitation/</guid>
+      <guid>https://writeups.giordii.dev/tags/binary-exploitation/</guid>
       <description></description>
     </item>
     <item>
       <title>Filter-Bypass</title>
-      <link>http://localhost:1313/tags/filter-bypass/</link>
+      <link>https://writeups.giordii.dev/tags/filter-bypass/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/filter-bypass/</guid>
+      <guid>https://writeups.giordii.dev/tags/filter-bypass/</guid>
       <description></description>
     </item>
     <item>
       <title>Lookalike</title>
-      <link>http://localhost:1313/tags/lookalike/</link>
+      <link>https://writeups.giordii.dev/tags/lookalike/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/lookalike/</guid>
+      <guid>https://writeups.giordii.dev/tags/lookalike/</guid>
       <description></description>
     </item>
     <item>
       <title>Nodejs</title>
-      <link>http://localhost:1313/tags/nodejs/</link>
+      <link>https://writeups.giordii.dev/tags/nodejs/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/nodejs/</guid>
+      <guid>https://writeups.giordii.dev/tags/nodejs/</guid>
       <description></description>
     </item>
     <item>
       <title>Rop</title>
-      <link>http://localhost:1313/tags/rop/</link>
+      <link>https://writeups.giordii.dev/tags/rop/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rop/</guid>
+      <guid>https://writeups.giordii.dev/tags/rop/</guid>
       <description></description>
     </item>
     <item>
       <title>Unicode</title>
-      <link>http://localhost:1313/tags/unicode/</link>
+      <link>https://writeups.giordii.dev/tags/unicode/</link>
       <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/unicode/</guid>
+      <guid>https://writeups.giordii.dev/tags/unicode/</guid>
       <description></description>
     </item>
     <item>
       <title>Assembly</title>
-      <link>http://localhost:1313/tags/assembly/</link>
+      <link>https://writeups.giordii.dev/tags/assembly/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/assembly/</guid>
+      <guid>https://writeups.giordii.dev/tags/assembly/</guid>
       <description></description>
     </item>
     <item>
       <title>Beautifulsoup</title>
-      <link>http://localhost:1313/tags/beautifulsoup/</link>
+      <link>https://writeups.giordii.dev/tags/beautifulsoup/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/beautifulsoup/</guid>
+      <guid>https://writeups.giordii.dev/tags/beautifulsoup/</guid>
       <description></description>
     </item>
     <item>
       <title>Blind-Sqli</title>
-      <link>http://localhost:1313/tags/blind-sqli/</link>
+      <link>https://writeups.giordii.dev/tags/blind-sqli/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/blind-sqli/</guid>
+      <guid>https://writeups.giordii.dev/tags/blind-sqli/</guid>
       <description></description>
     </item>
     <item>
       <title>Boolean-Based</title>
-      <link>http://localhost:1313/tags/boolean-based/</link>
+      <link>https://writeups.giordii.dev/tags/boolean-based/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/boolean-based/</guid>
+      <guid>https://writeups.giordii.dev/tags/boolean-based/</guid>
       <description></description>
     </item>
     <item>
       <title>Comments</title>
-      <link>http://localhost:1313/tags/comments/</link>
+      <link>https://writeups.giordii.dev/tags/comments/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/comments/</guid>
+      <guid>https://writeups.giordii.dev/tags/comments/</guid>
       <description></description>
     </item>
     <item>
       <title>Debugging</title>
-      <link>http://localhost:1313/tags/debugging/</link>
+      <link>https://writeups.giordii.dev/tags/debugging/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/debugging/</guid>
+      <guid>https://writeups.giordii.dev/tags/debugging/</guid>
       <description></description>
     </item>
     <item>
       <title>Html</title>
-      <link>http://localhost:1313/tags/html/</link>
+      <link>https://writeups.giordii.dev/tags/html/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/html/</guid>
+      <guid>https://writeups.giordii.dev/tags/html/</guid>
       <description></description>
     </item>
     <item>
       <title>Logic-Bug</title>
-      <link>http://localhost:1313/tags/logic-bug/</link>
+      <link>https://writeups.giordii.dev/tags/logic-bug/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/logic-bug/</guid>
+      <guid>https://writeups.giordii.dev/tags/logic-bug/</guid>
       <description></description>
     </item>
     <item>
       <title>Openat</title>
-      <link>http://localhost:1313/tags/openat/</link>
+      <link>https://writeups.giordii.dev/tags/openat/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/openat/</guid>
+      <guid>https://writeups.giordii.dev/tags/openat/</guid>
       <description></description>
     </item>
     <item>
       <title>Orw</title>
-      <link>http://localhost:1313/tags/orw/</link>
+      <link>https://writeups.giordii.dev/tags/orw/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/orw/</guid>
+      <guid>https://writeups.giordii.dev/tags/orw/</guid>
       <description></description>
     </item>
     <item>
       <title>Scripting</title>
-      <link>http://localhost:1313/tags/scripting/</link>
+      <link>https://writeups.giordii.dev/tags/scripting/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/scripting/</guid>
+      <guid>https://writeups.giordii.dev/tags/scripting/</guid>
       <description></description>
     </item>
     <item>
       <title>Seccomp</title>
-      <link>http://localhost:1313/tags/seccomp/</link>
+      <link>https://writeups.giordii.dev/tags/seccomp/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/seccomp/</guid>
+      <guid>https://writeups.giordii.dev/tags/seccomp/</guid>
       <description></description>
     </item>
     <item>
       <title>Shellcode</title>
-      <link>http://localhost:1313/tags/shellcode/</link>
+      <link>https://writeups.giordii.dev/tags/shellcode/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/shellcode/</guid>
+      <guid>https://writeups.giordii.dev/tags/shellcode/</guid>
       <description></description>
     </item>
     <item>
       <title>Steganography</title>
-      <link>http://localhost:1313/tags/steganography/</link>
+      <link>https://writeups.giordii.dev/tags/steganography/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/steganography/</guid>
+      <guid>https://writeups.giordii.dev/tags/steganography/</guid>
       <description></description>
     </item>
     <item>
       <title>Syscall</title>
-      <link>http://localhost:1313/tags/syscall/</link>
+      <link>https://writeups.giordii.dev/tags/syscall/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/syscall/</guid>
+      <guid>https://writeups.giordii.dev/tags/syscall/</guid>
       <description></description>
     </item>
     <item>
       <title>Type-Confusion</title>
-      <link>http://localhost:1313/tags/type-confusion/</link>
+      <link>https://writeups.giordii.dev/tags/type-confusion/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/type-confusion/</guid>
+      <guid>https://writeups.giordii.dev/tags/type-confusion/</guid>
       <description></description>
     </item>
     <item>
       <title>Validation-Bypass</title>
-      <link>http://localhost:1313/tags/validation-bypass/</link>
+      <link>https://writeups.giordii.dev/tags/validation-bypass/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/validation-bypass/</guid>
+      <guid>https://writeups.giordii.dev/tags/validation-bypass/</guid>
       <description></description>
     </item>
     <item>
       <title>Variable-Shadowing</title>
-      <link>http://localhost:1313/tags/variable-shadowing/</link>
+      <link>https://writeups.giordii.dev/tags/variable-shadowing/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/variable-shadowing/</guid>
+      <guid>https://writeups.giordii.dev/tags/variable-shadowing/</guid>
       <description></description>
     </item>
     <item>
       <title>X86</title>
-      <link>http://localhost:1313/tags/x86/</link>
+      <link>https://writeups.giordii.dev/tags/x86/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/x86/</guid>
+      <guid>https://writeups.giordii.dev/tags/x86/</guid>
       <description></description>
     </item>
     <item>
       <title>X86-64</title>
-      <link>http://localhost:1313/tags/x86-64/</link>
+      <link>https://writeups.giordii.dev/tags/x86-64/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/x86-64/</guid>
+      <guid>https://writeups.giordii.dev/tags/x86-64/</guid>
       <description></description>
     </item>
     <item>
       <title>Zip</title>
-      <link>http://localhost:1313/tags/zip/</link>
+      <link>https://writeups.giordii.dev/tags/zip/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/zip/</guid>
+      <guid>https://writeups.giordii.dev/tags/zip/</guid>
       <description></description>
     </item>
     <item>
       <title>Alpn</title>
-      <link>http://localhost:1313/tags/alpn/</link>
+      <link>https://writeups.giordii.dev/tags/alpn/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/alpn/</guid>
+      <guid>https://writeups.giordii.dev/tags/alpn/</guid>
       <description></description>
     </item>
     <item>
       <title>Aslr-Bypass</title>
-      <link>http://localhost:1313/tags/aslr-bypass/</link>
+      <link>https://writeups.giordii.dev/tags/aslr-bypass/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/aslr-bypass/</guid>
+      <guid>https://writeups.giordii.dev/tags/aslr-bypass/</guid>
       <description></description>
     </item>
     <item>
       <title>Audio</title>
-      <link>http://localhost:1313/tags/audio/</link>
+      <link>https://writeups.giordii.dev/tags/audio/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/audio/</guid>
+      <guid>https://writeups.giordii.dev/tags/audio/</guid>
       <description></description>
     </item>
     <item>
       <title>Base64</title>
-      <link>http://localhost:1313/tags/base64/</link>
+      <link>https://writeups.giordii.dev/tags/base64/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/base64/</guid>
+      <guid>https://writeups.giordii.dev/tags/base64/</guid>
       <description></description>
     </item>
     <item>
       <title>Binary-Search</title>
-      <link>http://localhost:1313/tags/binary-search/</link>
+      <link>https://writeups.giordii.dev/tags/binary-search/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/binary-search/</guid>
+      <guid>https://writeups.giordii.dev/tags/binary-search/</guid>
       <description></description>
     </item>
     <item>
       <title>Brute-Force</title>
-      <link>http://localhost:1313/tags/brute-force/</link>
+      <link>https://writeups.giordii.dev/tags/brute-force/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/brute-force/</guid>
+      <guid>https://writeups.giordii.dev/tags/brute-force/</guid>
       <description></description>
     </item>
     <item>
       <title>Command-Injection</title>
-      <link>http://localhost:1313/tags/command-injection/</link>
+      <link>https://writeups.giordii.dev/tags/command-injection/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/command-injection/</guid>
+      <guid>https://writeups.giordii.dev/tags/command-injection/</guid>
       <description></description>
     </item>
     <item>
       <title>Constraint-Solving</title>
-      <link>http://localhost:1313/tags/constraint-solving/</link>
+      <link>https://writeups.giordii.dev/tags/constraint-solving/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/constraint-solving/</guid>
+      <guid>https://writeups.giordii.dev/tags/constraint-solving/</guid>
       <description></description>
     </item>
     <item>
       <title>Cookie-Manipulation</title>
-      <link>http://localhost:1313/tags/cookie-manipulation/</link>
+      <link>https://writeups.giordii.dev/tags/cookie-manipulation/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cookie-manipulation/</guid>
+      <guid>https://writeups.giordii.dev/tags/cookie-manipulation/</guid>
       <description></description>
     </item>
     <item>
       <title>Crypto</title>
-      <link>http://localhost:1313/tags/crypto/</link>
+      <link>https://writeups.giordii.dev/tags/crypto/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/crypto/</guid>
+      <guid>https://writeups.giordii.dev/tags/crypto/</guid>
       <description></description>
     </item>
     <item>
       <title>Dns</title>
-      <link>http://localhost:1313/tags/dns/</link>
+      <link>https://writeups.giordii.dev/tags/dns/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/dns/</guid>
+      <guid>https://writeups.giordii.dev/tags/dns/</guid>
       <description></description>
     </item>
     <item>
       <title>Encoding</title>
-      <link>http://localhost:1313/tags/encoding/</link>
+      <link>https://writeups.giordii.dev/tags/encoding/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/encoding/</guid>
+      <guid>https://writeups.giordii.dev/tags/encoding/</guid>
       <description></description>
     </item>
     <item>
       <title>File-Format</title>
-      <link>http://localhost:1313/tags/file-format/</link>
+      <link>https://writeups.giordii.dev/tags/file-format/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/file-format/</guid>
+      <guid>https://writeups.giordii.dev/tags/file-format/</guid>
       <description></description>
     </item>
     <item>
       <title>File-Upload</title>
-      <link>http://localhost:1313/tags/file-upload/</link>
+      <link>https://writeups.giordii.dev/tags/file-upload/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/file-upload/</guid>
+      <guid>https://writeups.giordii.dev/tags/file-upload/</guid>
       <description></description>
     </item>
     <item>
       <title>Forensics</title>
-      <link>http://localhost:1313/tags/forensics/</link>
+      <link>https://writeups.giordii.dev/tags/forensics/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/forensics/</guid>
+      <guid>https://writeups.giordii.dev/tags/forensics/</guid>
       <description></description>
     </item>
     <item>
       <title>Format-String</title>
-      <link>http://localhost:1313/tags/format-string/</link>
+      <link>https://writeups.giordii.dev/tags/format-string/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/format-string/</guid>
+      <guid>https://writeups.giordii.dev/tags/format-string/</guid>
       <description></description>
     </item>
     <item>
       <title>Got-Leak</title>
-      <link>http://localhost:1313/tags/got-leak/</link>
+      <link>https://writeups.giordii.dev/tags/got-leak/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/got-leak/</guid>
+      <guid>https://writeups.giordii.dev/tags/got-leak/</guid>
       <description></description>
     </item>
     <item>
       <title>Got-Overwrite</title>
-      <link>http://localhost:1313/tags/got-overwrite/</link>
+      <link>https://writeups.giordii.dev/tags/got-overwrite/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/got-overwrite/</guid>
+      <guid>https://writeups.giordii.dev/tags/got-overwrite/</guid>
       <description></description>
     </item>
     <item>
       <title>Hash</title>
-      <link>http://localhost:1313/tags/hash/</link>
+      <link>https://writeups.giordii.dev/tags/hash/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/hash/</guid>
+      <guid>https://writeups.giordii.dev/tags/hash/</guid>
       <description></description>
     </item>
     <item>
       <title>Heap-Leak</title>
-      <link>http://localhost:1313/tags/heap-leak/</link>
+      <link>https://writeups.giordii.dev/tags/heap-leak/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/heap-leak/</guid>
+      <guid>https://writeups.giordii.dev/tags/heap-leak/</guid>
       <description></description>
     </item>
     <item>
       <title>Http-Headers</title>
-      <link>http://localhost:1313/tags/http-headers/</link>
+      <link>https://writeups.giordii.dev/tags/http-headers/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/http-headers/</guid>
+      <guid>https://writeups.giordii.dev/tags/http-headers/</guid>
       <description></description>
     </item>
     <item>
       <title>Idor</title>
-      <link>http://localhost:1313/tags/idor/</link>
+      <link>https://writeups.giordii.dev/tags/idor/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/idor/</guid>
+      <guid>https://writeups.giordii.dev/tags/idor/</guid>
       <description></description>
     </item>
     <item>
       <title>Insecure-Design</title>
-      <link>http://localhost:1313/tags/insecure-design/</link>
+      <link>https://writeups.giordii.dev/tags/insecure-design/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/insecure-design/</guid>
+      <guid>https://writeups.giordii.dev/tags/insecure-design/</guid>
       <description></description>
     </item>
     <item>
       <title>Insecure-Randomness</title>
-      <link>http://localhost:1313/tags/insecure-randomness/</link>
+      <link>https://writeups.giordii.dev/tags/insecure-randomness/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/insecure-randomness/</guid>
+      <guid>https://writeups.giordii.dev/tags/insecure-randomness/</guid>
       <description></description>
     </item>
     <item>
       <title>Integer-Overflow</title>
-      <link>http://localhost:1313/tags/integer-overflow/</link>
+      <link>https://writeups.giordii.dev/tags/integer-overflow/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/integer-overflow/</guid>
+      <guid>https://writeups.giordii.dev/tags/integer-overflow/</guid>
       <description></description>
     </item>
     <item>
       <title>Integer-Underflow</title>
-      <link>http://localhost:1313/tags/integer-underflow/</link>
+      <link>https://writeups.giordii.dev/tags/integer-underflow/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/integer-underflow/</guid>
+      <guid>https://writeups.giordii.dev/tags/integer-underflow/</guid>
       <description></description>
     </item>
     <item>
       <title>Lfi</title>
-      <link>http://localhost:1313/tags/lfi/</link>
+      <link>https://writeups.giordii.dev/tags/lfi/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/lfi/</guid>
+      <guid>https://writeups.giordii.dev/tags/lfi/</guid>
       <description></description>
     </item>
     <item>
       <title>Logic-Bypass</title>
-      <link>http://localhost:1313/tags/logic-bypass/</link>
+      <link>https://writeups.giordii.dev/tags/logic-bypass/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/logic-bypass/</guid>
+      <guid>https://writeups.giordii.dev/tags/logic-bypass/</guid>
       <description></description>
     </item>
     <item>
       <title>Md5</title>
-      <link>http://localhost:1313/tags/md5/</link>
+      <link>https://writeups.giordii.dev/tags/md5/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/md5/</guid>
+      <guid>https://writeups.giordii.dev/tags/md5/</guid>
       <description></description>
     </item>
     <item>
       <title>Morse</title>
-      <link>http://localhost:1313/tags/morse/</link>
+      <link>https://writeups.giordii.dev/tags/morse/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/morse/</guid>
+      <guid>https://writeups.giordii.dev/tags/morse/</guid>
       <description></description>
     </item>
     <item>
       <title>Net</title>
-      <link>http://localhost:1313/tags/net/</link>
+      <link>https://writeups.giordii.dev/tags/net/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/net/</guid>
+      <guid>https://writeups.giordii.dev/tags/net/</guid>
       <description></description>
     </item>
     <item>
       <title>Networking</title>
-      <link>http://localhost:1313/tags/networking/</link>
+      <link>https://writeups.giordii.dev/tags/networking/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/networking/</guid>
+      <guid>https://writeups.giordii.dev/tags/networking/</guid>
       <description></description>
     </item>
     <item>
       <title>Off-by-One</title>
-      <link>http://localhost:1313/tags/off-by-one/</link>
+      <link>https://writeups.giordii.dev/tags/off-by-one/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/off-by-one/</guid>
+      <guid>https://writeups.giordii.dev/tags/off-by-one/</guid>
       <description></description>
     </item>
     <item>
       <title>Password-Cracking</title>
-      <link>http://localhost:1313/tags/password-cracking/</link>
+      <link>https://writeups.giordii.dev/tags/password-cracking/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/password-cracking/</guid>
+      <guid>https://writeups.giordii.dev/tags/password-cracking/</guid>
       <description></description>
     </item>
     <item>
       <title>Path-Traversal</title>
-      <link>http://localhost:1313/tags/path-traversal/</link>
+      <link>https://writeups.giordii.dev/tags/path-traversal/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/path-traversal/</guid>
+      <guid>https://writeups.giordii.dev/tags/path-traversal/</guid>
       <description></description>
     </item>
     <item>
       <title>Pcap</title>
-      <link>http://localhost:1313/tags/pcap/</link>
+      <link>https://writeups.giordii.dev/tags/pcap/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/pcap/</guid>
+      <guid>https://writeups.giordii.dev/tags/pcap/</guid>
       <description></description>
     </item>
     <item>
       <title>Php</title>
-      <link>http://localhost:1313/tags/php/</link>
+      <link>https://writeups.giordii.dev/tags/php/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/php/</guid>
+      <guid>https://writeups.giordii.dev/tags/php/</guid>
       <description></description>
     </item>
     <item>
       <title>Protocol</title>
-      <link>http://localhost:1313/tags/protocol/</link>
+      <link>https://writeups.giordii.dev/tags/protocol/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/protocol/</guid>
+      <guid>https://writeups.giordii.dev/tags/protocol/</guid>
       <description></description>
     </item>
     <item>
       <title>Rce</title>
-      <link>http://localhost:1313/tags/rce/</link>
+      <link>https://writeups.giordii.dev/tags/rce/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rce/</guid>
+      <guid>https://writeups.giordii.dev/tags/rce/</guid>
       <description></description>
     </item>
     <item>
       <title>Recon</title>
-      <link>http://localhost:1313/tags/recon/</link>
+      <link>https://writeups.giordii.dev/tags/recon/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/recon/</guid>
+      <guid>https://writeups.giordii.dev/tags/recon/</guid>
       <description></description>
     </item>
     <item>
       <title>Redirect</title>
-      <link>http://localhost:1313/tags/redirect/</link>
+      <link>https://writeups.giordii.dev/tags/redirect/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/redirect/</guid>
+      <guid>https://writeups.giordii.dev/tags/redirect/</guid>
       <description></description>
     </item>
     <item>
       <title>Ret2libc</title>
-      <link>http://localhost:1313/tags/ret2libc/</link>
+      <link>https://writeups.giordii.dev/tags/ret2libc/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ret2libc/</guid>
+      <guid>https://writeups.giordii.dev/tags/ret2libc/</guid>
       <description></description>
     </item>
     <item>
       <title>Ret2puts</title>
-      <link>http://localhost:1313/tags/ret2puts/</link>
+      <link>https://writeups.giordii.dev/tags/ret2puts/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ret2puts/</guid>
+      <guid>https://writeups.giordii.dev/tags/ret2puts/</guid>
       <description></description>
     </item>
     <item>
       <title>Reversing</title>
-      <link>http://localhost:1313/tags/reversing/</link>
+      <link>https://writeups.giordii.dev/tags/reversing/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/reversing/</guid>
+      <guid>https://writeups.giordii.dev/tags/reversing/</guid>
       <description></description>
     </item>
     <item>
       <title>Robots-Txt</title>
-      <link>http://localhost:1313/tags/robots-txt/</link>
+      <link>https://writeups.giordii.dev/tags/robots-txt/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/robots-txt/</guid>
+      <guid>https://writeups.giordii.dev/tags/robots-txt/</guid>
       <description></description>
     </item>
     <item>
       <title>Rockyou</title>
-      <link>http://localhost:1313/tags/rockyou/</link>
+      <link>https://writeups.giordii.dev/tags/rockyou/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rockyou/</guid>
+      <guid>https://writeups.giordii.dev/tags/rockyou/</guid>
       <description></description>
     </item>
     <item>
       <title>Scapy</title>
-      <link>http://localhost:1313/tags/scapy/</link>
+      <link>https://writeups.giordii.dev/tags/scapy/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/scapy/</guid>
+      <guid>https://writeups.giordii.dev/tags/scapy/</guid>
       <description></description>
     </item>
     <item>
       <title>Side-Channel</title>
-      <link>http://localhost:1313/tags/side-channel/</link>
+      <link>https://writeups.giordii.dev/tags/side-channel/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/side-channel/</guid>
+      <guid>https://writeups.giordii.dev/tags/side-channel/</guid>
       <description></description>
     </item>
     <item>
       <title>Source-Review</title>
-      <link>http://localhost:1313/tags/source-review/</link>
+      <link>https://writeups.giordii.dev/tags/source-review/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/source-review/</guid>
+      <guid>https://writeups.giordii.dev/tags/source-review/</guid>
       <description></description>
     </item>
     <item>
       <title>Staged-Exploit</title>
-      <link>http://localhost:1313/tags/staged-exploit/</link>
+      <link>https://writeups.giordii.dev/tags/staged-exploit/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/staged-exploit/</guid>
+      <guid>https://writeups.giordii.dev/tags/staged-exploit/</guid>
       <description></description>
     </item>
     <item>
       <title>Static-Analysis</title>
-      <link>http://localhost:1313/tags/static-analysis/</link>
+      <link>https://writeups.giordii.dev/tags/static-analysis/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/static-analysis/</guid>
+      <guid>https://writeups.giordii.dev/tags/static-analysis/</guid>
       <description></description>
     </item>
     <item>
       <title>Timing-Attack</title>
-      <link>http://localhost:1313/tags/timing-attack/</link>
+      <link>https://writeups.giordii.dev/tags/timing-attack/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/timing-attack/</guid>
+      <guid>https://writeups.giordii.dev/tags/timing-attack/</guid>
       <description></description>
     </item>
     <item>
       <title>Tls</title>
-      <link>http://localhost:1313/tags/tls/</link>
+      <link>https://writeups.giordii.dev/tags/tls/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tls/</guid>
+      <guid>https://writeups.giordii.dev/tags/tls/</guid>
       <description></description>
     </item>
     <item>
       <title>Type-Juggling</title>
-      <link>http://localhost:1313/tags/type-juggling/</link>
+      <link>https://writeups.giordii.dev/tags/type-juggling/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/type-juggling/</guid>
+      <guid>https://writeups.giordii.dev/tags/type-juggling/</guid>
       <description></description>
     </item>
     <item>
       <title>Union-Based</title>
-      <link>http://localhost:1313/tags/union-based/</link>
+      <link>https://writeups.giordii.dev/tags/union-based/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/union-based/</guid>
+      <guid>https://writeups.giordii.dev/tags/union-based/</guid>
       <description></description>
     </item>
     <item>
       <title>Webshell</title>
-      <link>http://localhost:1313/tags/webshell/</link>
+      <link>https://writeups.giordii.dev/tags/webshell/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/webshell/</guid>
+      <guid>https://writeups.giordii.dev/tags/webshell/</guid>
       <description></description>
     </item>
     <item>
       <title>Z3</title>
-      <link>http://localhost:1313/tags/z3/</link>
+      <link>https://writeups.giordii.dev/tags/z3/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/z3/</guid>
+      <guid>https://writeups.giordii.dev/tags/z3/</guid>
       <description></description>
     </item>
   </channel>
